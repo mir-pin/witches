@@ -20,85 +20,112 @@ body {
     background-color: var(--background-color);
     color: var(--default-font-color);
     font-family: var(--default-font);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 /* forest container */
 .forest-container {
   position: fixed;   /* stays on top */
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   z-index: 999;      /* above everything */
   overflow: hidden;
-  background-color: none;
-  transition: opacity 1s ease-in-out;
+  background: linear-gradient(to bottom, #1a3a1a 0%, #2d5a2d 50%, #1a3a1a 100%);
+  transition: opacity 1.5s ease-in-out;
+}
+
+.forest-container.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* left & right trees */
 .forest {
   position: absolute;
   top: 0;
-  width: 50vw;
+  width: 55vw;
   height: 100vh;
-  filter: blur(0.5px);
   object-fit: cover;
-  transform: scale(1.05); /* slight zoom to hide edges */
-  transition: transform 1.5s ease-in-out;
+  transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1);
+  mask-image: linear-gradient(to right, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
 }
 
 .left-forest {
   left: 0;
+  mask-image: linear-gradient(to right, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
 }
 
 .right-forest {
   right: 0;
+  mask-image: linear-gradient(to left, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+}
+
+.forest-container.opening .left-forest {
+  transform: translateX(-100%)
+}
+
+.forest-container.opening .right-forest {
+  transform: translateX(100%)
 }
 
 /* center title and button */
 .title-content {
   position: absolute;
-  top: 80%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   color: #000000;
   z-index: 10;
+  max-width: 90vw;
 }
 
-/* .title {
-  font-size: 3rem;
+.title {
+  font-size: clamp(2rem, 8vw, 5rem);
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  font-weight: bold;
 }
 
 .subtitle {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: clamp(1.2rem, 4vw, 2.5rem);
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
 }
-*/ 
 
 .enter-btn {
-  background: none;
-  border: 1px solid #212529;
-  padding: 0.6rem 1.4rem;
-  font-size: 1rem;
+  background: rgba(255,255,255,0.1);
+  border: 2px solid #ffffff;
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
+  color: #ffffff;
+  backdrop-filter: blur(10px);
 }
 
 .enter-btn:hover {
-  background: #212529;
-  color: #FAF6F0;
+  background: #ffffff;
+  color: #1a3a1a;
+  transform: scale(1.05);
 }
 
-/* homepage */
-
-.hidden {
+/* Main content - initially hidden */
+#homepage-content {
   opacity: 0;
   pointer-events: none;
-  transition: opacity 1.2s ease-in-out;
+  transition: opacity 1s ease-in-out;
 }
 
-#homepage.visible {
+#homepage-content.visible {
   opacity: 1;
   pointer-events: auto;
 }
@@ -164,17 +191,68 @@ body {
 }
 
 /* Carousel */
-.carousel .slide, #homepage-carousel {
-  min-height: 50vh;
+.carousel {
+  min-height: 70vh;
+  background: #000;
+}
+
+.carousel-inner {
+  height: 70vh;
+}
+
+.carousel-item {
+  height: 70vh;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
+  object-position: center;
 }
 
 .carousel-caption {
-  text-decoration-line: underline;
-  /* add the link to the rooms */
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: auto;
+  text-align: left;
+  background: rgba(0,0,0,0.6);
+  padding: 15px 25px;
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
 }
 
-.carousel-inner > .item > img {
-  width: 100%;
-  max-height: 80vh;
-  object-fit: cover;
+.carousel-caption h3 {
+  margin: 0;
+  font-size: 1.8rem;
+  text-decoration: underline;
+  color: white;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 10%;
+  opacity: 0.8;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar-nav {
+      padding: 8px 24px;
+      gap: 12px;
+  }
+  
+  .navbar-nav a {
+      padding: 10px 16px;
+  }
+
+  .carousel-caption h3 {
+      font-size: 1.3rem;
+  }
 }

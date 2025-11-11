@@ -1,16 +1,17 @@
 function openCurtains() {
-  document.querySelector('.left-forest').style.transform = "translateX(-100%)";
-  document.querySelector('.right-forest').style.transform = "translateX(100%)";
+  const forestContainer = document.getElementById('forestContainer');
+  const homepageContent = document.getElementById('homepage-content');
 
-  // Fade out the forest layer after curtain opens
+  // Add opening class to trigger animations
+  forestContainer.classList.add('opening');
+            
+  // Fade out forest container
   setTimeout(() => {
-    document.querySelector('.forest-container').style.opacity = "0";
-  }, 1200);
-
-  // Show the main site content
+    forestContainer.classList.add('hidden');
+  }, 1500);
+            
+  // Show homepage content
   setTimeout(() => {
-    document.getElementById("homepage");
-    homepage.classList.remove("hidden");
-    homepage.classList.add("visible");
-  }, 1800);
+    homepageContent.classList.add('visible');
+  }, 2000);
 }
