@@ -1,0 +1,83 @@
+/* Main CSS */
+
+/* Fonts */
+:root {
+    --default-font: "Times New Roman";
+}
+
+/* Global Colors */
+:root {
+    --background-color: white;
+    --surface-color: #E6E6E6;
+    --Greyscale-900: #1A1A1A;
+    --default-font-color: #1A1A1A;
+    --Greyscale-50: #CCC;
+
+}
+
+/* General styling */
+body {
+    background-color: var(--background-color);
+    color: var(--default-font-color);
+    font-family: var(--default-font);
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    padding: 24px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+}
+
+.navbar-nav {
+    display: flex;
+    padding: 8px 48px;
+    align-items: center;
+    gap: 24px;  
+    border-radius: 80px;
+    background-color: var(--surface-color);
+}
+
+.navbar-nav a {
+  display: flex;
+  padding: 14px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  color: var(--default-font-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav a:hover {
+  text-decoration: none;
+  background-color: color-mix(in srgb, var(--Greyscale-50), transparent 35%); 
+}
+
+.navbar .navbar-nav .nav-link.active {
+  color: var(--surface-color) !important;    /* important! to override the variable --bs-navbar-active-color */
+  text-decoration: none;
+  background-color: var(--Greyscale-900);
+}
+
+.navbar .layout-container .layout-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.navbar .layout-container .layout-button svg {
+    width: 35px;
+    height: 35px;
+    aspect-ratio: 1/1;
+}
+
+.navbar .layout-container .my-styles {
+    position: fixed;
+    z-index: 1000;
+}
+
