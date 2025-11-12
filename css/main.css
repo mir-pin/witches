@@ -40,18 +40,18 @@ body {
     background-color: var(--surface-color);
 }
 
-.navbar-nav a {
+.navbar-nav .nav-link {
   display: flex;
-  padding: 14px 24px;
+  padding: 16px 24px !important; 
   justify-content: center;
   align-items: center;
   gap: 10px;
-  border-radius: 12px;
+  border-radius: 80px;
   color: var(--default-font-color);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.navbar-nav a:hover {
+.navbar-nav .nav-link:hover {
   text-decoration: none;
   background-color: color-mix(in srgb, var(--Greyscale-50), transparent 35%);
 }
