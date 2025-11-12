@@ -4,7 +4,7 @@ function openCurtains() {
   const gradient = forest.querySelector('.forest-gradient');
 
   // Add opening class to trigger animations
-  forestContainer.classList.add('opening');
+  forest.classList.add('opening');
 
   // Fade in gradient
   gradient.style.opacity = '1';
@@ -13,6 +13,6 @@ function openCurtains() {
   setTimeout(() => {
     forest.classList.add('hidden');
     homepage.classList.add('visible');
-  }, 2500);
+  }, 800);
 
 }

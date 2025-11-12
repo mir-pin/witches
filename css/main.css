@@ -26,7 +26,7 @@ body {
 }
 
 /* forest container */
-.forest-container#forestContainer {
+.forest-container {
   position: fixed;   /* stays on top */
   top: 0;
   left: 0;
@@ -34,7 +34,6 @@ body {
   height: 100vh;
   z-index: 999;      /* above everything */
   overflow: hidden;
-  background: url('img/homepage/forest.png') center/cover no-repeat; /* adding the image on the backgroun keeps the forest as a fixed layer and the pseudo-elements stay neatly on top in the same container + oget automatic scaling across devices */
   transition: opacity 1.5s ease-in-out;
 }
 
@@ -42,10 +41,45 @@ body {
   position: absolute;
   inset: 0; /* top:0; left:0; bottom:0; right:0; */
   background: linear-gradient(to bottom, #ffffff 0%, #f2f2f2 50%, #ffffff 100%);
-  opacity: 1;               /* 0 initially hidden */ /*1 starts visible */
-  transition: opacity 1.5s ease-in-out;
+  opacity: 0;               /* initially hidden */
+  transition: opacity 0.5s ease-in-out;
   pointer-events: none;
   z-index: 5;               /* behind the title but above trees if needed */
+  object-fit: contain;
+}
+
+/* Both forest images */
+.forest {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 100vw;  /* prevent gaps */
+  min-height: 100vh;
+}
+
+/* Left half - clips the RIGHT side away */
+.left-half {
+  left: 0;
+  clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); /* top right bottom left */
+}
+
+/* Right half - clips the LEFT side away */
+.right-half {
+  right: 0;
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+}
+
+/* When opening, slide them apart */
+.forest-container.opening .left-half {
+  transform: translateX(-100%);
+}
+
+.forest-container.opening .right-half {
+  transform: translateX(100%);
 }
 
 .forest-container.hidden {
@@ -53,22 +87,16 @@ body {
   pointer-events: none;
 }
 
-/* left & right trees */
-.forest {
-  position: absolute;
-  top: 0;
-  width: min(50vw, 600px);
-  height: 100vh;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 /* when the forest opens */
 .forest-container.opening .forest-gradient {
   opacity: 0; /* fades away as curtains move */
 }
 
+/* Also fade out the title at the same time */
+.forest-container.opening .title-content {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
 
 /* center title and button */
 .title-content {
@@ -266,6 +294,8 @@ body {
       font-size: 1.3rem;
   }
 }
+
+
 
 /*
 Tablet
