@@ -20,6 +20,185 @@ body {
     background-color: var(--background-color);
     color: var(--default-font-color);
     font-family: var(--default-font);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* headings (h1–h6) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--default-font);
+  color: var(--default-font-color);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+/* paragraphs */
+p {
+  font-family: var(--default-font);
+  color: var(--default-font-color);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-top: 0;
+  margin-bottom: 1em;
+  /* keeps text readable on wide screens */
+}
+
+/* Headings sizing scale (responsive-friendly) */
+h1 { font-size: clamp(2rem, 4vw + 1rem, 3rem); }
+h2 { font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem); }
+h3 { font-size: clamp(1.5rem, 2vw + 1rem, 2rem); }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.1rem; }
+h6 { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+
+section h1, section h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+section p {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+}
+
+/* forest container */
+.forest-container {
+  position: fixed;   /* stays on top */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;      /* above everything */
+  overflow: hidden;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.forest-gradient {
+  position: absolute;
+  inset: 0; /* top:0; left:0; bottom:0; right:0; */
+  background: linear-gradient(to bottom, #ffffff 0%, #f2f2f2 50%, #ffffff 100%);
+  opacity: 0;               /* initially hidden */
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+  z-index: 5;               /* behind the title but above trees if needed */
+  object-fit: contain;
+}
+
+/* Both forest images */
+.forest {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 100vw;  /* prevent gaps */
+  min-height: 100vh;
+}
+
+/* Left half - clips the RIGHT side away */
+.left-half {
+  left: 0;
+  clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); /* top right bottom left */
+}
+
+/* Right half - clips the LEFT side away */
+.right-half {
+  right: 0;
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+}
+
+/* When opening, slide them apart */
+.forest-container.opening .left-half {
+  transform: translateX(-100%);
+}
+
+.forest-container.opening .right-half {
+  transform: translateX(100%);
+}
+
+.forest-container.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* when the forest opens */
+.forest-container.opening .forest-gradient {
+  opacity: 0; /* fades away as curtains move */
+}
+
+/* Also fade out the title at the same time */
+.forest-container.opening .title-content {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* center title and button */
+.title-content {
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #000000;
+  z-index: 10;
+  max-width: 90vw;
+}
+
+.title-text {
+  margin-bottom: 2rem;
+  transform: translateY(-20%);
+}
+.title {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);    /* CSS tool for making text responsive without breaking layouts -> clamp(min, preferred, max) */
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+.enter-btn {
+  position: absolute;
+  bottom: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  border: 1px solid #1a1a1a;
+  color: #1a1a1a;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* keep hover effect only */
+}
+
+.enter-btn:hover {
+  transform: translateX(-50%);
+  background: #1a1a1a; /* keep solid background */
+  color: #ffffff; /* optional */
+}
+
+/* Main content - initially hidden */
+#homepage-content {
+  opacity: 0;
+  visibility: hidden;  /* hide without collapsing layout */
+  transition: opacity 1s ease-in-out;
+}
+
+#homepage-content.visible {
+  opacity: 1;
+  pointer-events: auto;
+  display: block; /* ensure container is visible */
 }
 
 /* Navbar */
@@ -166,3 +345,206 @@ body {
     color: #222; 
 }
 
+/* Carousel */
+.carousel {
+  width: 100%;
+  aspect-ratio: 16/9;   /* fixed ratio as the images */
+  max-height: 70vh;   /* fix the visible height */
+  background: none;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-inner {
+  width: 100%;
+  height: 100%; /* ensure it always has height */
+  position: relative;
+}
+
+.carousel-item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;       /* maintain aspect ratio */
+  object-fit: cover;  /* fills container, crops overflow */
+  object-position: center;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  right: auto;
+  text-align: left;
+  z-index: 10;     /* above image */
+  padding: 0.5rem 1rem;
+}
+
+.carousel-caption h3 {
+  margin: 0;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  color: white;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 10%;
+  opacity: 0.8;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+}
+
+
+
+.introduction h1::after {
+  content: "";
+  display: block;
+  width: 60px;             /* line length */
+  height: 2px;             /* line thickness */
+  background: var(--default-font-color);        /* color */
+  margin: 0.5em auto 1em;  /* spacing and centering */
+}
+
+.introduction,
+.link-documentation {
+  max-width: 90%;              
+  margin: 4rem auto;            /* centers the section horizontally */
+  padding: 0 2rem;              /* small horizontal breathing space */
+  text-align: center;           /* centers heading and button */
+}
+
+.link-documentation a {
+  display: inline-block;           /* allows padding and margins */
+  padding: 0.75rem 1.5rem;         /* button size */
+  border: 2px solid var(--default-font-color);  /* outlined look */
+  border-radius: 2rem;             /* rounded edges */
+  color: var(--default-font-color);
+  text-decoration: none;           /* remove underline */
+  font-weight: 600;
+  margin-top: 1.5rem;              /* spacing above the button */
+}
+
+.link-documentation a:hover {
+  background-color: var(--default-font-color);
+  color: var(--background-color);
+  transform: scale(1.05);          /* subtle zoom */
+}
+
+/* Decorative line after heading */
+.link-documentation h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--default-font-color);
+  margin: 0.5em auto 1.2em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar-nav {
+      padding: 8px 24px;
+      gap: 12px;
+  }
+  
+  .navbar-nav a {
+      padding: 10px 16px;
+  }
+
+  .carousel-caption h3 {
+      font-size: 1.3rem;
+  }
+}
+
+
+
+/*
+Tablet
+@media (max-width: 1024px) {
+  .forest {
+    width: 45vw;
+    height: 80vh;
+  }
+
+  Title and subtitle
+  .title {
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  .title-text {
+    transform: translateY(-15%);
+  }
+
+  Enter button
+  .enter-btn {
+    bottom: 3%;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  Carousel
+  .carousel-inner {
+    min-height: 50vh;
+  }
+  .carousel-item img {
+    max-height: 50vh;
+  }
+
+  Carousel caption
+  .carousel-caption h3 {
+    font-size: 1.5rem;
+  }
+
+
+/*
+Mobile
+@media (max-width: 768px) {
+  .forest {
+    width: 90vw;
+    height: auto;  scale proportionally
+  }
+  Title and subtitle
+  .title {
+    font-size: 1.5rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .title-text {
+    transform: translateY(-10%);
+  }
+
+  Enter button
+  .enter-btn {
+    bottom: 2%;
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  Carousel
+  .carousel-inner {
+    min-height: 35vh;
+  }
+  .carousel-item img {
+    max-height: 35vh;
+  }
+
+  Carousel caption
+  .carousel-caption h3 {
+    font-size: 1.2rem;
+    padding: 5px 10px;
+  }
+}
+*/

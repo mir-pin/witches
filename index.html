@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title></title>
+        <title>Homepage</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="keywords" content="Witch trials, Witchcraft, Sorcery, Feminism">
@@ -19,16 +19,34 @@
     </head>
 
     <body>
-        <header>
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
-                        <img src="img/logo_ex.png" alt="Logo" width="80" height="47.2px">
-                    </a>
+        <!-- opening -->
+        <section class="forest-container" id="forestContainer">
+            <div class="forest-gradient"></div> <!-- gradient overlay -->
+            <!-- Same image used twice -->
+            <img src="img/homepage/forest.png" class="forest left-half" alt="forest left">
+            <img src="img/homepage/forest.png" class="forest right-half" alt="forest right">
+            <div class="title-content">
+                <div class="title-text">
+                    <h1 class="title">WITCHES THROUGH TIME</h1>
+                    <h2 class="subtitle">From Myth to Empowerment</h2>
+                </div>
+                <button class="enter-btn" onclick="openCurtains()">Enter the spell</button>
+            </div>
+        </section>
 
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuItems" aria-controls="menuItems" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button> 
+        <!-- homepage content -->
+        <main id="homepage-content">
+            <!-- navbar -->
+            <header>
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">
+                            <img src="img/logo_ex.png" alt="Logo" width="80" height="47.2px">
+                        </a>
+
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuItems" aria-controls="menuItems" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button> 
 
                     <div class="collapse navbar-collapse d-lg-flex justify-content-center" id="menuItems">
                         <ul class="navbar-nav">
@@ -82,6 +100,80 @@
             </nav>
         </header>
 
+            <!-- carousel section -->
+            <section id="homepage-carousel" class="carousel slide" data-bs-ride="carousel">
+                <!--  Indicators
+                <ol class="carousel-indicators">
+                    <li data-target="#homepageCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#homepageCarousel" data-slide-to="1"></li>
+                    <li data-target="#homepageCarousel" data-slide-to="2"></li>
+                    <li data-target="#homepageCarousel" data-slide-to="3"></li>
+                </ol>
+                -->
+                
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="5000">
+                        <img src="img/homepage/rooms/Circe.png" alt="Circe">
+                        <div class="carousel-caption">
+                            <h3>Mythic roots</h3>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item" data-bs-interval="5000">
+                        <img src="img/homepage/rooms/examination.png" alt="Paint">
+                        <div class="carousel-caption">
+                            <h3>Fires of fear</h3>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item" data-bs-interval="5000">
+                        <img src="img/homepage/rooms/warhol.png" alt="the_witch-warhol">
+                        <div class="carousel-caption">
+                            <h3>Visions and shadows</h3>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item" data-bs-interval="5000">
+                        <img src="img/homepage/rooms/le_streghe_sono_tornate.png" alt="photo">
+                        <div class="carousel-caption">
+                            <h3>Reclaming the spell</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- left and right buttons -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#homepage-carousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+            
+                <button class="carousel-control-next" type="button" data-bs-target="#homepage-carousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </section>
+
+            <!-- introduction to the exhibition -->
+            <section class="introduction">
+                <h1>Introduction</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </section>
+
+            <!-- learn more section -->
+            <section class="link-documentation">
+                <h2>Learn More Section</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <a href="#">Link to the documentation</a>
+            </section>
+      
+        </main>
+
+            
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="script.js"></script>
     </body>
+
 </html>
