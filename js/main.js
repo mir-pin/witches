@@ -149,4 +149,79 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Toggle switcher JS
+document.addEventListener("DOMContentLoaded", () => {
+  const knob = document.querySelector(".toggle-knob");
+  const labelChrono = document.getElementById("labelChrono");
+  const labelEras = document.getElementById("labelEras");
+  const togglePill = document.querySelector(".toggle-pill");
+  const activeIcon = document.getElementById("toggleIcon");
+  const inactiveIcon = document.getElementById("inactiveIcon");
 
+  // Image paths
+  const chronoActive = "img/chronological-active.svg";
+  const chronoInactive = "img/chronological-inactive.svg";
+  const erasActive = "img/eras-active.svg";
+  const erasInactive = "img/eras-inactive.svg";
+
+  const pillPadding = 4; // matches CSS padding of .toggle-pill
+
+  // Smooth transition setup
+  knob.style.transition = "left 0.3s ease";
+  inactiveIcon.style.transition = "left 0.3s ease";
+
+  function activateChrono() {
+    const pillWidth = togglePill.offsetWidth;
+    const knobWidth = knob.offsetWidth;
+
+    knob.style.left = pillPadding + "px";
+    activeIcon.src = chronoActive;
+    inactiveIcon.src = erasInactive;
+    inactiveIcon.style.left = (pillWidth - knobWidth - pillPadding) + "px";
+
+    labelChrono.classList.add("active-text");
+    labelEras.classList.remove("active-text");
+
+    if (!window.location.href.includes("chronological.html")) {
+      window.location.href = "chronological.html";
+    }
+  }
+
+  function activateEras() {
+    const pillWidth = togglePill.offsetWidth;
+    const knobWidth = knob.offsetWidth;
+
+    knob.style.left = (pillWidth - knobWidth - pillPadding) + "px";
+    activeIcon.src = erasActive;
+    inactiveIcon.src = chronoInactive;
+    inactiveIcon.style.left = pillPadding + "px";
+
+    labelChrono.classList.remove("active-text");
+    labelEras.classList.add("active-text");
+
+    if (!window.location.href.includes("eras.html")) {
+      window.location.href = "eras.html";
+    }
+  }
+
+  // Click events
+  labelChrono.addEventListener("click", activateChrono);
+  labelEras.addEventListener("click", activateEras);
+  togglePill.addEventListener("click", () => {
+    if (labelChrono.classList.contains("active-text")) activateEras();
+    else activateChrono();
+  });
+
+  // Set initial position
+  if (labelChrono.classList.contains("active-text")) activateChrono();
+  else activateEras();
+
+  // --- Redirect navbar Exhibition link to chronological ---
+  const exhibitionLink = document.querySelector(".nav-link.active");
+  if (exhibitionLink) {
+    exhibitionLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = "chronological.html";
+    });
+  }
+});

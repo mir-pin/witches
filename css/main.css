@@ -617,3 +617,146 @@ section p {
     margin: 0 auto; /* centers the line */
 }
 
+/* ----------------- Toggle Section ----------------- */
+
+/* Toggle Frame - centered under navbar */
+.toggle-frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    position: sticky;      /* stick under navbar */
+    top: 80px;             /* adjust based on navbar height */
+    z-index: 1000;
+    background: white;     /* ensures visibility */
+    padding: 8px 0;
+}
+
+/* Toggle Pill */
+.toggle-pill {
+    width: 128px;
+    height: 68px;
+    padding: 4px;            /* distance from pill edge to knob */
+    border-radius: 200px;
+    border: 1px solid #1A1A1A;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Knob inside the pill */
+.toggle-knob {
+    position: absolute;
+    width: 60px;               /* knob size */
+    height: 60px;
+    border-radius: 50%;
+    background: #191919;
+    top: 4px;                  /* distance from pill top */
+    left: 4px;                 /* initial left position */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;                /* above inactive icon */
+    transition: left 0.3s ease;
+}
+
+/* Active icon inside knob */
+.toggle-knob img {
+    width: 40px;               /* icon size smaller than knob */
+    height: 40px;
+    object-fit: contain;
+    margin: 10px;              /* padding inside knob */
+}
+
+/* Inactive icon outside knob */
+.inactive-icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;                 /* behind knob */
+    transition: left 0.3s ease; /* smooth movement */
+    left: 4px;                  /* default distance from pill edge */
+}
+
+/* Labels */
+.toggle-text {
+    font-size: 24px;
+    font-family: "Times New Roman";
+    cursor: pointer;
+    transition: font-weight 0.3s ease;
+}
+
+.active-text {
+    font-weight: 700;
+}
+
+/* ----------------- Responsive Adjustments ----------------- */
+
+@media (max-width: 480px) {
+    .toggle-frame {
+        flex-direction: column;
+        gap: 12px;
+        top: 70px;
+    }
+
+    .toggle-text {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .toggle-pill {
+        width: 100px;
+        height: 50px;
+        padding: 3px;
+    }
+
+    .toggle-knob {
+        width: 45px;
+        height: 45px;
+        top: 2.5px;
+        left: 2.5px;
+    }
+
+    .toggle-knob img {
+        width: 30px;
+        height: 30px;
+        margin: 7.5px;
+    }
+
+    .inactive-icon {
+        width: 30px;
+        height: 30px;
+        left: 2.5px;             /* padding from pill edge */
+    }
+}
+
+@media (max-width: 360px) {
+    .toggle-pill {
+        width: 90px;
+        height: 45px;
+    }
+
+    .toggle-knob {
+        width: 40px;
+        height: 40px;
+        top: 2.5px;
+        left: 2.5px;
+    }
+
+    .toggle-knob img {
+        width: 28px;
+        height: 28px;
+        margin: 6px;
+    }
+
+    .inactive-icon {
+        width: 28px;
+        height: 28px;
+        left: 2.5px;
+    }
+
+    .toggle-text {
+        font-size: 18px;
+    }
+}
