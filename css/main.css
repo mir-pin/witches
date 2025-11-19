@@ -866,3 +866,51 @@ section p {
     border-radius: 8px;
     object-fit: cover;
 }
+/* === Make header + navbar sticky and align toggle under it === */
+
+/* set a CSS var for the nav height (adjust if your navbar height differs) */
+:root {
+  --nav-height: 100px; /* default used by toggle earlier — change if needed */
+}
+
+/* Make header sticky (safer than making inner nav sticky) */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10000;                /* higher than toggle */
+  background: var(--background-color);
+  -webkit-backdrop-filter: none; /* avoid creating new stacking context */
+  backdrop-filter: none;
+}
+
+/* Ensure navbar itself doesn't create an interfering stacking context */
+nav.navbar {
+  position: relative;            /* let header do the sticky job */
+  top: 0;
+  z-index: 10001;                /* above header background */
+  background: transparent;       /* header provides background */
+}
+
+/* Keep the toggle placed under the navbar using the same variable */
+/* === Toggle stays centered under navbar === */
+.toggle-frame {
+    position: sticky;
+    top: var(--nav-height);
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+
+    width: 100%;
+    background: white;
+    padding: 12px 0;
+
+    box-sizing: border-box;
+}
+
+/* In case your actual navbar height is different, override like this:
+   Add to your HTML <style> in head or adjust --nav-height variable in main.css:
+   :root { --nav-height: 64px; }  (use the real measured height)
+*/
