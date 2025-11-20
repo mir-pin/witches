@@ -1,6 +1,6 @@
 :root {
-    --default-font: "Bocklin", serif;
-    --text-font: "Cormorant Garamond", serif;
+    --default-font: "Bocklin", sans-serif;
+    --text-font: "Playfair Display", serif;
 }
 
 /* Global Colors */
@@ -8,23 +8,17 @@
     --background-color: #E9D9B6;
     --witchflame-red: #9F3F33;
     --cursed-walnut: #4B342C;
-    
 }
 
 /* General styling */
 body {
-    background-color: var(--background-color);
-    color: var(--background-color);
+    background-image: url("img/art-nouveau/background.png");
+    background-size: cover;        /* make it fill the page */
+    background-repeat: no-repeat;  /* prevent tiling */
+    background-position: center;   /* center the image */
+    background-attachment: fixed;  /* optional: parallax effect */
+    color: var(--witchflame-red);
     font-family: var(--default-font);
-}
-
-body::before {
-    content: "";
-    position: absolute;
-    inset: -20px;
-    background: url("img/themes/art-nouveau/frame.png") no-repeat center / contain;
-    pointer-events: none;
-    z-index: 9999;
 }
 
 /* headings (h1–h6) */
@@ -37,4 +31,75 @@ h1, h2, h3, h4, h5, h6 {
 p {
   font-family: var(--text-font);
   color: var(--cursed-walnut);
+}
+
+/* Navbar */
+/* ------------------------------------------ */
+.navbar {
+    display: flex;
+    padding: 24px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    font-family: var(--text-font);
+}
+
+.navbar-nav {
+    padding: 8px 24px;
+    gap: 24px;
+    background-color: var(--background-color);
+    border: 2px solid var(--cursed-walnut);
+    border-radius: 8px;
+}
+
+/* Logo */
+.navbar-nav .nav-link {
+    border: 1px solid var(--cursed-walnut);
+    border-radius: 8px;
+    color: var(--cursed-walnut);
+}
+
+.navbar-nav .nav-link:hover {
+  text-decoration: none;
+  background-color: var();
+}
+
+.navbar .nav-link.active {
+  color: var(--porcelain-veil) !important;    /* important! to override the variable --bs-navbar-active-color */
+  text-decoration: none;
+  background-color: var(--burnt-terracotta);
+}
+
+/* Change style button and logo color */
+.navbar svg path {
+    fill: var(--cursed-walnut);
+}
+
+.navbar .nav-link.active {
+color: var(--porcelain-veil) !important;    /* important! to override the variable --bs-navbar-active-color */
+text-decoration: none;
+background-color: var(--burnt-terracotta);
+}
+
+@media (max-width: 991px) {
+  .custom-toggler .navbar-toggler-icon {
+      filter: none !important; /* restore color */
+      background-color: var(--background-color);
+  }
+}
+
+/* Change the rectangle color around the hamburger toggle */
+.navbar-toggler:focus {
+    border: 2px solid var(--antique-gold) !important; /* antique-gold */
+    box-shadow: none !important; /* remove any inner shadow */
+    background-clip: padding-box; /* ensure border doesn’t get clipped */
+}
+
+
+.navbar .layout-container .layout-options {
+    background-color: var(--velvet-red); /* or your preferred color */
+    border: 2px solid var(--antique-gold);    /* frame color */
+    border-radius: 0px;                      /* round corners */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25); /* optional shadow */
+    padding: 16px;
 }

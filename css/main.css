@@ -25,6 +25,7 @@ body {
     font-family: var(--default-font);
     margin: 0;
     padding: 0;
+    height: 100%;
     overflow-x: hidden;
 }
 
@@ -163,6 +164,7 @@ section p {
 .forest-container.hidden {
   opacity: 0;
   pointer-events: none;
+  display: none !important; /* istantly remove the element */
 }
 
 /* when the forest opens */
