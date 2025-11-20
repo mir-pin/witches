@@ -916,3 +916,123 @@ nav.navbar {
    Add to your HTML <style> in head or adjust --nav-height variable in main.css:
    :root { --nav-height: 64px; }  (use the real measured height)
 */
+/* Chronology Timeline */
+.chronology-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding-top: 20px;
+    background-color: var(--Greyscale-50);
+    width: 100%;
+}
+
+.timeline-lines {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Central vertical line */
+.timeline-lines::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: var(--Greyscale-900);
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.line {
+    display: flex;
+    width: 100%;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+/* Odd lines - right side */
+.line:nth-child(odd) {
+    justify-content: flex-end;
+}
+
+/* Even lines - left side */
+.line:nth-child(even) {
+    justify-content: flex-start;
+}
+
+/* Card */
+.card {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid var(--Greyscale-900);
+    border-radius: 12px;
+    overflow: hidden;
+    width: 500px;
+    max-width: 100%;
+    background: white;
+    z-index: 3;
+}
+
+/* Left-side card (even) image */
+.left-card .picture {
+    border-radius: 12px 0 0 12px;
+    margin-left: 0;
+}
+
+/* Image */
+.picture,
+.picture-2 {
+    width: 168px;
+    height: 160px;
+    flex-shrink: 0;
+    background-color: var(--Greyscale-50);
+}
+
+.picture img,
+.picture-2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 200;
+    display: block;
+}
+
+/* Text section fills remaining space */
+.text {
+    flex: 1; /* fills remaining space */
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.text-wrapper {
+    font-size: 24px;
+    font-family: "Times New Roman";
+}
+
+.div {
+    font-size: 20px;
+    font-family: "Times New Roman";
+}
+
+/* Black dot */
+.ellipse,
+.ellipse-2 {
+    width: 20px;
+    height: 20px;
+    background: var(--Greyscale-900);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    z-index: 4;
+}
