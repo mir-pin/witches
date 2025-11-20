@@ -550,6 +550,7 @@ section p {
   opacity: 1;
 }
 
+/* text */
 .introduction-title h2::after {
   content: "";
   display: block;

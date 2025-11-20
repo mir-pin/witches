@@ -23,9 +23,6 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@0;1&family=Uncial+Antiqua&display=swap" rel="stylesheet">
-
-        <!-- JS -->
-        <script src="js/main.js"></script>
     </head>
 
     <body>
@@ -305,10 +302,11 @@
             </footer>
         </main>
 
-            
+        <!-- JS moved at the bottom -> in the head: it runs before the DOM is fully loaded and might fail -->    
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="js/script.js"></script>
+        <script src="js/main.js"></script>
     </body>
 
 </html>

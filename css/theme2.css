@@ -130,19 +130,21 @@ background-color: var(--burnt-terracotta);
   color: var(--porcelain-veil);
 }
 
+
 .carousel::before {
   content: "";
-  position: absolute;
-  top: -150px;          /* adjust vertical position */
-  left: 50%;
+  position: absolute;       /* position over the carousel items */
+  top: 0;                   /* adjust vertical position if needed */
+  left: 50%;                /* horizontally center */
   transform: translateX(-50%);
-  width: 300px;         /* width of your image */
-  height: 150px;        /* height of your image */
-  background-image: url("img/dark-romanticism/carousel-frame.png");
-  background-size: contain; /* maintain aspect ratio */
+  width: 300px;             /* or % for responsive scaling */
+  height: 150px;            /* adjust as needed */
+  background-image: url('img/dark-romanticism/carousel-frame.png');
+  background-size: contain;  /* scale the image proportionally */
   background-repeat: no-repeat;
-  z-index: 999;          /* above carousel */
-  pointer-events: none; /* allow clicks on carousel */
+  background-position: center;
+  z-index: 9999;              /* above carousel images but below captions if needed */
+  pointer-events: none;     /* let clicks pass through */
 }
 
 /* change the color of carousel arrows */
