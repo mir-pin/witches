@@ -894,7 +894,6 @@ section p {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 145px);  /* 3 rows */
     gap: 10px;
-    
 }
 
 /* Individual image + text container */
