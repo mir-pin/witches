@@ -18,6 +18,12 @@ Css
     --center-safe-width: 400px;
 }
 
+:root {
+  --tree-max-width: 800px;      /* maximum width the left/right trees can occupy */
+  --center-safe-width: calc(100vw - (2 * var(--tree-max-width))); /* blank space in the middle */
+}
+
+
 /* General styling */
 body {
     background-color: var(--background-color);
@@ -79,7 +85,7 @@ section p {
   height: 100vh;
   z-index: 999;      /* above everything */
   overflow: hidden;
-  transition: opacity 1.5s ease-in-out;
+  transition: opacity 3s ease-in-out;
 }
 
 .forest-gradient {
@@ -89,7 +95,7 @@ section p {
   align-items: center;      /* vertical center */
   background: linear-gradient(to bottom, #ffffff 0%, #f2f2f2 50%, #ffffff 100%);
   opacity: 0;               /* initially hidden */
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 1s ease-in-out;
   pointer-events: none;
   z-index: 5;               /* behind the title but above trees if needed */
   object-fit: contain;
@@ -99,6 +105,14 @@ section p {
   position: absolute;
   inset: 0;
   overflow: hidden;
+}
+
+.forest-left {
+  margin-right: var(--center-safe-width);
+}
+
+.forest-right {
+  margin-left: var(--center-safe-width);
 }
 
 .forest img.tree {
@@ -161,10 +175,15 @@ section p {
   transform: translateX(100%);
 }
 
-.forest-container.hidden {
+.forest-container.forest-exit-active {
   opacity: 0;
+}
+
+.forest-container.hidden {
+  display: none;
   pointer-events: none;
 }
+
 
 /* when the forest opens */
 .forest-container.opening .forest-gradient {
@@ -832,19 +851,6 @@ section p {
 
 
 /* Ensure all ERA cards have equal height and 4 cards per row */
-.eras .row {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 20px;
-}
-
-.eras .col-3 {
-    flex: 1 1 0;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-}
-
 .era-card {
     display: flex;
     flex-direction: column;
@@ -858,6 +864,11 @@ section p {
     background: white;
     box-sizing: border-box;
     height: 100%;
+}
+
+/* Wrap title + description in a header div */
+.era-card-header {
+    flex: 0 0 auto; /* takes only its natural height */
 }
 
 .era-title {
@@ -879,16 +890,18 @@ section p {
 /* ERA ITEMS - Grid layout */
 .era-items {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    flex: 1 1 auto;     /* grid of images fills remaining space */
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 145px);  /* 3 rows */
-    gap: 10px;                             /* space between items */
+    gap: 10px;
+    
 }
 
 /* Individual image + text container */
 .era-item {
     position: relative;
-    width: 100%;      /* fill the grid cell */
-    height: 100%;     /* match row height */
+    width: 100%; /* fill the grid cell */
+    height: 140px; /* match row height */
     border-radius: 8px;
     overflow: hidden;
 }

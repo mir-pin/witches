@@ -11,17 +11,20 @@ function openCurtains() {
 
   // fade out title box
   titleBox.classList.add('hidden');
+
+  // start forest opening animation
   forest.classList.add('opening');
   document.querySelector('.forest').classList.add('opening');
 
-  // start fading out
-  forest.style.opacity = '0';
+  setTimeout(() => {
+    forest.classList.add('forest-exit-active');
 
-  // wait for transition to finish
-  forest.addEventListener('transitionend', () => {
-    forest.classList.add('hidden');   // actually hide it
-    homepage.classList.add('visible'); // show homepage content
-  }, { once: true });
+    // wait for opacity transition to finish
+    forest.addEventListener('transitionend', () => {
+      forest.classList.add('hidden');   // actually hide it
+      homepage.classList.add('visible'); // show homepage content
+    }, { once: true });
+  }, 800); // match tree slide duration (ms)
 }
 
 // remember if the user has already seen the opening animation
