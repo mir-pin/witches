@@ -3,6 +3,7 @@ Css
 
 /* Main CSS */
 
+
 /* Fonts */
 :root {
     --default-font: "Times New Roman";
@@ -15,14 +16,18 @@ Css
     --Greyscale-900: #1A1A1A;
     --default-font-color: #1A1A1A;
     --Greyscale-50: #CCC;
-    --center-safe-width: 400px;
+    
 }
 
 :root {
-  --tree-max-width: 800px;      /* maximum width the left/right trees can occupy */
-  --center-safe-width: calc(100vw - (2 * var(--tree-max-width))); /* blank space in the middle */
-}
+  /* --- THE LOGIC FIX (The Gap) ---
+  This creates the "No-Go Zone" in the center.
+       Mobile: 0px (Touching)
+       Desktop: 20px (Tiny crack)
+  */
 
+  --center-gap-half: clamp(0px, 1.5vw, 20px);
+}
 
 /* General styling */
 body {
@@ -75,193 +80,220 @@ section p {
   text-align: justify;
 }
 
-/* Both forest images */
-/* --- Forest Background --- */
+
+/* =========================================
+    OPENING PAGE
+   ========================================= */
 .forest-container {
-  position: fixed;   /* stays on top */
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 999;      /* above everything */
-  overflow: hidden;
-  transition: opacity 3s ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    overflow: hidden;
+    transition: opacity 3s ease-in-out;
 }
 
+/* The white gradient overlay */
 .forest-gradient {
-  position: absolute;
-  inset: 0; /* top:0; left:0; bottom:0; right:0; */
-  justify-content: center;  /* horizontal center */
-  align-items: center;      /* vertical center */
-  background: linear-gradient(to bottom, #ffffff 0%, #f2f2f2 50%, #ffffff 100%);
-  opacity: 0;               /* initially hidden */
-  transition: opacity 1s ease-in-out;
-  pointer-events: none;
-  z-index: 5;               /* behind the title but above trees if needed */
-  object-fit: contain;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, #ffffff 0%, #f2f2f2 50%, #ffffff 100%);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    pointer-events: none;
+    z-index: 5;
 }
 
 .forest {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
 }
 
-.forest-left {
-  margin-right: var(--center-safe-width);
-}
-
-.forest-right {
-  margin-left: var(--center-safe-width);
-}
-
-.forest img.tree {
-  position: absolute;
-  bottom: 0;
-  height: 85vh;
-  object-fit: contain;
-  left: 50%;
-  transform: translateX(calc(-50% + var(--shift, 0)));
-  transition: transform 2.5s ease-in-out;
-  z-index: 4;
-}
-
+/* Main Background Image */
 .bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* This forces the image to anchor to the bottom.
+       Even on wide screens, you will always see the tree roots/ground. */
+    object-position: bottom center;
+    z-index: 1;
 }
-  
 
-.l2 { --shift: -22vw; }
-.l3 { --shift: -35vw; }
-.l4 { --shift: -40vw; }
-.l5 { --shift: -55vw; }
-.l6 { --shift: -60vw; }
+/* Shared styles for all trees */
+.forest img.tree {
+    position: absolute;
+    bottom: 0;
+    /* Standardize height so they look like a wall of trees */
+    height: clamp(100vh, 100vh, 950px);
+    object-fit: contain;
+    transition: transform 2.5s ease-in-out;
+    z-index: 4;
+}
 
-.r1 { --shift: 22vw;  }
-.r2 { --shift: 30vw;  }
-.r3 { --shift: 40vw;  }
-.r4 { --shift: 60vw;  }
+/* --- LEFT SIDE TREES --- */
+/* Anchored to the center line, pushed Left */
+/* each tree is positioned relative to the center line and then pushed outwards using translateX(var(--shift) */
+.forest-left .tree {
+    right: 50%; 
+    margin-right: var(--center-gap-half); /* The safety gap */
+    transform: translateX(var(--shift)); 
+}
 
-.left-tree  { --shift: -18vw; transform: scaleX(-1); }
-.right-tree { --shift: 18vw;  }
+/* Specific shifts for Left Trees (Negative values to move Left) */
+/* clamp(min, preferred, max) to keep them visible */
+.forest-left .left-tree { --shift: -0px; transform: translateX(var(--shift)) scaleX(-1); }
+.forest-left .l2 { --shift: clamp(-90px, -10vw, -30px); }
+.forest-left .l3 { --shift: clamp(-170px, -18vw, -60px); }
+.forest-left .l4 { --shift: clamp(-250px, -26vw, -90px); }
+.forest-left .l5 { --shift: clamp(-330px, -34vw, -130px); }
+.forest-left .l6 { --shift: clamp(-410px, -42vw, -180px); }
 
+
+/* --- RIGHT SIDE TREES --- */
+/* Anchored to the center line, pushed Right */
+.forest-right .tree {
+    /* Anchor to the horizontal center */
+    left: 50%; 
+    /* Push it away from center to create the gap */
+    margin-left: var(--center-gap-half); 
+    /* Move it further right based on specific tree shift */
+    transform: translateX(var(--shift));
+}
+
+/* Specific shifts for Right Trees (Positive values to move Right) */
+.forest-right .right-tree { --shift: 0px; }
+.forest-right .r1 { --shift: clamp(30px, 8vw, 80px); }
+.forest-right .r2 { --shift: clamp(60px, 15vw, 160px); }
+.forest-right .r3 { --shift: clamp(90px, 22vw, 240px); }
+.forest-right .r4 { --shift: clamp(130px, 30vw, 320px); }
+.forest-right .r5 { --shift: clamp(170px, 38vw, 400px); } 
+.forest-right .r6 { --shift: clamp(210px, 46vw, 480px); }
+
+/* Depth effect for back trees */
 .far {
-  opacity: 80%;
+    opacity: 0.8;
 }
 
-.forest.opening .tree {
-  transform: translateX(calc(-50% + var(--shift) + 120vw));
+/* witch */
+.witch-svg {
+    position: absolute;
+    top: 20%; /* Adjust this percentage to place her higher or lower */
+    left: 50%;
+    transform: translateX(-50%); /* Centers the image horizontally */
+    
+    /* Set size (adjust as needed) */
+    width: clamp(80px, 8vw, 120px); 
+    height: auto;
+    
+    z-index: 18; /* Higher than trees, lower than title (z-index 20) */
+    
+    /* Animation transition */
+    transition: transform 2.5s ease-in-out, opacity 1s ease-in-out;
 }
 
-.forest.opening .left-tree,
-.forest.opening .l2,
-.forest.opening .l3,
-.forest.opening .l4,
-.forest.opening .l5,
-.forest.opening .l6 {
-  transform: translateX(calc(-50% + var(--shift) - 120vw));
+/* witch animation */
+.forest.opening .witch-svg {
+    transform: translate(-50%, -100vh) scale(0.1); 
+    opacity: 0;
 }
 
-/* When opening, slide them apart */
-.forest-container.opening .left {
-  transform: translateX(-100%);
-}
-
-.forest-container.opening .right {
-  transform: translateX(100%);
-}
-
-/* when the forest opens */
-.forest-container.opening .forest-gradient {
-  opacity: 0; /* fades away as curtains move */
-}
-
-/* Also fade out the title at the same time */
-.forest-container.opening .title-content {
-  opacity: 0;
-  transition: opacity 0.8s ease-in-out;
-}
-
+/* title and button */ 
 .title-box {
-  position: fixed;
-  left: 50%;
-  top: 68%;
-  transform: translateX(-50%); /* only center horizontally */
-  white-space: nowrap;
-  text-align: center;
-  z-index: 15;
-  padding: clamp(0.3rem, 1.5vw, 0.6rem) clamp(0.6rem, 3vw, 1.2rem);
-  width: clamp(180px, 40%, 300px);
-  height: auto; /* let it grow naturally */
-  opacity: 1;
-  transition: opacity 1s ease-in-out;
+    position: fixed;
+    left: 50%;
+    top: 70%; /* Adjust this if you need it higher/lower */
+    transform: translateX(-50%);
+    z-index: 15;
+    text-align: center;
+    white-space: nowrap;
+    
+    /* Ensure title box width never exceeds the gap we created */
+    width: clamp(280px, 30vw, 400px); 
+    
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
 }
 
 .title-box .title {
-  margin-bottom: 0.4rem;
-  font-size: clamp(0.9rem, 2.5vw, 1rem);
-  color: var(--default-font-color);
+    margin: 0 0 0.4rem 0;
+    text-transform: uppercase;
+    /* Fixed size for the title */
+    font-size: 1.5rem; 
+    font-weight: 700;
 }
 
 .title-box .subtitle {
-  margin-bottom: 0.6rem;
-  font-size: clamp(0.7rem, 2vw, 0.9rem);
-  color: var(--default-font-color);
+    margin: 0 0 0.8rem 0;
+    font-size: 0.8rem;
+    font-weight: 400;
 }
 
-.forest-container:not(.opening) .title-box {
-  opacity: 1;
-}
-
-.title-box.hidden {
-  opacity: 0;
-  pointer-events: none;
+/* Ensure the title wraps nicely on very small devices */
+@media (max-width: 500px) {
+    .title-box .title { white-space: normal; line-height: 1; }
 }
 
 .enter-btn {
-  font-size: clamp(0.8rem, 2vw, 1rem);        /* scales between 0.8rem and 1rem */
-  background: #ffffff;
-  border: 1px solid var(--default-font-color);
-  color: var(--default-font-color);
-  padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.6rem, 2vw, 1rem); /* responsive padding */
-  text-align: center;          /* center text */
-  white-space: nowrap;         /* prevent wrapping */
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* keep hover effect only */
+    font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+    background: transparent;
+    border: 1px solid var(--default-font-color);
+    color: var(--default-font-color);
+    padding: 8px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .enter-btn:hover {
-  background: var(--default-font-color); /* keep solid background */
-  color: var(--background-color); /* optional */
+    background: var(--default-font-color);
+    color: var(--background-color);
 }
 
-/* Main content - initially hidden */
+/* animation opening */
+
+/* Move Left trees OFF to the left
+Since we changed the base position logic, we simply  need to subtract/add 100vw to the existing shift */
+.forest.opening .forest-left .tree {
+    transform: translateX(calc(var(--shift) - 100vw));
+}
+/* Specific fix for the flipped left tree */
+.forest.opening .forest-left .left-tree {
+    transform: translateX(calc(var(--shift) - 100vw)) scaleX(-1);
+}
+
+/* Move Right trees OFF to the right */
+.forest.opening .forest-right .tree {
+    transform: translateX(calc(var(--shift) + 100vw));
+}
+
+/* Hide Title and Gradient */
+.forest-container.opening .title-box,
+.forest-container.opening .forest-gradient {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Hide Container after delay */
+.forest-container.hidden {
+    display: none;
+}
+
+/* CONTENT (Post-Animation) */
 #homepage-content {
-  opacity: 0;
-  visibility: hidden;  /* hide without collapsing layout */
-  transition: opacity 1s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out;
 }
 
 #homepage-content.visible {
-  opacity: 1;
-  pointer-events: auto;
-  display: block; /* ensure container is visible */
+    opacity: 1;
+    visibility: visible;
 }
-
-.forest-container.forest-exit-active {
-  opacity: 0;
-}
-
-.forest-container.hidden {
-  display: none;
-  pointer-events: none;
-}
-
 /* Navbar */
 /* ------------------------------------------ */
 .navbar {

@@ -27,6 +27,7 @@ function openCurtains() {
   }, 800); // match tree slide duration (ms)
 }
 
+
 // remember if the user has already seen the opening animation
 document.addEventListener('DOMContentLoaded', () => {
   const hasVisited = localStorage.getItem('hasVisited');
