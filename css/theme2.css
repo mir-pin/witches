@@ -130,21 +130,24 @@ background-color: var(--burnt-terracotta);
   color: var(--porcelain-veil);
 }
 
-
-.carousel::before {
+/* adding a frame to the carousel */
+.carousel-frame-wrapper::after {
   content: "";
-  position: absolute;       /* position over the carousel items */
-  top: 0;                   /* adjust vertical position if needed */
-  left: 50%;                /* horizontally center */
-  transform: translateX(-50%);
-  width: 300px;             /* or % for responsive scaling */
-  height: 150px;            /* adjust as needed */
-  /* background-image: url('../img/dark-romanticism/carousel-frame.png');
-  background-size: contain;  /* scale the image proportionally */
-  /* background-repeat: no-repeat;
-  background-position: center; */
-  z-index: 9999;              /* above carousel images but below captions if needed */
-  pointer-events: none;     /* let clicks pass through */
+  /* position the frame over the carousel */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/dark-romanticism/frame-romanticism.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  /* ensures the frame is on top */
+  z-index: 100; 
+    
+  /* allows clicks to pass through to carousel controls */
+  pointer-events: none;
 }
 
 /* change the color of carousel arrows */
@@ -153,23 +156,32 @@ background-color: var(--burnt-terracotta);
   filter: invert(59%) sepia(39%) saturate(2385%) hue-rotate(35deg) brightness(95%) contrast(90%);
 }
 
-.introduction h2::after {
-  content: "";
-  display: block;
-  width: 60px;                         
-  height: 2px;
-  margin: 1em auto 0;                  /* spacing and centering */
-  background-image: url("../img/dark-romanticism/after-line.png") no-repeat center/contain; 
-  line-height: 0;                       /* removes extra black line */
-  z-index: 9999;
+/* replacing the black line */
+.introduction-title h2::after, .link-documentation h2::after {
+  content: none;
+  display: none;
 }
 
+.introduction-title::after, .documentation-title::after {
+  content: "";
+  display: block;
+  width: 100px;                         
+  height: 30px;
+  margin: 1em auto 1.5rem;                  /* spacing and centering */
+  background-image: url('../img/dark-romanticism/after-line.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain; 
+}
 
-.introduction,
-.link-documentation {
+.introduction p,
+.link-documentation p {
   background-color: var(--velvet-red);
   border: 2px solid var(--antique-gold);
   border-radius: 20px;
+  padding: 1.5rem;
+  /* Optional: ensure the padding doesn't make the box wider than 100% */
+  box-sizing: border-box;
 }
 
 .link-documentation a {
@@ -188,4 +200,5 @@ background-color: var(--burnt-terracotta);
   color: var(--porcelain-veil);
   /* transform: scale(1.05); */         /* subtle zoom */
 }
+
 

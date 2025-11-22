@@ -503,6 +503,10 @@ section p {
 
 /* Carousel */
 /* ---------------------------------------- */
+.carousel-frame-wrapper {
+  position: relative;
+}
+
 .carousel {
   width: 100%;
   aspect-ratio: 16/9;   /* fixed ratio as the images */
@@ -604,7 +608,7 @@ section p {
 }
 
 /* Decorative line after heading */
-.link-documentation h2::after {
+.documentation-title h2::after {
   content: "";
   display: block;
   width: 60px;

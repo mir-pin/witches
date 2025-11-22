@@ -14,6 +14,7 @@
 /* General styling */
 body {
     background-image: url("../img/art-nouveau/background.png");
+    z-index: 999;
     background-size: cover;        /* make it fill the page */
     background-repeat: no-repeat;  /* prevent tiling */
     background-position: center;   /* center the image */
