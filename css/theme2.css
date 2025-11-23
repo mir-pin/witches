@@ -102,7 +102,7 @@ background-color: var(--burnt-terracotta);
 
 
 .navbar .layout-container .layout-options {
-    background-color: var(--velvet-red); /* or your preferred color */
+    background-color: var(--velvet-red);
     border: 2px solid var(--antique-gold);    /* frame color */
     border-radius: 0px;                      /* round corners */
     box-shadow: 0 4px 12px rgba(0,0,0,0.25); /* optional shadow */

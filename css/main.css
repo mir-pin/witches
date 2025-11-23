@@ -141,7 +141,7 @@ section p {
 .forest-left .tree {
     right: 50%; 
     margin-right: var(--center-gap-half); /* The safety gap */
-    transform: translateX(var(--shift)); 
+    transform: translateX(var(--shift)); /* stores the specific lateral displacement value */
 }
 
 /* Specific shifts for Left Trees (Negative values to move Left) */
@@ -194,12 +194,6 @@ section p {
     
     /* Animation transition */
     transition: transform 2.5s ease-in-out, opacity 1s ease-in-out;
-}
-
-/* witch animation */
-.forest.opening .witch-svg {
-    transform: translate(-50%, -100vh) scale(0.1); 
-    opacity: 0;
 }
 
 /* title and button */ 
@@ -256,31 +250,44 @@ section p {
 
 /* animation opening */
 
-/* Move Left trees OFF to the left
-Since we changed the base position logic, we simply  need to subtract/add 100vw to the existing shift */
+/* move the trees on the left side of the screen completely out of the viewport when the .opening class is applied.
+tree current size - 100% of the viewport width */
 .forest.opening .forest-left .tree {
     transform: translateX(calc(var(--shift) - 100vw));
 }
-/* Specific fix for the flipped left tree */
+
+/* specific fix for the flipped left tree
+scaleX(-1) re-introduces the horizontal flip */
 .forest.opening .forest-left .left-tree {
     transform: translateX(calc(var(--shift) - 100vw)) scaleX(-1);
 }
 
-/* Move Right trees OFF to the right */
+/* move right trees off to the right */
 .forest.opening .forest-right .tree {
     transform: translateX(calc(var(--shift) + 100vw));
 }
 
-/* Hide Title and Gradient */
+/* hide title and gradient */
 .forest-container.opening .title-box,
 .forest-container.opening .forest-gradient {
     opacity: 0;
     pointer-events: none;
 }
 
-/* Hide Container after delay */
+/* hide container after delay */
 .forest-container.hidden {
     display: none;
+}
+
+/* witch animation
+-50% maintains the horizontal centering during the animation, preventing her from shifting sideways as she moves
+- 100vh moves the witch upwards by 100% of the viewport height
+scale(0.1) = while moving, the element is dramatically shrunk to 10% of its original size.
+*/
+
+.forest.opening .witch-svg {
+    transform: translate(-50%, -100vh) scale(0.1); 
+    opacity: 0;
 }
 
 /* CONTENT (Post-Animation) */
@@ -294,6 +301,8 @@ Since we changed the base position logic, we simply  need to subtract/add 100vw 
     opacity: 1;
     visibility: visible;
 }
+
+
 /* Navbar */
 /* ------------------------------------------ */
 .navbar {
@@ -973,7 +982,6 @@ Since we changed the base position logic, we simply  need to subtract/add 100vw 
 @media (max-width: 480px) {
     .era-items {
         grid-template-columns: 1fr;  /* 1 column on mobile */
-        grid-template-rows: repeat(auto-fit, 120px); /* adjust row height for mobile */
     }
 
     .era-item-text {
