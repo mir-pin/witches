@@ -46,7 +46,7 @@ h1, h2, h3, h4, h5, h6 {
 /* paragraphs */
 p {
   font-family: var(--second-font);
-  color: var(--erin-green);
+  color: var(--electric-cyan);
   font-size: 1rem;
   line-height: 1.6;
   margin-top: 0;
@@ -172,9 +172,11 @@ p {
   fill: var(--erin-green);
 }
 
+
+
 /* Decorative lines under the navbar and before the footer */
 .thematic-divider-nav {
-  width: 90%;
+  width: 100%;
   height: 20px;
   margin: 0 auto;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='2022' height='34' viewBox='0 0 2022 34' fill='none'><path opacity='0.6' d='M0 2.5H326.832L356.247 31.5H1733.3L1762.71 2.5H2022' stroke='%231AFE49' stroke-width='5'/></svg>");
@@ -187,7 +189,7 @@ p {
 
 
 .thematic-divider-footer {
-  width: 90%;
+  width: 100%;
   height: 20px;
   margin: 0 auto;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='2022' height='34' viewBox='0 0 2022 34' fill='none'><path opacity='0.6' d='M0 31.5H326.832L356.247 2.5H1733.3L1762.71 31.5H2022' stroke='%231AFE49' stroke-width='5'/></svg>");
@@ -216,7 +218,6 @@ p {
 /* Erin green grainy overlay on carousel */
 .carousel-item img {
     filter: grayscale(20%) brightness(1.1) hue-rotate(90deg);
-    padding-bottom: 65px;
 }
 
 .carousel-item::after {
@@ -230,18 +231,6 @@ p {
     mix-blend-mode: screen;
     pointer-events: none;
     opacity: 0.35;
-}
-
-/* Neon bottom border inside the carousel frame */
-.carousel-item::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 65px; /* matches img padding-bottom */
-    height: 5px;  /* border thickness */
-    background-color: var(--erin-green);
-    z-index: 50; /* above image + grain */
 }
 
 
@@ -275,34 +264,25 @@ p {
     width: 50px !important;
     height: 50px !important;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: contain;   
 }
 
 /* Carousel captions */
-.carousel-caption {
+
+.carousel-caption::before {
+  background: rgba(255,0,0,0.5);
+  /* content: "";
   position: absolute;
-  bottom: 0;   /* distance from bottom */
-  left: 10px;     /* distance from left */
-  right: auto;
-  text-align: left;
-  /*transform: none; */ /* removes Bootstrap centering */
-  z-index: 10;
-  padding: 8px; /* optional */
+  inset: -12px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='740' height='357' viewBox='0 0 740 357' fill='none'><path d='M572.372 356.38L738.924 189.939V0.5H0.5V356.38H572.372ZM736.06 189.822L735.911 189.969L570.817 352.889L570.672 353.033H240.324L240.178 352.887L233.675 346.394H194.665L200.459 352.18L201.313 353.033H190.23L190.084 352.887L183.581 346.394H144.573L150.365 352.18L151.22 353.033H140.137L139.99 352.887L133.489 346.394H94.4795L100.273 352.18L101.128 353.033H90.0449L89.8984 352.887L83.3955 346.394H44.3877L50.1797 352.18L51.0352 353.033H43.9092L43.7627 352.887L3.51172 312.634L3.36523 312.487V44.2598L3.51172 44.1133L44.1699 3.44629L44.3164 3.2998H496.583L496.729 3.44629L503.856 10.5801H542.867L536.431 4.15332L535.575 3.2998H546.675L546.821 3.44629L553.95 10.5801H592.96L586.524 4.15332L585.669 3.2998H596.769L596.915 3.44629L604.059 10.5801H643.052L636.617 4.15332L635.763 3.2998H646.86L647.007 3.44629L654.15 10.5801H693.16L686.726 4.15332L685.87 3.2998H696.141L696.287 3.44629L735.913 43.0732L736.06 43.2197V189.822Z' fill='#8386F5' stroke='#9F79FB'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  pointer-events: none;
+  z-index: -1 !important ; */
 }
 
-/* .carousel-caption {
-  position: static !important;
-  bottom: auto !important;
-  left: auto !important;
-  right: auto !important;
-  text-align: left;
-  padding: 0;
-  margin: 0;
-  border: 5px solid #1AFE49;
-} */
-
 .carousel-caption a {
-  color: var(--tropical-indigo);
+  color: var(--electric-cyan);
   text-decoration: none;
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-family: var(--default-font);
@@ -329,7 +309,53 @@ p {
 }
 
 
-/* Documentation info */
+/* ----------------------------------
+        INTRODUCTION SECTION 
+--------------------------------- */
+
+/* Typing effect for title */
+.cyberpunk-animation {
+  --chars: 21; /* number of visible characters */
+
+  font: bold 200% var(--default-font), monospace;
+  color: #1AFE49;
+  text-shadow: 0 0 8px var(--erin-green);
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid var(--erin-green);
+  
+  width: 0ch; /* initial */
+  animation:
+      typing 6s steps(21) 0s infinite,
+      caret 0.6s step-end infinite;
+}
+
+/* 21 = number of characters in "WITCHES THROUGH TIME" */
+@keyframes typing {
+  0% { width: 0ch; }
+  50% { width: 21ch; }     /* typing phase */
+  70% { width: 21ch; }     /* pause fully typed */
+  100% { width: 0ch; }     /* delete */
+}
+
+@keyframes caret {
+  50% { border-color: transparent; }
+}
+
+/* on small screens we disable the typing animation */
+@media (max-width: 640px) {
+  .cyberpunk-animation {
+    white-space: normal;     /* allow wrapping */
+    width: auto !important;  /* cancel the width animation */
+    border-right: none;      /* remove caret when static */
+    animation: none !important;
+    display: block;
+  }
+}
+
+
+
 /* Glitchy documentation button */
 .link-documentation a, .link-documentation a::after {
   padding: 10px 50px;
@@ -363,13 +389,13 @@ p {
   animation: glitch_4011 1s;
   text-shadow: 10 10px 10px black;
   animation-timing-function: steps(2, end);
-  text-shadow: -3px -3px 0px var(--electric-cyan), 3px 3px 0px #E600FF;
+  text-shadow: -3px -3px 0px var(--electric-cyan), 3px 3px 0px var(--magenta-glitch);
   background-color: transparent;
   border: 3px solid var(--violet-blue);
 }
 
 .link-documentation a:hover {
-  text-shadow: -1px -1px 0px var(--electric-cyan), 1px 1px 0px #E94BE8;
+  text-shadow: -1px -1px 0px var(--electric-cyan), 1px 1px 0px var(--magenta-glitch);
 }
 
 .link-documentation a:hover {
