@@ -199,6 +199,25 @@ p {
 }
 
 
+/* ----------------------------
+           FOOTER 
+------------------------------- */
+footer a {
+  color: var(--electric-cyan);
+}
+
+footer a:hover {
+  color: var(--magenta-glitch);
+}
+
+.bi-github {
+  color: var(--erin-green);
+}
+
+.bi-envelope {
+  color: var(--erin-green);
+}
+
 
 /* Carousel */
 .carousel-frame-wrapper {
