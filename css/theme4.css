@@ -136,7 +136,7 @@ body {
 }
 /* Fix: Make the active label bold */
 .active-text {
-    font-weight: bold !important;
+    font-size: 26px !important;
      /* Optional: adds a retro 3D depth to text */
 }
 
