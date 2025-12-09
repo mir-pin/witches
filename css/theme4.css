@@ -629,3 +629,104 @@ footer {
     
     border-radius: 0 !important;
 }
+/* -------------------------------------
+   11. ITEM PAGE STYLE (Windows 95)
+   ------------------------------------- */
+
+/* --- A. Main Content Boxes (.item-box, .table-box, .text-box) --- */
+
+/* Apply the Sunken/Inset look to the content containers */
+.item-box, 
+.table-box, 
+.text-box {
+    background-color: var(--win-grey);
+    
+    /* Sunken/Inset Border Style */
+    border: 2px solid;
+    border-top-color: var(--win-dark-grey);
+    border-left-color: var(--win-dark-grey);
+    border-right-color: var(--win-white);
+    border-bottom-color: var(--win-white);
+    
+    border-radius: 0 !important;
+    box-sizing: border-box; 
+    
+    /* Override padding: item-box is set to 0 in main, keep others clean */
+    padding: 1rem !important; 
+    overflow: auto; /* Allow scrolling content */
+}
+
+/* Ensure image box (which holds the image flush) has correct padding reset */
+.item-box {
+    padding: 0 !important;
+}
+
+/* --- B. Table Styling (Data Presentation) --- */
+
+/* The main table structure */
+.table {
+    border-top: 2px solid var(--win-dark-grey);
+    border-left: 2px solid var(--win-dark-grey);
+    border-right: 2px solid var(--win-white);
+    border-bottom: 2px solid var(--win-white);
+    background-color: var(--win-white) !important; /* White background for readability */
+    color: var(--win-text);
+    
+    /* Ensure table text uses W95 font */
+    font-family: var(--default-font) !important; 
+    font-size: 14px;
+}
+
+/* Table Headers and Data Cells */
+.table th,
+.table td {
+    border: 1px solid var(--win-dark-grey); /* Use darker border for grid lines */
+    font-family: var(--default-font) !important;
+    color: var(--win-text);
+}
+
+/* --- C. Buttons and Links (Outset 3D Button) --- */
+
+/* Default State (Outset Look) */
+.text-box button,
+.card-footer a {
+    /* ... (Keep existing default styles) ... */
+    
+    /* Classic Outset Button Border */
+    box-shadow: inset 2px 2px 0px var(--win-white),
+                inset -2px -2px 0px var(--win-dark-grey),
+                2px 2px 0px var(--win-black); 
+
+    background-color: var(--win-grey) !important;
+    color: var(--win-text) !important;
+    /* ... rest of default styling ... */
+    transition: none;
+}
+
+/* FIX: Hover/Active State (Complex Depressed/Inset Look) */
+.text-box button:hover,
+.text-box button:active,
+.card-footer a:hover,
+.card-footer a:active {
+    /* 1. Apply the Complex Inset Shadow from Figma (Provided in prompt) */
+    box-shadow: -2px -2px 0 0 #F0F0F0 inset, 
+                2px 2px 0 0 #262626 inset, 
+                4px 4px 0 0 #7E7E7E inset, 
+                -4px -4px 0 0 #B1B1B1 inset !important;
+                
+    /* 2. Depress the button visually */
+    transform: translate(1px, 1px) !important;
+    
+    /* 3. Apply Active Colors */
+    background-color: #E6E6E6 !important; 
+    color: var(--win-black) !important; 
+    
+  
+}
+/* --- D. Modal/Image Viewer --- */
+
+/* Ensure modal uses theme colors and sharp corners */
+#imageModal .modal-content {
+    background-color: var(--win-grey);
+    box-shadow: none;
+}
