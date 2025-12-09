@@ -121,7 +121,6 @@ p {
       currentColor 85%,
       transparent 100%
   );
-  /* border-radius: 50px; */
   filter: url(#wavy); /* optional SVG filter */
   
   transition: width 0.25s ease-out;
@@ -191,6 +190,34 @@ footer a:hover {
       4. Home 
 --------------------------- */
 
+/* Carousel */
+.carousel-caption {
+  background-color: var(--neon-pink);
+  border-top: 1px solid var(--background-color);
+  border-left: 1px solid var(--background-color);
+  rotate: -3deg;
+}
+
+.carousel-caption a {
+  color: var(--background-color);
+  text-decoration: none;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-family: var(--font-default);
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  transition: color 0.3s ease;
+}
+
+.carousel-caption:hover {
+  background-color: var(--classic-crimson);
+}
+
+.carousel-caption a:hover {
+  color: var(--background-color);
+  transform: translateX(3px);
+}
+
+
 /* Punk collage effect on title */
 .punk-collage {
   width: 80%;
@@ -221,9 +248,12 @@ footer a:hover {
   }
 }
 
-/* .introduction-title h2::after {
-  background: var(--neon-pink);        
-} */
+/* All uppercase titles */
+.introduction-title h2, 
+.documentation-title h2 {
+  text-transform: uppercase;
+  color: var(--carbon-black);
+}
 
 /* Change decorative lines after headings */
 .introduction-title h2::after,
@@ -237,4 +267,21 @@ footer a:hover {
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+/* Link to documentation */
+.link-documentation a {
+  border: 2px solid var(--neon-pink);  /* outlined look */
+  background-color: var(--neon-pink);
+  border-radius: 0%;
+  color: var(--background-color);
+  text-transform: uppercase;
+  text-decoration: none;           /* remove underline */
+  rotate: -3deg;
+}
+
+.link-documentation a:hover {
+  background-color: transparent;
+  color: var(--neon-pink);
+  transform: scale(1.05); 
 }
