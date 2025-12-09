@@ -59,8 +59,6 @@ body.homepage {
     color: var(--witchflame-red);
 }
 
-
-
 /* HIDE the three flat link list items */
 .navbar-nav #nav-item-about,
 .navbar-nav #nav-item-doc,
@@ -255,7 +253,6 @@ header .navbar .nav-item.dropdown .nav-link {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding-bottom: 30vh;
     padding-right: 10px; /* Space for scrollbar */
 }
 
@@ -329,6 +326,10 @@ footer p, footer a {
 #homepage-content::-webkit-scrollbar-track { background: transparent; }
 #homepage-content::-webkit-scrollbar-thumb { background-color: var(--cursed-walnut); border-radius: 8px; }
 
+.page-content::-webkit-scrollbar { width: 6px; }
+.page-content::-webkit-scrollbar-track { background: transparent; }
+.page-content::-webkit-scrollbar-thumb { background-color: var(--cursed-walnut); border-radius: 8px; }
+
 @media (max-width: 768px) {
     
     /* Covers top frame art */
@@ -401,9 +402,9 @@ footer p, footer a {
 
 
 
-/* exhibition page */
+/* OTHER PAGES */
 
-body.eras-page, body.chronological-page {
+body {
     background-image: url("../img/art-nouveau/background.png");
     background-color: var(--background-color);
     background-size: 100% 100%;
@@ -413,6 +414,7 @@ body.eras-page, body.chronological-page {
     font-family: var(--default-font);
     color: var(--witchflame-red);
 }
+
 
 /* navbar */
 header {
@@ -444,10 +446,13 @@ header .navbar {
     justify-content: center;
 }
 
-.eras-page header .nav-link, .chronological-page header .nav-link {
+.eras-page header .nav-link, .chronological-page header .nav-link,
+.item-page header .nav-link, .map-page header .nav-link {
     padding: 0 15px !important;
     font-size: 0.9rem;
 }
+
+/* eras page */
 
 .toggle-frame {
     position: fixed;
@@ -609,6 +614,8 @@ header .navbar {
     z-index: 0;
 }
 
+
+
 @media (max-width: 768px) {
 
     /* Covers top frame art */
@@ -736,3 +743,4 @@ header .navbar {
 
 /* toggle height + background
 navbar hamburger menu on small screen */
+
