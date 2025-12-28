@@ -262,9 +262,17 @@ footer a {
 
 /* Text overlay (Caption) */
 .era-item-text {
-    color: white;
+    color: rgb(220, 211, 211);
     font-family: var(--default-font); /* Using main theme font */
-    text-shadow: 2px 2px 4px rgba(0,0,0,1);
+    text-shadow:
+        0 1px 2px rgba(19, 19, 19, 0.9),
+        0 2px 6px rgba(22, 21, 21, 0.8);;
+    font-weight: 400;
+}
+.era-item {
+    
+    border-radius: 0px;
+    
 }
 .ellipse,
 .ellipse-2 {
@@ -289,4 +297,10 @@ footer a {
     max-width: 100%;
     background: transparent;
     z-index: 3;
+}
+
+.link-documentation a {
+  
+  border-radius: 0px;             /* rounded edges */
+
 }

@@ -922,9 +922,7 @@ footer a {
     height: 100%;
     
 }
-.bottom-left, .bottom-right {
-  display: none;
-}
+
 .era-card {
   position: relative; /* Ensure the card is the coordinate reference */
 }
