@@ -262,9 +262,17 @@ footer a {
 
 /* Text overlay (Caption) */
 .era-item-text {
-    color: white;
+    color: rgb(220, 211, 211);
     font-family: var(--default-font); /* Using main theme font */
-    text-shadow: 2px 2px 4px rgba(0,0,0,1);
+    text-shadow:
+        0 1px 2px rgba(19, 19, 19, 0.9),
+        0 2px 6px rgba(22, 21, 21, 0.8);;
+    font-weight: 400;
+}
+.era-item {
+    
+    border-radius: 0px;
+    
 }
 .ellipse,
 .ellipse-2 {
@@ -289,4 +297,132 @@ footer a {
     max-width: 100%;
     background: transparent;
     z-index: 3;
+}
+
+.link-documentation a {
+  
+  border-radius: 0px;             /* rounded edges */
+
+}
+#first-room:hover,
+#second-room:hover,
+#third-room:hover,
+#fourth-room:hover {
+  /* This rule will override the default rule above */
+  fill: var(--noise-color) !important;
+  opacity: 1.0;
+  cursor: pointer;
+}
+.map-description {
+  border-radius: 0px;
+  padding: 0 8px 8px 8px !important;
+  margin-top: 100px;
+  position: relative; 
+
+}
+.map-description::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px; /* adjust size */
+    height: 30px; /* adjust size */
+    background: url("../img/operello-left.svg") no-repeat center center;
+    background-size: contain;
+}
+
+/* Top-right corner */
+.map-description::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px; /* adjust size */
+    height: 30px; /* adjust size */
+    background: url("../img/operello-right.svg") no-repeat center center;
+    background-size: contain;
+}
+.map-description .map-bottom-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: url("../img/operello-left-down.svg") no-repeat center;
+    background-size: contain;
+}
+
+.map-description .map-bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: url("../img/operello-right-down.svg") no-repeat center;
+    background-size: contain;
+}
+
+.introduction-title h2::after, .documentation-title h2::after {
+    content: "";
+    width: 600px;
+    height: 25px;
+    background: url("../img/divider-line.svg")no-repeat center;
+    margin: 1em auto 1em;
+}
+    
+/* ----------------- Link Documentation Button ----------------- */
+.link-documentation a {
+    position: relative;              /* ensures pseudo-elements position relative to link */
+    display: inline-block;           /* allows proper sizing for pseudo-elements */
+    font-family: var(--default-font);
+    font-weight: 400;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: var(--default-font-color) !important; /* ensures text is visible */
+    border: 0;
+    background: none !important;
+    box-shadow: none !important;
+    transition: font-weight 0.2s ease;
+}
+
+/* Hover / Active effect */
+.link-documentation a:hover {
+    font-weight: 900; /* bold text on hover */
+    color: var(--default-font-color) !important; /* prevent disappearing */
+}
+
+/* Top line */
+.link-documentation a::before {
+    content: "";
+    position: absolute;
+    top: -6px;                /* adjust distance from text */
+    left: 50%;                /* center horizontally */
+    width: 80px;              /* adjust line width */
+    height: 20px;             /* adjust line height */
+    background: url("../img/line.svg") no-repeat center center;
+    background-size: contain;
+    transform: translateX(-50%);
+    opacity: 0;               /* hidden by default */
+    transition: opacity 0.3s ease;
+}
+
+/* Bottom line */
+.link-documentation a::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;             /* adjust distance from text */
+    left: 50%;                /* center horizontally */
+    width: 80px;              /* adjust line width */
+    height: 20px;             /* adjust line height */
+    background: url("../img/line.svg") no-repeat center center;
+    background-size: contain;
+    transform: translateX(-50%);
+    opacity: 0;               /* hidden by default */
+    transition: opacity 0.3s ease;
+}
+
+/* Show lines on hover */
+.link-documentation a:hover::before,
+.link-documentation a:hover::after {
+    opacity: 1;               /* show lines */
 }
