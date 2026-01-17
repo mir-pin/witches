@@ -34,7 +34,6 @@ function openCurtains() {
   localStorage.setItem('hasVisited', 'true');
 }
 
-
 // remember if the user has already seen the opening animation
 document.addEventListener('DOMContentLoaded', () => {
   const hasVisited = localStorage.getItem('hasVisited');
@@ -55,29 +54,31 @@ document.addEventListener('DOMContentLoaded', () => {
   } 
 });
 
+// --- ITEM PAGE ---
+
 document.addEventListener('DOMContentLoaded', () => {
-    // --- STATE ---
-    let allItems = {};
+    // variables to hold information
+    let allItems = {};      // store the dictionary of all items from the json file
     let narratives = {};
     let roomsData = {}; 
     let roomKeys = [];  
 
     // Navigation State
-    let currentIdList = []; 
+    let currentIdList = [];     // currently active narrative
     let currentIndex = 0;
-    let currentNarrativeName = ''; 
+    let currentNarrativeName = '';  // remember the narrative mode
     
     // Filters
     let currentLength = 'short';
     let currentTone = 'educational-adult';
 
-    // --- INITIALIZATION ---
+    // INITIALIZATION
     fetch('data.json')
         .then(response => response.json())
         .then(data => {
             allItems = data.items;
             
-            // 1. Setup Narratives
+            // Setup Narratives
             narratives['chronological'] = data.narratives.chronological;
             
             roomsData = data.narratives.eras; 
@@ -87,15 +88,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 narratives['eras'].push(...roomsData[key]);
             });
 
-            // --- NEW LOGIC: READ URL PARAMETERS ---
-            const urlParams = new URLSearchParams(window.location.search);
-            const targetId = urlParams.get('id');             // e.g., "hecate"
-            const targetNarrative = urlParams.get('narrative'); // e.g., "eras"
+            // Read URL parameters
+            const urlParams = new URLSearchParams(window.location.search);  // this reads the address bar
+            const targetId = urlParams.get('id');
+            const targetNarrative = urlParams.get('narrative');
 
-            // logic: If URL has ID, load that. If not, load default Chronological start.
+            // if URL has ID, load that; if not, load default Chronological start.
             if (targetId && allItems[targetId]) {
-                // If the URL specifies a narrative (e.g. ?narrative=eras), use it. 
-                // Otherwise default to chronological.
+                // If the URL specifies a narrative use it. otherwise default to chronological.
                 const startNarrative = targetNarrative || 'chronological';
                 switchNarrative(startNarrative, targetId);
             } else {
@@ -127,24 +127,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --- RENDER ---
+    // RENDER
+    // take the data from memory and populate the screen
     function renderItem() {
         const itemId = currentIdList[currentIndex];
         const item = allItems[itemId];
         
         if (!item) return;
 
-        // Basic Info
+        // basic Info
         document.getElementById('item-image-display').src = item.image;
         document.getElementById('item-title').textContent = item.title;
 
-        // Metadata
+        // metadata table
         const meta = item.metadata || {};
         document.getElementById('item-creator').textContent = Array.isArray(meta.creator) ? meta.creator.join(', ') : meta.creator;
         document.getElementById('item-type').textContent = meta.type;
         document.getElementById('item-location').textContent = meta.location;
         
-        // Clickable Table Cells
+        // clickable table cells
         const dateCell = document.getElementById('item-date');
         dateCell.textContent = meta.date;
         dateCell.title = "Switch to Chronological Narrative"; 
@@ -153,10 +154,10 @@ document.addEventListener('DOMContentLoaded', () => {
         roomCell.textContent = meta.room; 
         roomCell.title = "Switch to Eras Narrative"; 
         
-        // Update "Current Room" Label
+        // update "current room" Label
         document.getElementById('current-room-name').textContent = meta.room;
-
-        updateDescriptionText(item);
+        
+        updateDescriptionText(item); // check the buttons and pick the correct text from the json to display
     }
     
     function updateDescriptionText(item) { 
@@ -168,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- HELPER: FIND CURRENT ROOM INDEX ---
+    // FIND CURRENT ROOM INDEX
     function getCurrentRoomIndex() {
         const currentItemId = currentIdList[currentIndex];
         for (let i = 0; i < roomKeys.length; i++) {
@@ -180,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return -1;
     }
 
-    // --- UI FEEDBACK & VISIBILITY ---
+    // UI FEEDBACK & VISIBILITY
     function updateUIState() {
         const dateCell = document.getElementById('item-date');
         const roomCell = document.getElementById('item-room');
@@ -199,8 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-
-    // --- EVENT LISTENERS ---
+    // EVENT LISTENERS -> connect the click to the functions
     document.getElementById('item-date').addEventListener('click', () => {
         if (currentNarrativeName !== 'chronological') {
             switchNarrative('chronological', currentIdList[currentIndex]);
@@ -265,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Text Filters
+    // text filters
     const lengthBtns = document.querySelectorAll('#length-buttons button');
     lengthBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -289,20 +289,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     var imageModal = document.getElementById('imageModal');
     
-    if (imageModal) { // Check if modal exists to avoid errors on other pages
+    if (imageModal) { // check if modal exists to avoid errors on other pages
         imageModal.addEventListener('show.bs.modal', function (event) {
             // Button/Link that triggered the modal
             var triggerLink = event.relatedTarget;
 
-            // Extract the link and image source
+            // extract the link and image source
             var destinationUrl = triggerLink.getAttribute('data-bs-link');
             var imageSource = triggerLink.querySelector('img').getAttribute('src');
 
-            // Find the elements inside the modal
+            // find the elements inside the modal
             var modalLink = imageModal.querySelector('#modal-link-display');
             var modalImage = imageModal.querySelector('#modal-image-display');
 
-            // Update the modal content
+            // update the modal content
             if (modalLink) modalLink.href = destinationUrl;
             if (modalImage) modalImage.src = imageSource;
         });
