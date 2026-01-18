@@ -7,7 +7,8 @@
   --vitali-tan: #D9C3A6;
   --vitali-black: #1A1A1A; 
   --vitali-white: #FFFFFF;
-  --vitali-dark-text: #2A2722; 
+  --vitali-dark-text: #2A2722;
+  --vitali-grey: #CCC; 
 
   --background-color: var(--vitali-tan);
   --surface-color: var(--vitali-white);
@@ -42,17 +43,17 @@ body::before {
     z-index: -1;                 
     pointer-events: none;        
     
-    background: url("../img/beige-noise.png") repeat;
+    background: url("../img/early-modern-era/beige-noise.png") repeat;
     background-size: cover;      
     opacity: 10; /* subtle noise */
 }
 
 /* === STICKY HEADER & NAV COLORS === */
 header {
-  background: url("../img/beige-noise.png") repeat
+  background: url("../img/early-modern-era/beige-noise.png") repeat
 }
 nav.navbar {
-  background: url("../img/beige-noise.png") repeat;
+  background: url("../img/early-modern-era/beige-noise.png") repeat;
 }
 
 /* Divider line under navbar */
@@ -64,7 +65,7 @@ header::after {
     transform: translateX(-50%) translateY(-10%); 
     width: 1000px;      
     height: 20px;     
-    background: url("../img/divider-line.svg") no-repeat center center;
+    background: url("../img/early-modern-era/divider-line.svg") no-repeat center center;
     background-size: contain;
     z-index: 10002;        /* above navbar, due to coursol setting */
 }
@@ -72,7 +73,7 @@ header::after {
                    Navbar 
 ------------------------------------------ */
 .navbar-nav {
-    background: url("../img/beige-noise.png") repeat;
+    background: url("../img/early-modern-era/beige-noise.png") repeat;
 }
 
 .navbar-nav .nav-link {
@@ -126,7 +127,7 @@ header::after {
     left: 50%;
     width: 80px;
     height: 20px;
-    background: url('../img/line.svg') no-repeat center center;
+    background: url('../img/early-modern-era/line.svg') no-repeat center center;
     background-size: contain;
     transform: translateX(-50%);
 }
@@ -140,7 +141,7 @@ header::after {
     left: 50%;
     width: 80px;
     height: 20px;
-    background: url('../img/line.svg') no-repeat center center;
+    background: url('../img/early-modern-era/line.svg') no-repeat center center;
     background-size: contain;
     transform: translateX(-50%);
 }
@@ -156,7 +157,7 @@ footer a {
 /* ----------------- Toggle Section ----------------- */
 
 .toggle-frame {
-   background: url("../img/beige-noise.png") repeat;
+   background: url("../img/early-modern-era/beige-noise.png") repeat;
    overflow: hidden;
 }
 
@@ -204,7 +205,7 @@ footer a {
     left: 0;
     width: 30px; 
     height: 30px; 
-    background: url("../img/operello-left.svg") no-repeat center center;
+    background: url("../img/early-modern-era/operello-left.svg") no-repeat center center;
     background-size: contain;
 }
 
@@ -216,7 +217,7 @@ footer a {
     right: 0;
     width: 30px; 
     height: 30px; 
-    background: url("../img/operello-right.svg") no-repeat center center;
+    background: url("../img/early-modern-era/operello-right.svg") no-repeat center center;
     background-size: contain;
 }
 /* Bottom-left corner */
@@ -227,7 +228,7 @@ footer a {
     left: 0;
     width: 30px; 
     height: 30px;
-    background: url("../img/operello-left-down.svg") no-repeat center center;
+    background: url("../img/early-modern-era/operello-left-down.svg") no-repeat center center;
     background-size: contain;
 }
 
@@ -238,7 +239,7 @@ footer a {
     right: 0;
     width: 30px; 
     height: 30px;
-    background: url("../img/operello-right-down.svg") no-repeat center center;
+    background: url("../img/early-modern-era/operello-right-down.svg") no-repeat center center;
     background-size: contain;
 }
 .era-title {
@@ -269,7 +270,7 @@ footer a {
 .ellipse-2 {
     width: 32px;
     height: 32px;
-    background: url("../img/pointers.svg") center/contain no-repeat;
+    background: url("../img/early-modern-era/pointers.svg") center/contain no-repeat;
     border-radius: 0;
     position: absolute;
     top: 50%;
@@ -288,6 +289,11 @@ footer a {
     max-width: 100%;
     background: transparent;
     z-index: 3;
+}
+.chronology-container {
+    
+    background-color: transparent;
+
 }
 
 .link-documentation a {
@@ -315,7 +321,7 @@ footer a {
     left: 0;
     width: 30px; 
     height: 30px; 
-    background: url("../img/operello-left.svg") no-repeat center center;
+    background: url("../img/early-modern-era/operello-left.svg") no-repeat center center;
     background-size: contain;
 }
 
@@ -327,7 +333,7 @@ footer a {
     right: 0;
     width: 30px; 
     height: 30px; 
-    background: url("../img/operello-right.svg") no-repeat center center;
+    background: url("../img/early-modern-era/operello-right.svg") no-repeat center center;
     background-size: contain;
 }
 .map-description .map-bottom-left {
@@ -336,7 +342,7 @@ footer a {
     left: 0;
     width: 30px;
     height: 30px;
-    background: url("../img/operello-left-down.svg") no-repeat center;
+    background: url("../img/early-modern-era/operello-left-down.svg") no-repeat center;
     background-size: contain;
 }
 
@@ -346,7 +352,7 @@ footer a {
     right: 0;
     width: 30px;
     height: 30px;
-    background: url("../img/operello-right-down.svg") no-repeat center;
+    background: url("../img/early-modern-era/operello-right-down.svg") no-repeat center;
     background-size: contain;
 }
 
@@ -354,7 +360,7 @@ footer a {
     content: "";
     width: 600px;
     height: 25px;
-    background: url("../img/divider-line.svg")no-repeat center;
+    background: url("../img/early-modern-era/divider-line.svg")no-repeat center;
     margin: 1em auto 1em;
 }
     
@@ -395,7 +401,7 @@ footer a {
     left: 50%;                
     width: 80px;              
     height: 20px;             
-    background: url("../img/line.svg") no-repeat center center;
+    background: url("../img/early-modern-era/line.svg") no-repeat center center;
     background-size: contain;
     transform: translateX(-50%);
     opacity: 0;               /* hidden by default-bug fix */
@@ -410,7 +416,7 @@ footer a {
     left: 50%;                
     width: 80px;              
     height: 20px;             
-    background: url("../img/line.svg") no-repeat center center;
+    background: url("../img/early-modern-era/line.svg") no-repeat center center;
     background-size: contain;
     transform: translateX(-50%);
     opacity: 0;               /* hidden by default- same as above */
@@ -426,4 +432,150 @@ footer a {
 .link-documentation p {
     font-size: 20px;   
     line-height: 1.6;
+}
+/* =========================================
+   ITEM PAGE BUTTONS – THEME 1 NAV EFFECT
+========================================= */
+
+/* Base button reset */
+.item-page .btn-outline-dark {
+    position: relative;
+    background: transparent !important;
+    border: none;
+    color: var(--default-font-color);
+    font-family: var(--default-font);
+    font-weight: 400;
+    font-size: 1.1rem;
+    transition: font-weight 0.2s ease;
+}
+
+/* Hover + Active */
+.item-page .btn-outline-dark:hover,
+.item-page .btn-outline-dark.active {
+    font-weight: 900;
+    color: var(--default-font-color) !important;
+    text-shadow: 0.1px 0 var(--default-font-color),
+                 -0.1px 0 var(--default-font-color);
+}
+/* Top line */
+.item-page .btn-outline-dark::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    width: 80px;
+    height: 20px;
+    background: url("../img/early-modern-era/line.svg") no-repeat center;
+    background-size: contain;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* Bottom line */
+.item-page .btn-outline-dark::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    width: 80px;
+    height: 20px;
+    background: url("../img/early-modern-era/line.svg") no-repeat center;
+    background-size: contain;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* Show lines on hover or when active */
+.item-page .btn-outline-dark:hover::before,
+.item-page .btn-outline-dark:hover::after,
+.item-page .btn-outline-dark.active::before,
+.item-page .btn-outline-dark.active::after {
+    opacity: 1;
+}
+#btn-prev::before,
+#btn-prev::after,
+#btn-next::before,
+#btn-next::after {
+    width: 60px;
+}
+/* REMOVE ALL BORDERS / OUTLINES */
+.item-page .btn,
+.item-page .btn:focus,
+.item-page .btn:hover,
+.item-page .btn:active {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+/* PREVIOUS / NEXT — SAME AS NAV BUTTONS */
+#btn-prev,
+#btn-next {
+    position: relative;
+    background: transparent !important;
+    border: none;
+    font-family: var(--default-font);
+    font-size: 1.1rem;
+    color: var(--default-font-color);
+    transition: font-weight 0.2s ease;
+}
+
+/* Hover effect */
+#btn-prev:hover,
+#btn-next:hover {
+    font-weight: 900;
+    text-shadow: 0.1px 0 var(--default-font-color),
+                 -0.1px 0 var(--default-font-color);
+}
+
+/* Top line */
+#btn-prev::before,
+#btn-next::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    width: 60px;
+    height: 20px;
+    background: url("../img/early-modern-era/line.svg") no-repeat center;
+    background-size: contain;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* Bottom line */
+#btn-prev::after,
+#btn-next::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    width: 60px;
+    height: 20px;
+    background: url("../img/early-modern-era/line.svg") no-repeat center;
+    background-size: contain;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* Show lines on hover */
+#btn-prev:hover::before,
+#btn-prev:hover::after,
+#btn-next:hover::before,
+#btn-next:hover::after {
+    opacity: 1;
+}
+/* =========================================
+   ITEM PAGE – TRANSPARENT TABLE (THEME 1)
+========================================= */
+
+.item-page table,
+.item-page .table,
+.item-page .table th,
+.item-page .table td {
+    background-color: transparent !important;
+    border-color: var(--vitali-black);
 }
