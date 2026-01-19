@@ -399,6 +399,7 @@ scaleX(-1) re-introduces the horizontal flip */
 }
 
 .navbar .layout-container .layout-options .trigger-style {
+    background-color: white;
     display: flex;
     align-items: center; /* vertical centering */
     justify-content: flex-end; /* Items are positioned at the end of the container */
@@ -441,8 +442,8 @@ scaleX(-1) re-introduces the horizontal flip */
 }
 
 .trigger-style .style-icon path {
-  fill: white !important;
-  stroke: white;
+  fill: black !important;
+  stroke: black;
 }
 
 .trigger-style:hover .style-label {

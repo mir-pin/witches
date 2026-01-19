@@ -175,8 +175,12 @@ p {
 }
 
 .trigger-style {
-  background-color: var(--erin-green);
-  filter: drop-shadow(0 0 7px var(--erin-green));
+  background-color: var(--erin-green) !important;
+}
+
+.style-label {
+  color: var(--electric-cyan) !important;
+  filter: drop-shadow(0 0 2px var(--electric-cyan));
 }
 
 #resetTheme svg path {
@@ -551,8 +555,8 @@ footer a:hover {
   fill: transparent !important;
 } */
 
-#entrance-door {
-  stroke: var(--erin-green);
+#entrance-door path {
+  stroke: var(--erin-green) !important;
 }
 
 #text-entrance-room,
