@@ -399,6 +399,7 @@ scaleX(-1) re-introduces the horizontal flip */
 }
 
 .navbar .layout-container .layout-options .trigger-style {
+    background-color: white;
     display: flex;
     align-items: center; /* vertical centering */
     justify-content: flex-end; /* Items are positioned at the end of the container */
@@ -441,8 +442,8 @@ scaleX(-1) re-introduces the horizontal flip */
 }
 
 .trigger-style .style-icon path {
-  fill: white !important;
-  stroke: white;
+  fill: black !important;
+  stroke: black;
 }
 
 .trigger-style:hover .style-label {
@@ -1313,7 +1314,7 @@ nav.navbar {
 .map-description {
   border: 2px solid var(--Greyscale-900);
   border-radius: 8px;
-  padding: 20px;
+  padding: 20px 40px;
 }
 
 @media (max-width: 576px) {
@@ -1329,6 +1330,29 @@ nav.navbar {
 
 .room-description {
 
+}
+
+.custom-room-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--default-font-color);
+  border-radius: 2rem;
+  color: var(--default-font-color);
+  text-decoration: none;           /* remove underline */
+  font-weight: 600;
+}
+
+.custom-room-btn:hover {
+  background-color: var(--default-font-color);
+  color: var(--background-color);
+  border: 1px solid var(--default-font-color);
+  /* transform: scale(1.05); */         /* subtle zoom */
+}
+
+.custom-room-btn.active {
+  background-color: var(--default-font-color);
+  color: var(--background-color);
+  border: 1px solid var(--default-font-color);
 }
 
 
