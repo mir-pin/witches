@@ -33,11 +33,7 @@ h1 {
     color: var(--charcoal-ink);
     text-transform: uppercase;
     text-align: center;
-    line-height: 0.85;
-    transform: scaleY(1.3); 
-    /* text-shadow: 
-        3px 3px 0px var(--paper-tone),
-        5px 5px 0px rgba(0,0,0,0.2); */
+    transform: scaleY(1.3);
 }
 
 /* Subheaders with "Rule Lines" */
@@ -53,10 +49,15 @@ h2, h3, h4, h5, h6 {
 
 /* Body Text: The "Newspaper" Look */
 p {
-    font-family: var(--text-font);
-    font-size: 1.15rem;
-    line-height: 1.4;
-    text-align: justify;
+  font-family: var(--text-font);
+  font-size: 1.15rem;
+  line-height: 1.4;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  margin-bottom: 0;
+  text-indent: 1em;
 }
 
 /* ---------------------------
@@ -68,8 +69,6 @@ p {
     padding: 2rem;
     background: var(--paper-tone);
     border: 2px solid var(--charcoal-ink);
-    /* outline: 6px solid var(--charcoal-ink);
-    outline-offset: 6px; */
 }
 
 
@@ -116,6 +115,10 @@ p {
 
 .navbar-toggler-icon {
   filter: brightness(0) saturate(100%) invert(25%) sepia(70%) saturate(1514%) hue-rotate(345deg) brightness(105%) contrast(97%);
+}
+
+.navbar .layout-container .layout-button {
+  border: 2px solid transparent;
 }
 
 .navbar .layout-container .layout-button:hover {
@@ -224,9 +227,12 @@ footer .copyright-text p {
 .introduction-title h1 {
     width: 100%; 
     max-width: 800px;
-    margin: -50px auto 20px auto; 
+    margin: -50px auto -30px auto; 
     display: block;
-    text-align: center;
+}
+
+.introduction-title h2 {
+  margin-top: 0;
 }
 
 .introduction-title h2::after,
@@ -245,6 +251,9 @@ footer .copyright-text p {
 
 .link-documentation a {
   border: none;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-radius: 2px;
   font-family: var(--sub-header-font);
   color: var(--burnt-terracotta);
   font-size: 1.2em;
@@ -253,24 +262,40 @@ footer .copyright-text p {
 .link-documentation a:hover {
   background-color: transparent;
   color: var(--burnt-terracotta);
-  border: 6px double var(--burnt-terracotta);
+  border-bottom: 2px solid var(--burnt-terracotta);
+  border-top: 2px solid var(--burnt-terracotta);
   border-radius: 2px;
+  transition: none !important;
+  transform: none !important;
 }
-
 
 
 /* -------------------------------
     5. MAP 
 --------------------------------- */
+.map .row > div {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
 .map-description {
   background-color: transparent;
   border: none;
-}
+  padding: 0;
+  column-count: 2;
+  column-gap: 3rem;
+  column-rule: 1px solid var(--charcoal-ink);
 
+}
 .map-description h2 {
   font-family: var(--default-font);
   font-size: 2em;
+  column-span: all;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
+
 
 /* .map-container svg {
   background: radial-gradient(
@@ -359,6 +384,9 @@ footer .copyright-text p {
 
 #explore-room-btn {
   border: none;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-radius: 2px;
   font-family: var(--sub-header-font);
   color: var(--burnt-terracotta);
   font-size: 1.2em;
@@ -367,10 +395,12 @@ footer .copyright-text p {
 #explore-room-btn:hover {
   background-color: transparent;
   color: var(--burnt-terracotta);
-  border: 6px double var(--burnt-terracotta);
+  border-bottom: 2px solid var(--burnt-terracotta);
+  border-top: 2px solid var(--burnt-terracotta);
   border-radius: 2px;
+  transition: none !important;
+  transform: none !important;
 }
-
 
 
 /* -------------------------------
@@ -503,13 +533,17 @@ footer .copyright-text p {
 /* -------------------------------
     8. ITEM PAGE 
 --------------------------------- */
-/* 1. THE OUTER FRAME */
 #item-container {
     border: 6px double var(--charcoal-ink);
 }
 
+.item-table {
+    gap: 2rem; 
+}
+
 .table-box {
-    border: 2px solid var(--charcoal-ink)
+    background-color: transparent;
+    /* border: 2px solid var(--charcoal-ink); */
 }
 
 .item-box img {
@@ -547,7 +581,8 @@ footer .copyright-text p {
 
 .text-box button {
   font-family: var(--sub-header-font);
-  border: none;
+  border: 2px solid transparent;
+  border-radius: 2px;
   color: var(--charcoal-ink);
 }
 
@@ -556,6 +591,8 @@ footer .copyright-text p {
   color: var(--charcoal-ink);
   border: 2px solid var(--charcoal-ink);
   border-radius: 2px;
+  transform: none;
+  transition: none;
 }
 
 .text-box button.active {
@@ -593,3 +630,23 @@ footer .copyright-text p {
   font-family: var(--text-font);
   color: var(--burnt-terracotta) !important;
 }
+
+@media (min-width: 768px) {
+    .item-box, .table-box {
+        width: auto !important; 
+        flex: 1; 
+    }
+}
+
+
+/* -------------------------------
+    9. DOCUMENTATION
+--------------------------------- */
+.documentation-page h3, h4 {
+  border-bottom: 2px solid var(--charcoal-ink);
+}
+
+.documentation-page h5, h6 {
+  border: none;
+}
+

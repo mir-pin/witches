@@ -573,9 +573,9 @@ scaleX(-1) re-introduces the horizontal flip */
 }
 
 .carousel-inner {
+  position: relative;
   width: 100%;
   height: 100%;
-  position: relative;
 }
 
 .carousel-item {
@@ -632,27 +632,26 @@ scaleX(-1) re-introduces the horizontal flip */
 .introduction,
 .link-documentation {
   max-width: 90%;
-  margin: 4rem auto;            /* centers the section horizontally */
-  padding: 0 1rem;              /* small horizontal breathing space */
-  text-align: center;           /* centers heading and button */
+  margin: 4rem auto;
+  padding: 0 1rem;
+  text-align: center;
 }
 
 .introduction-title h2::after,
 .documentation-title h2::after {
   content: "";
   display: block;
-  width: 60px;             /* line length */
-  height: 2px;             /* line thickness */
-  background: var(--default-font-color);        /* color */
-  margin: 1em auto 1em;  /* spacing and centering */
+  width: 60px;
+  height: 2px;
+  background: var(--default-font-color);
+  margin: 1em auto 1em;
 }
 
-/* Hide the curve by default */
+/* hide the curve of theme 2 by default */
 .introduction-title h1 .curved-svg {
     display: none;
 }
 
-/* Ensure normal text is visible */
 .introduction-title h1 .std-text {
     display: block;
 }
@@ -792,127 +791,124 @@ footer a {
   color: black;
 }
 
+
+
 /* ----------------- Toggle Section ----------------- */
-/* The Rectangle Container */
 .toggle-frame {
-    /* 1. Stickiness */
-    position: sticky;
-    top: 96px; /* Matches default navbar height */
-    z-index: 990;
-
-    /* 2. Rectangle Styling */
-    width: 100%;
-    background-color: white;
-    padding: 16px 0;
-    margin: 0;
-    box-sizing: border-box;
-
-    /* 3. FLEX LAYOUT (The Fix) */
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Distribute space */
+  position: sticky;
+  top: 96px;
+  z-index: 990;
+  width: 100%;
+  background-color: var(--background-color);
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
-/* LEFT SIDE: Takes up exactly 50% of free space */
-#labelChrono {
-    flex: 1; /* This forces it to take up all space to the left */
-    text-align: right; /* Pushes text towards the center */
-    padding-right: 24px; /* Gap from toggle */
-    white-space: nowrap;
-}
-
-/* CENTER: Fixed Width Toggle */
-.toggle-pill {
-    flex: 0 0 128px; /* Do not grow, Do not shrink, Stay 128px */
-    height: 68px;
-    padding: 4px;
-    border-radius: 200px;
-    border: 1px solid #1A1A1A;
-    position: relative;
-    cursor: pointer;
-    background: white;
-}
-
-/* RIGHT SIDE: Takes up exactly 50% of free space */
+#labelChrono, 
 #labelEras {
-    flex: 1; /* Forces it to match the width of the left side */
-    text-align: left; /* Pushes text towards the center */
-    padding-left: 24px; /* Gap from toggle */
-    white-space: nowrap;
+  flex: 1; 
+  width: 50%;
 }
 
-/* --- Internal Toggle Parts (Knob/Icons) --- */
+#labelChrono {
+  text-align: right;
+  padding-right: 12px;
+}
+
+#labelEras {
+  text-align: left;
+  padding-left: 12px;
+}
+
+.toggle-pill {
+  width: 128px;
+  height: 68px;
+  background: var(--background-color);
+  border: 1px solid var(--default-font-color);
+  border-radius: 200px;
+  position: relative;
+  cursor: pointer;
+  flex: 0 0 128px !important;
+}
+
 .toggle-knob {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: #191919;
-    top: 4px;
-    left: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    transition: left 0.3s ease;
+  width: 60px !important;
+  height: 60px !important;
+  background: var(--default-font-color);
+  border-radius: 50%;
+
+  position: absolute;
+  top: 3px !important;
+  left: 3px !important;
+
+  transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
 }
 
-.toggle-knob img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    margin: 10px;
+.toggle-pill.eras-active .toggle-knob {
+  transform: translateX(60px) !important; 
 }
 
-.inactive-icon {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 4px; /* Default position for inactive icon */
-    z-index: 1;
-    transition: left 0.3s ease;
+.inactive-icon-wrapper {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 18px !important; 
+  left: auto !important;
 }
 
-/* Text Styling */
+.toggle-pill.eras-active .inactive-icon-wrapper {
+  right: auto !important;
+  left: 18px !important;
+}
+
+
+/* ICON COLORS */
+.toggle-knob svg path, 
+.toggle-knob svg rect {
+  fill: var(--background-color) !important;
+}
+
+.inactive-icon-wrapper svg path,
+.inactive-icon-wrapper svg rect {
+  fill: var(--default-font-color) !important;
+}
+
 .toggle-text {
-    font-size: 24px;
-    font-family: "Times New Roman";
-    cursor: pointer;
-    transition: font-weight 0.3s ease;
-    color: var(--default-font-color);
+  font-size: 24px;
+  font-family: var(--default-font);
+  cursor: pointer;
+  color: var(--default-font-color);
+  transition: opacity 0.3s ease;
+  text-align: center;
 }
 
 .active-text {
     font-weight: 700;
 }
 
-#toggleIcon path {
-  fill: var(--Greyscale-50);
-}
-
-/* Mobile Adjustment: Make text smaller so it doesn't break */
 @media (max-width: 480px) {
-    .toggle-frame {
-        padding: 10px 5px;
-        top: 80px; /* Adjust for smaller mobile navbar */
-    }
-    .toggle-text { font-size: 16px; }
-    #labelChrono { padding-right: 10px; }
-    #labelEras { padding-left: 10px; }
-    .toggle-pill {
-        flex: 0 0 100px; /* Smaller toggle on mobile */
-        height: 50px;
-    }
-    .toggle-knob {
-        width: 45px; height: 45px; top: 2.5px; left: 2.5px;
-    }
-    .toggle-knob img { width: 30px; height: 30px; margin: 7px; }
-    .inactive-icon { width: 30px; height: 30px; }
+  .toggle-frame { top: 80px; gap: 12px; }
+  .toggle-text { font-size: 16px; }
+  .toggle-pill { width: 100px; height: 50px; }
+  .toggle-knob { width: 42px; height: 42px; top: 3px; left: 3px; }
+  .toggle-pill.eras-active .toggle-knob { transform: translateX(50px); }
+  #toggleIcon, #inactiveIcon { width: 24px; height: 24px; }
+  .inactive-icon-wrapper { right: 12px; }
 }
-/* --- ERA CARDS UNDER TOGGLE --- */
 
+/* --- ERA CARDS UNDER TOGGLE --- */
 /* add padding-bottom to container eras */
 .p-3 {
   padding-bottom: 12px;
@@ -1060,22 +1056,6 @@ nav.navbar {
   top: 0;
   z-index: 10001;                /* above header background */
   background: transparent;       /* header provides background */
-}
-
-/* Keep the toggle placed under the navbar using the same variable */
-/* === Toggle stays centered under navbar === */
-.toggle-frame {
-    position: sticky;
-    top: var(--nav-height);
-    z-index: 9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-    width: 100%;
-    background: white;
-    padding: 12px 0;
-    box-sizing: border-box;
 }
 
 
@@ -1390,31 +1370,52 @@ nav.navbar {
 /* -------------------------
     ITEM PAGE
 ---------------------------- */
-/* Ensures the top row containers have equal height on desktop/tablet */
-.item-table > .col-12 {
-    /* Set a minimum height on the columns themselves, not the row */
-    min-height: 350px;
+.item-table {
+    align-items: stretch; 
 }
 
-/* Base style for all content containers */
-.item-box, .table-box, .text-box {
+.item-box {
+    flex-direction: column; 
+    position: relative;
+    min-height: 300px; 
+}
+
+.item-box a {
+    display: block;
+    width: 100%;
+    flex: 1 1 auto; 
     height: 100%;
-    overflow: hidden;
-    padding: 1rem;
-    box-sizing: border-box;
+    position: relative;
 }
 
 .item-box img {
     width: 100%;
-    aspect-ratio: 4/3;
-    display: block;
+    height: 100%;       
     object-fit: cover;
     object-position: center;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .table-box {
-    padding: 0 1.5rem 1.5rem 1.5rem;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    padding: 1.5rem;
+    background-color: var(--background-color);
+}
+
+@media (max-width: 767.98px) {
+    .item-box {
+        height: 300px;
+    }
+    
+    .item-box img {
+        position: relative;
+    }
 }
 
 .table {
@@ -1464,7 +1465,7 @@ nav.navbar {
 }
 
 #item-description-display {
-  margin: 4rem auto;
+  margin: 4rem auto 1rem auto;
   padding: 0 1rem;
   text-align: center;
   text-align: justify;
@@ -1477,7 +1478,7 @@ nav.navbar {
   color: var(--default-font-color);
   text-decoration: none;           /* remove underline */
   font-weight: 600;
-  margin-top: 1.5rem;
+  margin-top: 0;
 }
 
 .card-footer button:hover {

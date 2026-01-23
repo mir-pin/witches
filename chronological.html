@@ -100,12 +100,12 @@
                                 <img class="style-icon" src="img/early-modern-era/theme1.svg" alt="Style 1">
                             </li>
                             <li class="trigger-style" data-theme="theme2">
-                                <span class="style-label" style="font-family: 'IM Fell English', serif;">Romanticism</span>
-                                <img class="style-icon" src="img/romanticism/icon.svg" alt="Style 2">
+                                <span class="style-label" style="font-family: 'Abril Fatface', serif;">Penny Dreadfuls</span>
+                                <img class="style-icon" src="img/penny/icon.svg" alt="Style 2">
                             </li>
                             <li class="trigger-style" data-theme="theme3">
-                                <span class="style-label" style="font-family: 'Bocklin', sans-serif;">Art Nouveau</span>
-                                <img class="style-icon" src="img/layoutbuttonEX.png" alt="Style 3">
+                                <span class="style-label" style="font-family: 'Kolo W01 RegularLP', sans-serif;">Vienna Secession</span>
+                                <img class="style-icon" src="img/vienna-secession/icon.svg" alt="Style 3">
                             </li>
                             <li class="trigger-style" data-theme="theme4">
                                 <span class="style-label" style="font-family: 'Press Start 2P', cursive;"> Windows 95</span>
@@ -142,7 +142,7 @@
                 <span id="labelChrono" class="toggle-text active-text">Chronological</span>
 
                 <!-- The Toggle Pill -->
-                <div class="toggle-pill">
+                <div class="toggle-pill" id="togglePill">
                     <!-- Active Icon inside Knob -->
                     <div class="toggle-knob">
                         <!-- <img id="toggleIcon" src="img/chronological-active.svg" alt="Active Icon"> -->
@@ -158,11 +158,13 @@
 
                     <!-- Inactive Icon on the opposite side -->
                     <!-- <img id="inactiveIcon" class="inactive-icon" src="img/eras-inactive.svg" alt="Inactive Icon"> -->
-                    <svg id="inactiveIcon" class="inactive-icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="3.2207" y="9.98828" width="8.88889" height="8.88889" rx="1.11111" fill="#333333"/>
-                        <rect x="19.002" y="20.1064" width="17.7778" height="17.7778" rx="2.22222" fill="#333333"/>
-                        <rect x="19.002" y="2.11621" width="13.3333" height="13.3333" rx="2.22222" fill="#333333"/>
-                    </svg>
+                    <div class="inactive-icon-wrapper">
+                        <svg id="inactiveIcon" class="inactive-icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3.2207" y="9.98828" width="8.88889" height="8.88889" rx="1.11111" fill="#333333"/>
+                            <rect x="19.002" y="20.1064" width="17.7778" height="17.7778" rx="2.22222" fill="#333333"/>
+                            <rect x="19.002" y="2.11621" width="13.3333" height="13.3333" rx="2.22222" fill="#333333"/>
+                        </svg>
+                    </div>  
                 </div>
 
                 <!-- Right Label -->

@@ -93,12 +93,12 @@
                             <img class="style-icon" src="img/early-modern-era/theme1.svg" alt="Style 1">
                         </li>
                         <li class="trigger-style" data-theme="theme2">
-                            <span class="style-label" style="font-family: 'IM Fell English', serif;">Romanticism</span>
-                            <img class="style-icon" src="img/romanticism/icon.svg" alt="Style 2">
+                            <span class="style-label" style="font-family: 'Abril Fatface', serif;">Penny Dreadfuls</span>
+                            <img class="style-icon" src="img/penny/icon.svg" alt="Style 2">
                         </li>
                         <li class="trigger-style" data-theme="theme3">
-                            <span class="style-label" style="font-family: 'Federo', sans-serif;">Vienna Secession</span>
-                            <img class="style-icon" src="img/art-nouveau/icon.svg" alt="Style 3">
+                            <span class="style-label" style="font-family: 'Kolo W01 RegularLP', sans-serif;">Vienna Secession</span>
+                            <img class="style-icon" src="img/vienna-secession/icon.svg" alt="Style 3">
                         </li>
                         <li class="trigger-style" data-theme="theme4">
                             <span class="style-label" style="font-family: 'Press Start 2P', cursive;"> Windows 95</span>
@@ -132,64 +132,58 @@
 
             <div class="container mt-4 mb-4 p-4" id="item-container">
                 <div class="row gx-0 mb-4 item-table">
-                    <div class="col-12 col-md-6 col-lg-6 d-flex mb-4 mb-md-0">
-                        <div class="item-box w-100 me-md-2">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" aria-label="Enlarge Image" class="d-block w-100 h-100">
-                                <img src="" alt="" id="item-image-display">
-                            </a>
-                        </div>
+                    <div class="col-12 col-md-6 d-flex mb-0 item-box">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" aria-label="Enlarge Image" class="d-block w-100 h-100">
+                            <img src="" alt="" id="item-image-display">
+                        </a>
                     </div>
 
-                    <div class="col-12 col-md-6 col-lg-6 d-flex">
-                        <div class="table-box w-100 ms-md-2">
-                            <table class="table">
-                                <thead>
-                                    <tr><th colspan="2" id="item-title"></th></tr>
-                                </thead>
-                                <tbody id="metadata-tbody">
-                                    <tr>
-                                        <th>Creator</th>
-                                        <td id="item-creator"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Type</th>
-                                        <td id="item-type"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Date</th>
-                                        <td id="item-date"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Location</th>
-                                        <td id="item-location"></td>
-                                    </tr>
-                                    <tr>
-                                        <th>Room</th>
-                                        <td id="item-room"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="col-12 col-md-6 d-flex table-box">
+                        <table class="table">
+                            <thead>
+                                <tr><th colspan="2" id="item-title"></th></tr>
+                            </thead>
+                            <tbody id="metadata-tbody">
+                                <tr>
+                                    <th>Creator</th>
+                                    <td id="item-creator"></td>
+                                </tr>
+                                <tr>
+                                    <th>Type</th>
+                                    <td id="item-type"></td>
+                                </tr>
+                                <tr>
+                                    <th>Date</th>
+                                    <td id="item-date"></td>
+                                </tr>
+                                <tr>
+                                    <th>Location</th>
+                                    <td id="item-location"></td>
+                                </tr>
+                                <tr>
+                                    <th>Room</th>
+                                    <td id="item-room"></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
                 <div class="row g-4 pb-4">
-                    <div class="col-12">
-                        <div class="text-box">
-                            <div class="mb-3 d-flex flex-column flex-md-row align-items-center justify-content-center buttons-box">
-                                <div class="btn-group" role="group" id="length-buttons">
-                                    <button class="btn btn-sm btn-outline-dark active" data-length="short">Short</button>
-                                    <button class="btn btn-sm btn-outline-dark" data-length="medium">Medium</button>
-                                    <button class="btn btn-sm btn-outline-dark" data-length="long">Long</button>
-                                </div>
-                                <div class="btn-group mt-3 mt-md-0 ms-md-5" role="group" id="tone-buttons">
-                                    <button class="btn btn-sm btn-outline-dark" data-tone="fun-kid">Kid</button>
-                                    <button class="btn btn-sm btn-outline-dark active" data-tone="educational-adult">Adult</button>
-                                    <button class="btn btn-sm btn-outline-dark" data-tone="scholar">Scholar</button>
-                                </div>
+                    <div class="col-12 text-box">
+                        <div class="mb-3 d-flex flex-column flex-md-row align-items-center justify-content-center buttons-box">
+                            <div class="btn-group" role="group" id="length-buttons">
+                                <button class="btn btn-sm btn-outline-dark active" data-length="short">Short</button>
+                                <button class="btn btn-sm btn-outline-dark" data-length="medium">Medium</button>
+                                <button class="btn btn-sm btn-outline-dark" data-length="long">Long</button>
                             </div>
-                            <p id="item-description-display"></p>
+                            <div class="btn-group mt-3 mt-md-0 ms-md-5" role="group" id="tone-buttons">
+                                <button class="btn btn-sm btn-outline-dark" data-tone="fun-kid">Kid</button>
+                                <button class="btn btn-sm btn-outline-dark active" data-tone="educational-adult">Adult</button>
+                                <button class="btn btn-sm btn-outline-dark" data-tone="scholar">Scholar</button>
+                            </div>
                         </div>
+                        <p id="item-description-display"></p>
                     </div>
                     
                     <div class="card-footer d-flex justify-content-between">

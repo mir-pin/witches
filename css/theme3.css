@@ -21,7 +21,7 @@
     2. Global Reset & Typography
 ------------------------------- */
 body {
-    background-image: url("../img/art-nouveau/background.jpg");
+    background-image: url("../img/vienna-secession/background.jpg");
     background-color: var(--warm-canvas);
     background-size: 100% 100%;
     background-attachment: fixed;
@@ -693,4 +693,13 @@ footer .copyright-text p {
 #room-nav-controls span {
   font-family: var(--text-font);
   color: var(--hexed-walnut) !important;
+}
+
+/* -------------------------------
+    9. DOCUMENTATION
+--------------------------------- */
+.documentation-box {
+  background-color: var(--warm-canvas);
+  border: 2px solid var(--hexed-walnut);
+  border-radius: 2px;
 }
