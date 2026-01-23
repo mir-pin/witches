@@ -894,7 +894,8 @@ footer a:hover {
 }
 
 
-/* Target all buttons: length, tone, previous/next */
+/* Target all buttons: length, tone, previous/next + explore room items in map page*/
+.custom-room-btn,
 #length-buttons .btn, 
 #tone-buttons .btn, 
 #btn-prev, #btn-next,
@@ -917,6 +918,7 @@ footer a:hover {
 }
 
 /* Setup the Pseudo-element for the glitch overlay */
+.custom-room-btn::after,
 #length-buttons .btn::after,
 #tone-buttons .btn::after, 
 #btn-prev::after, 
@@ -952,7 +954,10 @@ footer a:hover {
 #room-nav-controls .btn:nth-of-type(1)::after { content: 'Prev Room'; }
 #room-nav-controls .btn:nth-of-type(2)::after { content: 'Next Room'; }
 
+.custom-room-btn::after { content: 'Explore Room Items'; }
+
 /* Hover State Effects */
+.custom-room-btn:hover,
 #length-buttons .btn:hover,
 #tone-buttons .btn:hover, 
 #btn-prev:hover, 
@@ -964,6 +969,7 @@ footer a:hover {
   box-shadow: var(--glow-green);
 }
 
+.custom-room-btn:hover::after,
 #length-buttons .btn:hover::after,
 #tone-buttons .btn:hover::after, 
 #btn-prev:hover::after, 

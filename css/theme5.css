@@ -385,8 +385,12 @@ footer a:hover {
   background-repeat: no-repeat;
 }
 
-/* Link to documentation */
-.link-documentation a {
+/* ----- Buttons ------ */
+
+/* Link to documentation + "Explore room items" button in map page*/
+
+.link-documentation a,
+.custom-room-btn {
   font-family: var(--font-secondary);
   border: 2px solid var(--neon-pink);  /* outlined look */
   background-color: var(--neon-pink);
@@ -398,7 +402,8 @@ footer a:hover {
   rotate: -3deg;
 }
 
-.link-documentation a:hover {
+.link-documentation a:hover,
+.custom-room-btn:hover {
   background-color: transparent;
   color: var(--neon-pink);
   transform: scale(1.10); 
@@ -413,6 +418,7 @@ footer a:hover {
   stroke: #1D1D1D;
 }
 
+#text-entrance-room,
 #text-first-room, 
 #text-second-room, 
 #text-third-room,
@@ -423,12 +429,30 @@ footer a:hover {
 }
 
 /* Define the hover effect */
+#entrance-room:hover,
 #first-room:hover,
 #second-room:hover,
 #third-room:hover, 
 #fourth-room:hover {
   /* This rule will override the default rule above */
   fill: var(--vanilla-cream) !important; 
+}
+
+#entrance-room.active,
+#first-room.active,
+#second-room.active,
+#third-room.active, 
+#fourth-room.active {
+  /* This rule will override the default rule above */
+  fill: var(--vanilla-cream) !important; 
+}
+
+#entrance-room.active + #text-entrance-room,
+#first-room.active + #text-first-room,
+#second-room.active + #text-second-room,
+#third-room.active + #text-third-room, 
+#fourth-room.active + #text-fourth-room {
+  fill: var(--classic-crimson) !important;
 }
 
 .map-description {
@@ -614,6 +638,7 @@ footer a:hover {
   width: 80px; /* Width of the tape strip */
   height: 30px; /* Height/thickness of the tape strip */
   background-color: rgba(77, 63, 41, 0.95); /* Translucent tan/masking tape color */
+  clip-path: polygon(2% 0%, 98% 1%, 100% 15%, 98% 85%, 100% 100%, 2% 99%, 0% 85%, 2% 15%);
   z-index: 99; /* Make sure the tape is on top of the image */
   /* Add a subtle shadow to the tape to make it look raised */
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
@@ -668,7 +693,206 @@ footer a:hover {
 .item-date {
   margin-top: 10px;
   color: var(--carbon-black);
+  font-family: var(--font-headers);
+  text-transform: uppercase;
+  letter-spacing: 1px;
   font-weight: 500;
 }
 
+/* ----------------------
+       ITEM PAGE 
+------------------------ */
 
+/* Container for the whole item */
+#item-container {
+    background-color: var(--vanilla-cream);
+    border: 1px solid #ddd;
+    box-shadow: 8px 8px 0px var(--carbon-black); /* Hard retro shadow */
+    position: relative;
+    overflow: visible;
+}
+
+/* The Image Box: "Taped" into place */
+.item-box {
+    position: relative;
+    padding: 15px;
+    background: var(--classic-crimson);
+    border: 1px solid #ccc;
+    transform: rotate(-1.5deg); /* Slight tilt */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.item-box img {
+    filter: contrast(1.1) grayscale(0.2); /* Subtle vintage photo look */
+}
+
+/* Adding Tape to the item image specifically */
+.item-box::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 20%;
+    width: 100px;
+    height: 35px;
+    background-color: rgba(77, 63, 41, 0.95); /* Translucent tan/masking tape color */
+    transform: rotate(2deg);
+    z-index: 10;
+    clip-path: polygon(2% 0%, 98% 1%, 100% 15%, 98% 85%, 100% 100%, 2% 99%, 0% 85%, 2% 15%);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+
+.table-box {
+    background: #fff;
+    border: 2px dashed var(--silver); /* Looks like a cut-out line */
+    padding: 20px;
+    transform: rotate(1deg);
+}
+
+#item-title {
+    font-family: var(--font-headers);
+    color: var(--classic-crimson);
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    border-bottom: 3px solid var(--carbon-black) !important;
+    padding-bottom: 10px;
+}
+
+#metadata-tbody th {
+    font-family: var(--font-secondary);
+    text-transform: uppercase;
+    color: var(--neon-pink);
+    letter-spacing: 1px;
+}
+
+#metadata-tbody td {
+    font-family: "Courier New", Courier, monospace; /* Typewriter font */
+    font-weight: bold;
+    color: var(--carbon-black);
+}
+
+/* Remove default table styling to keep it raw */
+.table {
+    --bs-table-bg: transparent;
+    border-collapse: collapse;
+}
+
+
+/* Base style for all "Tape" buttons */
+#length-buttons .btn, 
+#tone-buttons .btn,
+#btn-prev, #btn-next {
+    background-color: rgba(77, 63, 41, 0.95); /* Translucent tan/masking tape color */
+    color: var(--vanilla-cream) !important;
+    font-family: var(--font-headers);
+    text-transform: uppercase;
+    border: none !important;
+    padding: 8px 25px;
+    margin: 5px;
+    position: relative;
+    border-radius: 0;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    
+    /* The "Torn Edge" Look */
+    clip-path: polygon(
+        1% 2%, 98% 0%, 100% 12%, 99% 88%, 
+        100% 100%, 2% 98%, 0% 85%, 1% 15%
+    );
+}
+
+/* Rotation randomness to keep it "hand-placed" */
+#btn-prev { transform: rotate(-2deg); }
+#btn-next { transform: rotate(1.5deg); }
+
+#length-buttons, #tone-buttons {
+    transform: none; 
+    display: flex;
+    gap: 10px;
+}
+
+/* Rotate individual buttons slightly and randomly */
+#length-buttons .btn:nth-child(odd),
+#tone-buttons .btn:nth-child(even) {
+    transform: rotate(-1.5deg);
+}
+
+#length-buttons .btn:nth-child(even),
+#tone-buttons .btn:nth-child(odd) {
+    transform: rotate(1.2deg);
+}
+
+/* Reset rotation on hover/active so they "straighten out" when interacted with */
+#length-buttons .btn:hover, 
+#tone-buttons .btn:hover,
+#length-buttons .btn.active,
+#tone-buttons .btn.active {
+    transform: rotate(0deg) scale(1.05);
+    z-index: 10; /* Ensure the active one sits on top */
+}
+
+/* The "Active" or "Hover" Tape (Colored Tape) */
+#length-buttons .btn:hover, 
+#tone-buttons .btn:hover {
+    background-color: var(--classic-crimson) !important;
+    color: white !important;
+    transform: scale(1.05) rotate(0deg);
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.2);
+    opacity: 1;
+}
+
+
+#length-buttons .btn.active, 
+#tone-buttons .btn.active,
+#btn-prev:hover, #btn-next:hover {
+    background-color: var(--neon-pink) !important;
+    color: white !important;
+    transform: scale(1.05) rotate(0deg);
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.2);
+    opacity: 1;
+}
+
+/* Add a slight "grain" texture to the tape */
+.btn-tape::after, 
+#length-buttons .btn::after, 
+#tone-buttons .btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.1'/%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
+
+.text-box {
+    column-count: 1; /* You can change to 2 for a newspaper feel on large screens */
+    padding: 20px;
+    background-image: radial-gradient(var(--silver) 0.5px, transparent 0.5px); /* Subtle paper tooth/dots */
+    background-size: 10px 10px;
+}
+
+#item-description-display {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    text-align: justify;
+    border-left: 4px solid var(--neon-pink);
+    padding-left: 15px;
+}
+
+/* !!!! start from here */
+
+.card-footer {
+    border: none; /* Remove the standard line */
+    background: transparent;
+    padding-top: 25px;
+}
+
+/* Make the Room Nav look like a smaller, typed scrap of paper underneath */
+#room-nav-controls {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-family: "Courier New", monospace;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+    transform: rotate(-1deg);
+}
