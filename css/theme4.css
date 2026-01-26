@@ -829,3 +829,15 @@ footer {
     pointer-events: none; 
 }
 
+.documentation-title {
+    background-color: var(--win-blue) !important; /* Dark blue */
+    color: var(--win-white) !important;           /* Force text to white */
+
+    /* Remove all spacing around the heading */
+    margin: -100 !important;          /* eliminates top, bottom, left, right spacing */
+    padding: 8px 12px !important;  /* internal padding for the text */
+
+    display: block;                /* ensures full width */
+    width: 100vw !important;       /* full viewport width */
+    box-sizing: border-box;        /* ensures padding is included in width */
+}
