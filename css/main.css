@@ -1532,8 +1532,8 @@ nav.navbar {
     DOCUMENTATION PAGE
 ---------------------------- */
 
-.documentation-page ul:not(.list-unstyled),
-.documentation-page ol:not(.list-unstyled) {
+#documentation ul:not(.list-unstyled),
+#documentation ol:not(.list-unstyled) {
   font-family: var(--default-font);
   color: var(--default-font-color);
   max-width: 85ch;
@@ -1548,6 +1548,6 @@ nav.navbar {
   padding-inline: clamp(1rem, 3vw, 2rem);
 }
 
-.documentation-page li {
+#documentation li {
   margin-bottom: 0.5rem;
 }
