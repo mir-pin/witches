@@ -804,7 +804,7 @@ footer a {
 /* ----------------- Toggle Section ----------------- */
 .toggle-frame {
   position: sticky;
-  top: 96px;
+  top: var(--nav-height);
   z-index: 990;
   width: 100%;
   background-color: var(--background-color);
