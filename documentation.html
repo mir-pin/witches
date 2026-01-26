@@ -153,7 +153,7 @@
                     <!-- 1. General scope and purpose -->
                     <h2 id="#1.general">1. General scope and purpose</h2>
                     <p>
-                        The virtual exhibition <em>Witches Through Time</em> was developed in alignment with the principles of the
+                        The virtual exhibition <em>Witches Through Time: From Myth to Empowerment</em> was developed in alignment with the principles of the
                         <em>Multimedia Museum Meta Mirror</em> project, designed by Professor Fabio Vitali within the course
                         <em>Information Modeling and Web Technologies</em> at the University of Bologna.
                     </p>
@@ -178,7 +178,7 @@
                     </p>
 
                     <p>
-                        In addition, the project includes mandatory features such as switchable typography themes, whose design choices
+                        In addition, the project includes mandatory features such as switchable themes, whose design choices
                         and conceptual motivations are discussed and justified in the third chapter of the documentation.
                     </p>                    
                     <!-- 1.1 Exhibition theme and concept -->
@@ -233,7 +233,7 @@
                     <h4>Justification of text versions</h4>
 
                         <p>
-                            The content of <em>Witches Through Time: From Myth to Empowerment</em> was conceived to reflect both the thematic
+                            The content of <em>Witches Through Time</em> was conceived to reflect both the thematic
                             complexity of the exhibition and the diversity of its potential audiences. Given the historical depth, political
                             sensitivity, and cultural stratification of the figure of the witch, particular attention was paid to how
                             information is mediated through text. Rather than assuming a single, universal visitor, the project adopts a
@@ -242,10 +242,7 @@
                         </p>
 
                         <p>
-                            As required by the project guidelines, the exhibition offers visitors the possibility to switch between different
-                            textual descriptions for each item. These descriptions vary according to length, level of competence, and
-                            communicative intent, allowing users to choose the version that best suits their interests, prior knowledge, and
-                            reading preferences.
+                            As required by the project guidelines, there are three main categories for the audience, introduced as personas: a teacher in a middle school, a businessman from out of town and a PhD student. Therefore, the exhibition offers visitors the possibility to switch between different textual descriptions for each item. These descriptions vary according to length, level of competence, and communicative intent, allowing users to choose the version that best suits their interests, prior knowledge, and reading preferences.
                         </p>
 
                         <h4>Defining the dimensions</h4>
@@ -359,7 +356,7 @@
 
                         <p>
                             In the context of <em>Witches Through Time</em>, this approach is particularly significant. The figure of the
-                            witch carries layered meanings—mythological, historical, political and symbolic—that cannot be communicated
+                            witch carries layered meanings, mythological, historical, political and symbolic, that cannot be communicated
                             effectively through a single narrative register. Multiple text versions allow the exhibition to address these
                             layers responsibly, making space for education, critical reflection and scholarly inquiry while remaining
                             accessible to younger and non-specialist audiences.
@@ -423,9 +420,9 @@
                         <p>
                             This absence reflects the curatorial position that the history of witchcraft does not follow a
                             linear or progressive trajectory, but instead repeats and transforms across time. Consequently,
-                            the exhibition has no definitive center or conclusive endpoint: the final room reopens the
-                            narrative rather than closing it, reinforcing the exhibition’s central question of when, and
-                            under what conditions, the witch hunt truly ends.
+                            the exhibition has no definitive center or conclusive endpoint; the final room reopens the
+                            narrative rather than closing it, reinforcing the exhibition’s central question: when, and
+                            under what conditions, the witch hunt truly ends?
                         </p>
                     <!-- 1.4 Metadata model and standards -->
                     <h3 id="#1.4Metadata-model">1.4 Metadata model and standards</h3>
@@ -444,7 +441,7 @@
                     <h3>2.1 Index Page</h3>
                     <p>
                         The Index page functions as the primary point of access to the digital exhibition
-                        <em>Witches Through Time: From Myth to Empowerment</em>. Rather than operating as a neutral menu
+                        <em>Witches Through Time</em>. Rather than operating as a neutral menu
                         or informational landing page, the homepage is conceived as a threshold experience, designed
                         to introduce visitors to the exhibition’s atmosphere, themes, and narrative logic before any
                         explicit curatorial content is presented.
@@ -578,7 +575,7 @@
                     <h3>2.3 Exhibition Page</h3>
                     <p>
                         The Exhibition page functions as the central curatorial hub of
-                        <em>Witches Through Time: From Myth to Empowerment</em>. Accessible directly from the navigation
+                        <em>Witches Through Time</em>. Accessible directly from the navigation
                         bar, this page does not present items itself, but instead defines how the collection can be
                         explored. Its primary role is to introduce and mediate between two distinct modes of access
                         to the exhibition content: <strong>Chronological</strong> and <strong>Eras</strong>, each
@@ -652,10 +649,10 @@
                     <!-- 2.4 Item Page -->
                     <h3>2.4 Item Page</h3>
                     <p>
-                        The Item Page is designed as a responsive, modular interface that adapts its layout based on the device screen size using the Bootstrap grid system. The structure is divided into two primary sections: the <strong>upper section</strong> contains the interactive <u>item image</u>, clicking on that triggers a Bootstrap Modal for a high-resolution detailed view, and the <u>metadata table</u> which provides standardized information about the artifact; the <strong>lower section</strong> contains the <u>descriptive content</u> and allows visitors to choose between different text lengths (Short, Medium, Long) and tones (Kid, Adult, Scholar). The navigation controls are positioned at the bottom, dynamically updating based on the selected narrative mode.
+                        The Item Page is designed as a responsive, modular interface that adapts its layout based on the device screen size using the Bootstrap grid system. The structure is divided into two primary sections. The <strong>upper section</strong> contains the interactive <u>item image</u>, clicking on that triggers a Bootstrap Modal for a high-resolution detailed view, and the <u>metadata table</u> which provides standardized information about the artifact. The <strong>lower section</strong> contains the <u>descriptive content</u> and allows visitors to choose between different text lengths (Short, Medium, Long) and tones (Kid, Adult, Scholar). The navigation controls are positioned at the bottom, dynamically updating based on the selected narrative mode.
                     </p>
                     <p>
-                        To ensure that every artifact in the collection is uniquely addressable and accessible directly from external pages (such as the Exhibition section), the application implements a <strong>URL parameter system</strong>. Each item is identified by a unique key passed via the ?id=parameter. Additionally, a ?narrative= parameter tracks the user’s navigational context (eras or chronological). Upon loading, the script inspects the browser’s URL query string using URLSearchParams. If a valid ID is found, the system immediately initializes the view with that specific item and sets the correct narrative context via the switchNarrative() function. If no ID is present, it defaults to the first item in the chronological sequence. This approach ensures that users can bookmark specific items or navigate seamlessly from other pages to a detailed view without losing their place in the narrative structure.
+                        To ensure that every artifact in the collection is uniquely addressable and accessible directly from external pages (such as the Exhibition page), the application implements a <strong>URL parameter system</strong>. Each item is identified by a unique key passed via the ?id=parameter. Additionally, a ?narrative=parameter tracks the user’s navigational context (eras or chronological). Upon loading, the script inspects the browser’s URL query string using URLSearchParams. If a valid ID is found, the system immediately initializes the view with that specific item and sets the correct narrative context via the switchNarrative() function. If no ID is present, it defaults to the first item in the chronological sequence. This approach ensures that users can bookmark specific items or navigate seamlessly from other pages to a detailed view without losing their place in the narrative structure.
                     </p>
                     <p>
                         The Item Page functions as a data-driven template. Content is injected dynamically via JavaScript, ensuring scalability and ease of maintenance. On page load, the script asynchronously fetches the JSON file, that acts as the central repository containing all item objects and their associated metadata. The script maintains the current state using variables for the active currentIdList (the list of items to show) and currentIndex (the specific item currently being viewed). The core of this system is the function displayItemDetails(): the function uses the currentIndex to find the correct item ID and retrieves the corresponding object from the loaded JSON data; it targets specific DOM elements by ID (e.g., item-title, item-creator) and populates them. The function uses innerHTML that allows the browser to correctly render any semantic HTML tags stored within the metadata.
@@ -743,13 +740,13 @@
 
                     <h4>Layout and color palette</h4>
                     <p>
-                       The interface design is based on a layout that feels dense and tactile, evoking the horror vacui (fear of empty space) typical of Victorian broadsheets. The composition relies on heavy framing and compartmentalization; content is enclosed within thick borders and dividers, mimicking the layout of Penny Dreadful publications where every inch of paper was maximized for narrative impact.
+                       The interface design is based on a layout that feels dense and tactile, evoking the <em>horror vacui</em> (fear of empty space) typical of Victorian broadsheets. The composition relies on heavy framing and compartmentalization; content is enclosed within thick borders and dividers, mimicking the layout of Penny Dreadful publications where every inch of paper was maximized for narrative impact.
                     </p>
                     <p>
-                        Since original Penny Dreadfuls targeted working-class readers, the illustrations were crucial to their appeal. The theme replicates this by prioritizing bold, dramatic images that serve not just as decoration, but as integral storytelling devices—capturing attention and reinforcing the sensationalism of the tales just as they did in the 1830s.
+                        Since original Penny Dreadfuls targeted working-class readers, the illustrations were crucial to their appeal. The theme replicates this by prioritizing bold, dramatic images that serve not just as decoration, but as integral storytelling devices - capturing attention and reinforcing the sensationalism of the tales just as they did in the 1830s.
                     </p>
                     <p>
-                        The colour palette is strictly material, simulating the textures of Penny Dreadfuls. The interface alternates between <code>--background-color</code> (a saturated, pulp-yellow ochre) and --paper-tone (a pale, off-white parchment). These tones replicate the look of high-acid wood pulp paper that has yellowed with age and exposure. All primary text and borders use <code>-–charcoal-ink</code>, a softer alternative to pure black that suggests the matte finish of carbon-based printing ink. Highlights are applied using <code>-–burnt-terracotta</code>, a desaturated red reminiscent of dried blood or the cheap hand-colouring applied to premium editions of Spring-Heeled Jack. Secondary accents in <code>–-dark-umber</code> ground the design in earthy, murky tones, reinforcing the mood of the darker corners of Victorian London.
+                        The colour palette is strictly material, simulating the textures of Penny Dreadfuls. The interface alternates between <code>--background-color</code> (a saturated, pulp-yellow ochre) and <code>--paper-tone</code> (a pale, off-white parchment). These tones replicate the look of high-acid wood pulp paper that has yellowed with age and exposure. All primary text and borders use <code>-–charcoal-ink</code>, a softer alternative to pure black that suggests the matte finish of carbon-based printing ink. Highlights are applied using <code>-–burnt-terracotta</code>, a desaturated red reminiscent of dried blood or the cheap hand-colouring applied to premium editions of Spring-Heeled Jack. Secondary accents in <code>–-dark-umber</code> ground the design in earthy, murky tones, reinforcing the mood of the darker corners of Victorian London.
                     </p>
 
                     <h4>Typography choices</h4>
@@ -808,13 +805,13 @@
                         The <u>layout</u> and visual identity of the theme is based on the Secessionist principles of geometric organization, symmetry and repetition. The interface relies on clearly defined frames and grids that structure content into balanced, self-contained units. Content does not flow freely but is contained within decorative boundaries, echoing the controlled and ordered design of the period.
                     </p>
                     <p>
-                        The <u>colour palette</u> is restrained and derived from one of the plates designed by Moser for the series Flächen Schmuck. Muted, earthy tones are favoured over bright saturation, evoking the material qualities of ink, paper, and handcrafted objects. The reduced palette enhances legibility and reinforces the flatness of decorative surfaces, while subtle contrasts are employed to guide navigation and hierarchy.
+                        The <u>colour palette</u> is restrained and derived from one of the plates designed by Moser for the series <em>Flächen Schmuck</em>. Muted, earthy tones are favoured over bright saturation, evoking the material qualities of ink, paper, and handcrafted objects. The reduced palette enhances legibility and reinforces the flatness of decorative surfaces, while subtle contrasts are employed to guide navigation and hierarchy.
                     </p>
                     <p>
                         <u>Decorative elements</u> – such as square patterns and heavy borders – are not merely embellishments but structural devices that define margins and visual hierarchy. The design also references the Verso of <em>Wiener Werkstätte</em> postcards, characterized by defined dotted margins and distinct spacing.
                     </p>
                     <p>
-                        To replicate the materiality of early 20th century print, the theme implements a grain effect. Using a CSS ::after pseudo-element on the body, the design applies a fixed overlay. It consists of two repeating linear gradients that intersect to form a micro-grid. Blended with a multiply mode and low opacity (0.05), this grid simulates the texture of the graph paper Moser used for his patterns.
+                        To replicate the materiality of early 20th century print, the theme implements a grid effect. Using a CSS <code>::after</code> pseudo-element on the body, the design applies a fixed overlay. It consists of two repeating linear gradients that intersect to form a micro-grid. Blended with a multiply mode and low opacity (0.05), this grid simulates the texture of the graph paper Moser used for his patterns.
                     </p>
 
                     <h4>Typography choices</h4>
@@ -855,11 +852,75 @@
                         </li>
                     </ol>
                     
+                    <!-- 3.4 70s feminist protests -->
+                    <h3>3.4 70s feminist protests</h3>
+                    <h4>Historical background</h4>
+                    <p> 
+                        The visual identity of this theme is inspired by <strong>radical feminist graphic protest aesthetics</strong>, particularly the <strong>punk zine culture</strong> of the 1970s and several <strong>second-wave feminist periodicals</strong> of the time (e.g., <em>Spare Rib</em>, <em>Off Our Back</em>, <em>Effe</em> magazine).  
+                    </p>
+                    <p>
+                        <strong>Feminist zines</strong> of this era were not conceived as polished editorial products, but as spaces of self-expression and political resistance, distributed independently and outside institutional and commercial circuits. They were often produced with limited resources, using <strong>low-cost techniques</strong> such as photocopying, collage and manual typography. 
+                        Their visual language was deeply connected to political content: fragmented layouts, bold typography and the mixing of images and text reflected a desire to break with patriarchal norms and mainstream visual standards. These publications challenged traditional publishing aesthetics by embracing <strong>imperfection</strong>, which became a core aesthetic principle informing the layout of this theme. 
+                    </p>
+                    <p>
+                        A key reference for this aesthetic comes from <em>Spare Rib</em>, a feminist magazine launched in 1972 by founding editors Marsha Rowe and Rosie Boycott, with designers Sally Doust and Kate Hepburn. In sharp contrast to existing women’s magazines in both form and content, <em>Spare Rib</em> addressed issues ranging from sexual and racial equality to household tips, child- and healthcare, within a radical and contemporary framework. 
+                        The visual design of the magazine was crucial to its aims: it had to “look like a women’s magazine, yet with contents that did not reflect the conformist stereotyping of women”. Irregular layouts, <strong>collage compositions</strong> combining photographs and typewritten text, <strong>high-contrast colors</strong> and <strong>expressive typography</strong> were central to its visual identity. 
+                    </p>
+                    <p>
+                        These influences informed the decision to reject clean, minimal digital design in favour of <strong>visual noise</strong> and <strong>tactile interfaces</strong> that communicate activism and materiality. The interface is therefore not designed to look “perfect”, but rather intentional, expressive and handmade, reflecting the values and communication strategies of 1970s feminist publishing.
+                    </p>
+
+                    <h4>Layout and color palette</h4>
+                    <p>The layout of the interface translates the aesthetic principles of feminist zines and magazines into a digital environment by embracing irregularity and visual tension, echoing the <strong>collage-based construction</strong> typical of zine culture. The interface frequently employs visual metaphors such as <strong>tape, paper and pinned images</strong>.
+                        The layout is structured through overlapping layers and the <strong>background textures</strong> aim to reproduce the feeling of pinning things on printed paper. Elements such as cards, buttons, images and containers are intentionally rotated using small <code>transform</code> values, creating a sense of physical placement, as if elements were manually positioned on a page using glue or “tape”, 
+                        which is added as a decoration using CSS pseudo-elements (<code>::before</code> and <code>::after</code>). 
+                    </p>
+                    <p>The color palette is derived both from feminist symbolism and analogue printing practices. The main colors are:
+                        <ul>
+                            <li><strong>neon pink</strong> (<code>#FB2E86</code>): represents feminist activism. Historically associated with femininity, pink is reappropriated here as a radical color rather than a decorative one.</li>
+                            <li><strong>carbon black</strong> (<code>#1D1D1D</code>): evokes ink and typography, providing strong contrast and referencing print culture.</li>
+                            <li><strong>vanilla cream</strong> (<code>#F2E9D0</code>): simulates paper and photocopied backgrounds, creating a warm analogue base.</li>
+                        </ul>
+                    </p>
+                    <p>
+                        Additional colors include <strong>classic crimson</strong> (<code>#D7263D</code>), associated with urgency and political intensity, and <strong>silver</strong> (<code>#AFAFAE</code>), used for secondary contrast. Colors are not decorative but semantic: pink communicates identity, black communicates print, cream communicates paper and red communicates urgency.
+                    </p>
+
+                    <h4>Typography choices</h4>
+                    <p>The project uses a multi-font system to simulate the visual diversity and heterogeneity typical of zine production. 
+                    </p>
+                    <p>
+                        <em>Archivo</em>, a grotesque sans-serif typeface designed by Hector Gatti and released in 2012, is used for <strong>headers</strong>. Inspired by late 19th-century American typography, it conveys a retro aesthetic that recalls protest posters. 
+                        <br><em>Oswald</em>, a condensed neo-grotesque sans-serif created by Vernon Adams in 2011, is used as a <strong>secondary font</strong>, evoking magazine headlines and editorial layouts.
+                        <br><em>Work Sans</em> is used as the <strong>default body text font</strong> due to its neutrality and high readability, ensuring usability without compromising visual identity.  
+                        <br>Finally, <em>Courier New</em> is used to create a typewriter effect for metadata, referencing archival documents and typewritten materials.
+                    </p>
+                    <p>
+                        Instead of visual uniformity, the interface embraces typographic plurality, which reflects collective authorship, DIY publishing and non-professional print culture. Particular attention is also given to <strong>typographic emphasis</strong>. Key words within the text are highlighted in <strong>neon pink</strong>, visually recalling the act of manually 
+                        marking passages with a highlighter or marker pen. This technique references practices common in activist reading and zine culture, where texts were often annotated, underlined or emphasized by hand. In the interface, this visual strategy reinforces the importance of specific concepts, guides the reader’s attention and further contributes to the handmade aesthetic. 
+                    </p>
+
+                    <figure class="figure mt-4 mb-5 w-100">
+                        <img src="img/documentation/70sfeministprotest_moodboard.png" class="figure-img img-fluid border border-dark" alt="'70s feminist protest aesthetic Design Moodboard">
+                        <figcaption class="figure-caption text-center">Fig 4. Moodboard and design inspiration for the '70s feminist protest aesthetic theme.</figcaption>
+                    </figure>
+
+                    <p><strong>Bibliography</strong></p>
+                    <ol class="mb-5">
+                        <li>
+                            PUNKZINE // Fanzine Tipográfico by Maria Victoria Marrone.
+                            <a href="https://www.behance.net/gallery/237225993/PUNKZINE-Fanzine-Tipografico" target="_blank">https://www.behance.net/gallery/237225993/PUNKZINE-Fanzine-Tipografico</a>
+                        </li>
+                        <li>
+                            Feminist Zines Have Have Been Around Longer Than You Thought—Here’s Where One Began by By Anna Merlan.
+                            <a href="https://www.vice.com/en/article/in-the-70s-two-women-embarked-on-an-epic-road-trip-to-find-other-feminists/" target="_blank">https://www.vice.com/en/article/in-the-70s-two-women-embarked-on-an-epic-road-trip-to-find-other-feminists/</a>
+                        </li>
+                    </ol>
 
 
 
-                    <!--3.4 Windows 95 -->
-                    <h3 id="windows-95">3.4 Windows 95</h3>
+                    <!--3.5 Windows 95 -->
+                    <h3 id="windows-95">3.5 Windows 95</h3>
                     
                     <p>
                         The Windows 95 layout is a homage to the operating system that defined the graphical user interface for a generation. Released by Microsoft in August 1995 under the codename "Chicago," it introduced the Start menu and the taskbar—elements that remain standards in UX design today. This layout was chosen to evoke the specific nostalgia of the mid-90s "Vaporwave" aesthetic, prioritizing a utilitarian, gray-scale "3D" look over modern flat design.
@@ -893,7 +954,7 @@
 
                     <figure class="figure mt-4 mb-5 w-100">
                         <img src="img/windows95/moodboard.png" class="figure-img img-fluid border border-dark" alt="Windows 95 Design Mood Board">
-                        <figcaption class="figure-caption text-center">Fig 4. Mood board and design inspiration for the Windows 95 theme.</figcaption>
+                        <figcaption class="figure-caption text-center">Fig 5. Mood board and design inspiration for the Windows 95 theme.</figcaption>
                     </figure>
 
                     <p><strong>Bibliography</strong></p>
@@ -912,72 +973,7 @@
                         </li>
                     </ol>
 
-                    
-
-                    <!-- 3.5 70s feminist protests -->
-                    <h3>3.5 70s feminist protests</h3>
-                    <h4>Historical background</h4>
-                    <p> 
-                        The visual identity of this theme is inspired by <strong>radical feminist graphic protest aesthetics</strong>, particularly the <strong>punk zine culture</strong> of the 1970s and several <strong>second-wave feminist periodicals</strong> of the time (e.g., <em>Spare Rib</em>, <em>Off Our Back</em>, <em>Effe</em> magazine).  
-                    </p>
-                    <p>
-                        <strong>Feminist zines</strong> of this era were not conceived as polished editorial products, but as spaces of self-expression and political resistance, distributed independently and outside institutional and commercial circuits. They were often produced with limited resources, using <strong>low-cost techniques</strong> such as photocopying, collage and manual typography. 
-                        Their visual language was deeply connected to political content: fragmented layouts, bold typography and the mixing of images and text reflected a desire to break with patriarchal norms and mainstream visual standards. These publications challenged traditional publishing aesthetics by embracing <strong>imperfection</strong>, which became a core aesthetic principle informing the layout of the website. 
-                    </p>
-                    <p>
-                        A key reference for this aesthetic comes from <em>Spare Rib</em>, a feminist magazine launched in 1972 by founding editors Marsha Rowe and Rosie Boycott, with designers Sally Doust and Kate Hepburn. In sharp contrast to existing women’s magazines in both form and content, <em>Spare Rib</em> addressed issues ranging from sexual and racial equality to household tips, child- and healthcare, within a radical and contemporary framework. 
-                        The visual design of the magazine was crucial to its aims: it had to “look like a women’s magazine, yet with contents that did not reflect the conformist stereotyping of women”. Irregular layouts, <strong>collage compositions</strong> combining photographs and typewritten text, <strong>high-contrast colors</strong> and <strong>expressive typography</strong> were central to its visual identity. 
-                    </p>
-                    <p>
-                        These influences informed the decision to reject clean, minimal digital design in favour of <strong>visual noise</strong> and <strong>tactile interfaces</strong> that communicate activism and materiality. The interface is therefore not designed to look “perfect”, but rather intentional, expressive and handmade, reflecting the values and communication strategies of 1970s feminist publishing.
-                    </p>
-
-                    <h4>Layout and color palette</h4>
-                    <p>The layout of the interface translates the aesthetic principles of feminist zines and magazines into a digital environment by embracing irregularity and visual tension, echoing the <strong>collage-based construction</strong> typical of zine culture. The interface frequently employs visual metaphors such as <strong>tape, paper and pinned images</strong>.
-                        The layout is structured through overlapping layers and the <strong>background textures</strong> aim to reproduce the feeling of pinning things on printed paper. Elements such as cards, buttons, images and containers are intentionally rotated using small <code>transform</code> values, creating a sense of physical placement, as if elements were manually positioned on a page using glue or “tape”, 
-                        which is added as a decoration using using CSS pseudo-elements (<code>::before</code> and <code>::after</code>). 
-                    </p>
-                    <p>The color palette is derived both from feminist symbolism and analogue printing practices. The main colors are:
-                        <ul>
-                            <li><strong>neon pink</strong> (<code>#FB2E86</code>): represents feminist activism. Historically associated with femininity, pink is reappropriated here as a radical color rather than a decorative one.</li>
-                            <li><strong>carbon black</strong> (<code>#1D1D1D</code>): evokes ink and typography, providing strong contrast and referencing print culture.</li>
-                            <li><strong>vanilla cream</strong> (<code>#F2E9D0</code>): simulates paper and photocopied backgrounds, creating a warm analogue base.</li>
-                        </ul>
-                    </p>
-                    <p>
-                        Additional colors include <strong>classic crimson</strong> (<code>#D7263D</code>), associated with urgency and political intensity, and <strong>silver</strong> (<code>#AFAFAE</code>), used for secondary contrast. Colors are not decorative but semantic: pink communicates identity, black communicates print, cream communicates paper and red communicates urgency.
-                    </p>
-
-                    <h4>Typography choices</h4>
-                    <p>The project uses a multi-font system to simulate the visual diversity and heterogeneity typical of zine production. 
-                    </p>
-                    <p>
-                        <em>Archivo</em>, a grotesque sans-serif typeface designed by Hector Gatti and released in 2012, is used for <strong>haders</strong>. Inspired by late 19th-century American typography, it conveys a retro aesthetic that recalls protest posters. 
-                        <br><em>Oswald</em>, a condensed neo-grotesque sans-serif created by Vernon Adams in 2011, is used as a <strong>secondary font</strong>, evoking magazine headlines and editorial layouts.
-                        <br><em>Work Sans</em> is used as the <strong>default body text font</strong> due to its neutrality and high readability, ensuring usability without compromising visual identity.  
-                        <br>Finally, <em>Courier New</em> is used to create a typewriter effect for metadata, referencing archival documents and typewritten materials.
-                    </p>
-                    <p>
-                        Instead of visual uniformity, the interface embraces typographic plurality, which reflects collective authorship, DIY publishing and non-professional print culture. Particular attention is also given to <strong>typographic emphasis</strong>. Key words within the text are highlighted in <strong>neon pink</strong>, visually recalling the act of manually 
-                        marking passages with a highlighter or marker pen. This technique references practices common in activist reading and zine culture, where texts were often annotated, underlined or emphasized by hand. In the interface, this visual strategy reinforces the importance of specific concepts, guides the reader’s attention and further contributes to the handmade aesthetic. 
-                    </p>
-
-                    <figure class="figure mt-4 mb-5 w-100">
-                        <img src="img/documentation/70sfeministprotest_moodboard.png" class="figure-img img-fluid border border-dark" alt="'70s feminist protest aesthetic Design Moodboard">
-                        <figcaption class="figure-caption text-center">Fig 5. Moodboard and design inspiration for the '70s feminist protest aesthetic theme.</figcaption>
-                    </figure>
-
-                    <p><strong>Bibliography</strong></p>
-                    <ol class="mb-5">
-                        <li>
-                            PUNKZINE // Fanzine Tipográfico by Maria Victoria Marrone.
-                            <a href="https://www.behance.net/gallery/237225993/PUNKZINE-Fanzine-Tipografico" target="_blank">https://www.behance.net/gallery/237225993/PUNKZINE-Fanzine-Tipografico</a>
-                        </li>
-                        <li>
-                            Feminist Zines Have Have Been Around Longer Than You Thought—Here’s Where One Began by By Anna Merlan.
-                            <a href="https://www.vice.com/en/article/in-the-70s-two-women-embarked-on-an-epic-road-trip-to-find-other-feminists/" target="_blank">https://www.vice.com/en/article/in-the-70s-two-women-embarked-on-an-epic-road-trip-to-find-other-feminists/</a>
-                        </li>
-                    </ol>
+                
                     
                     
                     <!-- 3.6 Cyberpunk 2035 -->

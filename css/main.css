@@ -52,11 +52,12 @@ h1, h2, h3, h4, h5, h6 {
 p {
   font-family: var(--default-font);
   color: var(--default-font-color);
-  font-size: 1rem;
+  padding-inline: clamp(1rem, 3vw, 2rem); 
+  max-width: 85ch;
+  margin-inline: auto;
   line-height: 1.6;
-  margin-top: 0;
-  margin-bottom: 1em;
-  /* keeps text readable on wide screens */
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.4rem);
+  text-wrap: pretty;
 }
 
 /* Headings sizing scale (responsive-friendly) */
@@ -1328,6 +1329,14 @@ nav.navbar {
   padding: 20px 40px;
 }
 
+.map-description p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-top: 0;
+  margin-bottom: 1em;
+  padding: 0;
+}
+
 @media (max-width: 576px) {
     .map-description {
       margin: 20px;
@@ -1339,9 +1348,6 @@ nav.navbar {
   margin-bottom: 15px;
 }
 
-.room-description {
-
-}
 
 .custom-room-btn {
   display: inline-block;
