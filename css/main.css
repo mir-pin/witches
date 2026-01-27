@@ -1551,3 +1551,18 @@ nav.navbar {
 #documentation li {
   margin-bottom: 0.5rem;
 }
+
+/* We set display: flex for the cards of exhibition page, here we want to restore bootstrap behavior */
+.row.row-cols-1 .card {
+    display: block;
+    width: 100%;
+}
+
+.row.row-cols-1 .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.row.row-cols-1 .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
