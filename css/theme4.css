@@ -864,6 +864,13 @@ footer a:hover {
     pointer-events: none;
 }
 
+/* Prev and next buttons on mobile */
+@media (max-width: 576px) {
+  .btn-icon {
+    color: var(--vanilla-cream); 
+  }
+}
+
 
 .text-box {
     column-count: 1; /* You can change to 2 for a newspaper feel on large screens */

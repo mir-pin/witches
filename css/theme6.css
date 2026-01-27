@@ -998,6 +998,21 @@ footer a:hover {
   box-shadow: inset 0 0 15px color-mix(in srgb, var(--electric-cyan), transparent 70%);  /* box-shadow: inset 0 0 15px var(--electric-cyan); */
 }
 
+/* Prev and next buttons on mobile */
+@media (max-width: 576px) {
+  .btn-icon {
+    color: var(--electric-cyan); 
+    text-shadow: var(--glow-cyan);
+  }
+
+  /* Change color when the user hovers or taps the button */
+  #btn-prev:hover .btn-icon,
+  #btn-next:hover .btn-icon {
+    color: var(--erin-green); 
+    text-shadow: var(--glow-green);
+  }
+}
+
 
 /* Container for the navigation text */
 #room-nav-controls {
