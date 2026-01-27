@@ -95,11 +95,28 @@ strong {
   color: var(--neon-pink);
   font-family: var(--font-default);
   text-decoration: none;
+  position: relative;
 }
 
 #documentation li {
   font-family: var(--font-default);
-  font-size: 1rem;
+}
+
+#documentation p, 
+#documentation ul:not(.list-unstyled),
+#documentation ol:not(.list-unstyled) {
+  max-width: 85ch;
+  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
+  line-height: 1.6;
+  list-style-position: inside;
+  margin-bottom: 1.5rem;
+  padding-inline: clamp(1rem, 3vw, 2rem);
+}
+
+#documentation ul:not(.list-unstyled),
+#documentation ol:not(.list-unstyled) {
+  text-align: left;
+  padding-left: 0;
 }
 
 /* --------------------------
@@ -163,6 +180,7 @@ strong {
 .navbar-nav .nav-link.active::after {
   width: 100%;
 }
+
 
 
 /* Change logo color */
@@ -938,4 +956,6 @@ footer a:hover {
     font-weight: 900;
     text-transform: uppercase;
 }
+
+
 
