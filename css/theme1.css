@@ -363,7 +363,12 @@ footer a {
     background: url("../img/early-modern-era/divider-line.svg")no-repeat center;
     margin: 1em auto 1em;
 }
-    
+@media (max-width: 500px) {
+  .introduction-title h2::after,
+  .documentation-title h2::after {
+      width: 100%;        /* full width of container */
+  }
+}
 /* ----------------- Link Documentation Button ----------------- */
 .introduction, .link-documentation {
     max-width: 90%;
