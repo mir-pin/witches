@@ -1558,8 +1558,6 @@ nav.navbar {
 
 #documentation ul:not(.list-unstyled),
 #documentation ol:not(.list-unstyled) {
-  font-family: var(--default-font);
-  color: var(--default-font-color);
   max-width: 85ch;
   margin-inline: auto;
   font-family: var(--default-font);
