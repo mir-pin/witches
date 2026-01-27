@@ -928,18 +928,18 @@ footer a {
 
 /* Ensure all ERA cards have equal height and 4 cards per row */
 .era-card {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 100%;
-    width: 100%;
-    min-width: 0;
-    padding: 12px 16px;
-    border: 1px solid var(--Greyscale-900);
-    border-radius: 16px;
-    gap: 12px;
-    background: white;
-    box-sizing: border-box;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
+  width: 100%;
+  min-width: 0;
+  padding: 12px 16px;
+  border: 1px solid var(--Greyscale-900);
+  border-radius: 16px;
+  gap: 12px;
+  background: white;
+  box-sizing: border-box;
+  height: 100%;
     
 }
 
@@ -956,13 +956,13 @@ footer a {
 }
 /* Ho aggiunto questo, controllare se va bene con tutto il resto */
 .era-card-content {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 100%;
-    width: 100%;
-    min-width: 0;
-    gap: 12px;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
+  width: 100%;
+  min-width: 0;
+  gap: 12px;
+  height: 100%;
 }
 
 /* Wrap title + description in a header div */
@@ -971,11 +971,11 @@ footer a {
 }
 
 .era-title {
-    font-family: var(--default-font);
-    font-size: 20px;  /* slightly smaller */
-    font-weight: 400;
-    color: var(--Greyscale-900);
-    margin-bottom: 2px; /* reduced space to description */
+  font-family: var(--default-font);
+  font-size: 20px;  /* slightly smaller */
+  font-weight: 400;
+  color: var(--Greyscale-900);
+  margin-bottom: 2px; /* reduced space to description */
 }
 
 .era-description {
@@ -1541,9 +1541,9 @@ nav.navbar {
 /* Prev and next buttons */
 /* Default state for the icons */
 .btn-icon {
-  display: none; /* Hidden on desktop as per previous step */
-  color: var(--default-font-color); /* Example: A nice Bootstrap blue */
-  transition: color 0.3s ease; /* Smooth color transition */
+  display: none;
+  color: var(--default-font-color);
+  transition: color 0.3s ease;
 }
 
 @media (max-width: 576px) {
@@ -1552,17 +1552,14 @@ nav.navbar {
   .btn-icon {
     display: inline-block;
     font-size: 1.2rem;
-    color: var(--default-font-color); /* Let's make them Red on mobile for this example */
+    color: var(--default-font-color);
   }
 
-  /* Change color when the user hovers or taps the button */
   #btn-prev:hover .btn-icon,
   #btn-next:hover .btn-icon {
-    color: var(--surface-color); /* Darker red on hover */
+    color: var(--surface-color);
   }
 }
-
-
 
 /* -------------------------
     DOCUMENTATION PAGE

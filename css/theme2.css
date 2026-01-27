@@ -22,28 +22,28 @@
 ------------------------------- */
 
 body {
-    background-color: var(--background-color);
-    color: var(--charcoal-ink);
+  background-color: var(--background-color);
+  color: var(--charcoal-ink);
 }
 
 h1 {
-    font-family: var(--default-font);
-    font-size: 3rem; 
-    color: var(--charcoal-ink);
-    text-transform: uppercase;
-    text-align: center;
-    transform: scaleY(1.3);
+  font-family: var(--default-font);
+  font-size: 3rem; 
+  color: var(--charcoal-ink);
+  text-transform: uppercase;
+  text-align: center;
+  transform: scaleY(1.3);
 }
 
 /* Subheaders with "Rule Lines" */
 h2, h3, h4, h5, h6 {
-    font-family: var(--sub-header-font);
-    color: var(--charcoal-ink);
-    text-align: center;
-    text-transform: uppercase;
-    padding-bottom: 1em;
-    border-bottom: 3px double var(--charcoal-ink);
-    letter-spacing: 1px;
+  font-family: var(--sub-header-font);
+  color: var(--charcoal-ink);
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 1em;
+  border-bottom: 3px double var(--charcoal-ink);
+  letter-spacing: 1px;
 }
 
 /* Body Text: The "Newspaper" Look */
@@ -63,13 +63,25 @@ p {
   3. Layout components: Background, Nav & Footer
 ------------------------------ */
 .page-content {
-    width: min(95%, 64rem);
-    margin: 4vh auto;
-    padding: 2rem;
-    background: var(--paper-tone);
-    border: 2px solid var(--charcoal-ink);
+  width: min(95%, 64rem);
+  margin: 4vh auto;
+  padding: 2rem;
+  background: var(--paper-tone);
+  border: 2px solid var(--charcoal-ink);
 }
 
+/* --- MOBILE TEXT FIXES --- */
+@media (max-width: 768px) {
+  p {
+    line-height: 1.6 !important;
+    font-size: 1.1rem !important;
+  }
+
+  .page-content {
+    width: 95% !important;
+    padding: 1.5rem 1rem !important;
+  }
+}
 
 /* ----- Navbar ----- */
 .navbar {
@@ -104,7 +116,7 @@ p {
 
 /* Change theme button and logo color */
 .navbar svg path {
-    fill: var(--burnt-terracotta);
+  fill: var(--burnt-terracotta);
 }
 
 /* Change hamburger icon */
@@ -121,8 +133,8 @@ p {
 }
 
 .navbar .layout-container .layout-button:hover {
-    background-color: var(--background-color);
-    border: 2px solid var(--dark-umber);
+  background-color: var(--background-color);
+  border: 2px solid var(--dark-umber);
 }
 
 .navbar .layout-container .layout-options {
@@ -189,22 +201,22 @@ footer .copyright-text p {
     4. HOMEPAGE
 ------------------------------ */
 .carousel-caption {
-    position: absolute;
-    top: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: auto;
-    width: auto;
-    min-width: 200px;
-    padding: 8px 20px;
-    text-align: center;
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: auto;
+  width: auto;
+  min-width: 200px;
+  padding: 8px 20px;
+  text-align: center;
 }
 
 .carousel-caption a {
-    color: var(--paper-tone);
-    font-family: var(--sub-header-font);
-    text-decoration: none;
-    letter-spacing: 1px;
+  color: var(--paper-tone);
+  font-family: var(--sub-header-font);
+  text-decoration: none;
+  letter-spacing: 1px;
 }
 
 .carousel-caption a:hover {
@@ -224,11 +236,19 @@ footer .copyright-text p {
 }
 
 .introduction-title h1 {
-    width: 100%; 
-    max-width: 800px;
-    margin: -50px auto -30px auto; 
-    display: block;
+  width: 100%; 
+  max-width: 800px;
+  margin: -50px auto -30px auto; 
+  display: block;
 }
+
+
+@media (max-width: 576px) {
+  .introduction-title h1 {
+    margin-bottom: 0.5em !important;
+  }
+}
+  
 
 .introduction-title h2 {
   margin-top: 0;
@@ -273,9 +293,9 @@ footer .copyright-text p {
     5. MAP 
 --------------------------------- */
 .map .row > div {
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-    width: 100% !important;
+  flex: 0 0 100% !important;
+  max-width: 100% !important;
+  width: 100% !important;
 }
 
 .map-description {
@@ -295,15 +315,13 @@ footer .copyright-text p {
   text-align: center;
 }
 
-
-/* .map-container svg {
-  background: radial-gradient(
-      circle closest-side at 50% 50%,
-      var(--charcoal-ink) 0%,
-      var(--charcoal-ink) 95%,
-      transparent 96%
-  );
-} */
+@media (max-width: 768px) {
+  .map-description {
+      column-count: 1 !important;
+      column-rule: none !important; /* Removes the vertical line */
+      column-gap: 0 !important;
+  }
+}
 
 #door1,
 #door2,
@@ -406,12 +424,12 @@ footer .copyright-text p {
   6. CHRONOLOGICAL 
 --------------------------------- */
 .chronology-container {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .timeline-lines::before {
-    background: var(--dark-umber);
-    z-index: 0px;
+  background: var(--dark-umber);
+  z-index: 0px;
 }
 
 .toggle-frame {
@@ -421,13 +439,13 @@ footer .copyright-text p {
 }
 
 .toggle-text {
-    font-family: var(--default-font);
-    color: var(--charcoal-ink) !important;
-    text-transform: uppercase;
+  font-family: var(--default-font);
+  color: var(--charcoal-ink) !important;
+  text-transform: uppercase;
 }
 
 .active-text {
-   color: var(--burnt-terracotta) !important;
+  color: var(--burnt-terracotta) !important;
 }
 
 .toggle-pill {
@@ -457,15 +475,15 @@ footer .copyright-text p {
 }
 
 .card {
-    background-color: var(--paper-tone);
-    border: 4px double var(--charcoal-ink);
-    border-radius: 0px;
+  background-color: var(--paper-tone);
+  border: 4px double var(--charcoal-ink);
+  border-radius: 0px;
 }
 
 .text-wrapper {
-    font-family: var(--default-font);
-    color: var(--burnt-terracotta);
-    text-transform: uppercase;
+  font-family: var(--default-font);
+  color: var(--burnt-terracotta);
+  text-transform: uppercase;
 }
 
 .item-date {
@@ -477,32 +495,39 @@ footer .copyright-text p {
 
 .ellipse,
 .ellipse-2 {
-    background: var(--dark-umber);
+  background: var(--dark-umber);
 }
 
+
+@media (max-width: 768px) {
+  .toggle-text {
+    font-size: 0.9rem !important; 
+    white-space: normal;
+  }
+}
 
 /* -------------------------------
    7. ERAS
 --------------------------------- */
 .eras .col-lg-3 {
-    width: 50% !important;
-    flex: 0 0 50% !important;
-    max-width: 50% !important;
+  width: 50% !important;
+  flex: 0 0 50% !important;
+  max-width: 50% !important;
 }
 
 
 .era-card {
-    border: none;
-    background: transparent;
+  border: none;
+  background: transparent;
 }
 
 .era-title {
-    font-family: var(--sub-header-font);
-    color: var(--charcoal-ink);
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+  font-family: var(--sub-header-font);
+  color: var(--charcoal-ink);
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .era-description {
@@ -563,38 +588,35 @@ footer .copyright-text p {
 }
 
 @media (max-width: 991px) {
-    /* Make the container full width */
-    .eras .col-12 {
-        width: 100% !important;
-        flex: 0 0 100% !important;
-        max-width: 100% !important;
-    }
+  .eras .col-12 {
+      width: 100% !important;
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+  }
 
-    /* Remove the 2-column split so images are big */
-    .era-items {
-        column-count: 1; 
-        column-rule: none;
-    }
-    
-    .era-title {
-        font-size: 1.8rem;
-    }
+  .era-items {
+      column-count: 1; 
+      column-rule: none;
+  }
+  
+  .era-title {
+      font-size: 1.8rem;
+  }
 }
 
 /* -------------------------------
     8. ITEM PAGE 
 --------------------------------- */
 #item-container {
-    border: 6px double var(--charcoal-ink);
+  border: 6px double var(--charcoal-ink);
 }
 
 .item-table {
-    gap: 2rem; 
+  gap: 2rem; 
 }
 
 .table-box {
-    background-color: transparent;
-    /* border: 2px solid var(--charcoal-ink); */
+  background-color: transparent;
 }
 
 .item-box img {
@@ -609,16 +631,16 @@ footer .copyright-text p {
 }
 
 .table tr {
-    border-bottom: 1px solid var(--charcoal-ink);
-    background-color: transparent;
-    color: var(--charcoal-ink);
+  border-bottom: 1px solid var(--charcoal-ink);
+  background-color: transparent;
+  color: var(--charcoal-ink);
 }
 
 .table th,
 .table td {
-    border: none;
-    background-color: transparent;
-    color: var(--charcoal-ink);
+  border: none;
+  background-color: transparent;
+  color: var(--charcoal-ink);
 }
 
 .table thead {
@@ -683,10 +705,10 @@ footer .copyright-text p {
 }
 
 @media (min-width: 768px) {
-    .item-box, .table-box {
-        width: auto !important; 
-        flex: 1; 
-    }
+  .item-box, .table-box {
+      width: auto !important; 
+      flex: 1; 
+  }
 }
 
 
@@ -757,4 +779,11 @@ p#bibliography {
 
 #documentation code {
   color: var(--burnt-terracotta);
+}
+
+@media (max-width: 576px) {
+    .documentation-page h1 {
+        font-size: 1.75rem !important; /* Forces title to be manageable */
+        margin-top: 1rem;
+    }
 }
