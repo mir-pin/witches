@@ -178,6 +178,16 @@
                                             <li><a href="#cyberpunk" class="text-decoration-none text-black">3.6 Cyberpunk 2035</a></li>
                                         </ul>
                                     </li>
+                                    <li class="mb-2">
+                                        <a href="#disclaimer" class="text-decoration-none text-black">
+                                            <strong>4. Disclaimer</strong>
+                                        </a>
+                                    </li>
+                                    <li class="mb-2">
+                                        <a href="#about" class="text-decoration-none text-black">
+                                            <strong>5. About</strong>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                             <hr style="border-top: 1px solid black; opacity: 1;">
@@ -472,7 +482,12 @@
 
                             <!-- 2. Presentation -->
                             <h2 id="presentation">2. Presentation and Navigation</h2>
-
+                            <p>
+                                The design phase began with the creation of interface prototypes in Figma, used to define the overall structure of the website and to test visual hierarchy, spatial balance and interaction flow prior to implementation. These prototypes supported the translation of curatorial and conceptual decisions into concrete layout solutions.
+                            </p>
+                            <p>
+                                Figma’s developer-oriented features were subsequently used as a reference during the implementation phase, facilitating consistency between design and code. Selected screens from the design prototypes are included in the documentation to illustrate the design process and the methodological approach adopted by the team.
+                            </p>
                             <!-- 2.1 Index Page -->
                             <h3 id="index-page">2.1 Index Page</h3>
                             <p>
@@ -570,6 +585,11 @@
                                 space, and user-centered design.
                             </p>
 
+                            <figure class="figure mt-4 mb-5 w-50 mx-auto">
+                                <img src="img/documentation/index_page.png" class="figure-img img-fluid border border-dark" alt="Homepage Figma Prototype">
+                                <figcaption class="figure-caption text-center">Fig 1. Early Figma prototype of the homepage.</figcaption>
+                            </figure>
+
 
                             <!-- 2.2 Map Page -->
                             <h3 id="map-page">2.2 Map Page</h3>
@@ -606,6 +626,11 @@
                                 associated texts are stored within the same JavaScript file. This interaction model
                                 maintains narrative continuity while avoiding disruptive page transitions.
                             </p>
+
+                            <figure class="figure mt-4 mb-5 w-50 mx-auto">
+                                <img src="img/documentation/map_page.png" class="figure-img img-fluid border border-dark" alt="Map Page Figma Prototype">
+                                <figcaption class="figure-caption text-center">Fig 2. Early Figma prototype of the map page.</figcaption>
+                            </figure>
 
                             <!-- 2.3 Exhibiyion Page -->
                             <h3 id="exhibition-page">2.3 Exhibition Page</h3>
@@ -668,6 +693,31 @@
                                 rooms encourage comparative interpretation.
                             </p>
 
+                            <div class="row mt-4 mb-5">
+                                <div class="col-md-6">
+                                    <figure class="figure text-center w-75 mx-auto">
+                                        <img src="img/documentation/chronological_page.png"
+                                            class="figure-img img-fluid border border-dark"
+                                            alt="Chronological Figma Prototype">
+                                        <figcaption class="figure-caption">
+                                            Fig. 3. Exhibition page: chronological view prototype.
+                                        </figcaption>
+                                    </figure>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <figure class="figure text-center w-75 mx-auto">
+                                        <img src="img/documentation/eras_page.png"
+                                            class="figure-img img-fluid border border-dark"
+                                            alt="Eras Figma Prototype">
+                                        <figcaption class="figure-caption">
+                                            Fig. 4. Exhibition page: eras view prototype.
+                                        </figcaption>
+                                    </figure>
+                                </div>
+                            </div>
+
+
                             <h4>Curatorial transparency and user agency</h4>
 
                             <p>
@@ -703,6 +753,11 @@
                                 <li>The <u>Chronological Narrative</u> is the default mode. The currentIdList is populated with the complete list of items sorted by date and Previous and Next buttons traverse this entire collection. In this mode, the “Room Navigation” controls are hidden (d-none).</li>
                                 <li>The <u>Eras Narrative</u> is activated by clicking the “Room” link in the metadata table. The code creates a filtered list of items belonging only to specific rooms. In this mode, additional navigation buttons appear, allowing users to jump between rooms rather than just between individual items.</li>
                             </ul>
+
+                            <figure class="figure mt-4 mb-5 w-50 mx-auto">
+                                <img src="img/documentation/item_page.png" class="figure-img img-fluid border border-dark" alt="Item Page Figma Prototype">
+                                <figcaption class="figure-caption text-center">Fig 5. Early Figma prototype of the item page.</figcaption>
+                            </figure>
 
                             <!-- 3. Themes -->
                             <h2 id="themes">3. Themes</h2>
@@ -743,7 +798,7 @@
                                 This effect, triggered via opacity transitions, mimics the hand-ruling sometimes found in manuscripts to emphasize titles. Furthermore, a slight text-shadow was applied to hovered links (<code>0.1px 0 var(--default-font-color)</code>), simulating the "ink bleed" or bolding effect of a printing press applying more pressure. Finally, all modern rounded corners were strictly removed (<code>border-radius: 0</code>), ensuring every element has the sharp, straight cut of a page.
                             </p>
 
-                            <figure class="figure mt-4 mb-5 w-100">
+                            <figure class="figure mt-4 mb-5 w-75">
                                 <img src="img/early-modern-era/moodboard.png" class="figure-img img-fluid border border-dark" alt="Early Modern Era Design Mood Board">
                                 <figcaption class="figure-caption text-center">Fig 1. Mood board and design inspiration for the Early Modern Era theme.</figcaption>
                             </figure>
