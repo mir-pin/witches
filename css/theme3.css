@@ -8,30 +8,27 @@
   /* Fonts */
   --default-font: "Kolo W01 RegularLP", sans-serif;
   --text-font: "Federo", sans-serif;
-  
+
   /* Colors */
   --warm-canvas: #F0E4CC;
   --green-amber: #BAA346;
   --hexed-walnut: #9D6C44;
   --burnt-walnut: #845D34;
+
+  /* Global Variable Mapping */
+  --background-color: var(--warm-canvas);
+  --default-font-color: var(--burnt-walnut);
+  --surface-color: var(--warm-canvas);
+  --Greyscale-900: var(--hexed-walnut);
+  --Greyscale-50: var(--green-amber);
 }
 
 
 /* ----------------------------
     2. Global Reset & Typography
 ------------------------------- */
-/* body {
-    background-image: url("../img/vienna-secession/background.jpeg");
-    background-color: var(--warm-canvas);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    font-family: var(--default-font);
-    background-size: cover;
-} */
-
 body {
-  background-color: var(--warm-canvas);
-  font-family: var(--default-font);
+  /* background-color and font-family handled by global variables */
   position: relative;
   z-index: 0;
 }
@@ -58,18 +55,22 @@ body::after {
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  background-image: 
-      repeating-linear-gradient(0deg, transparent 0px, transparent 2px, var(--hexed-walnut) 2px, var(--hexed-walnut) 3px),
-      repeating-linear-gradient(90deg, transparent 0px, transparent 2px, var(--hexed-walnut) 2px, var(--hexed-walnut) 3px);
-  
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0px, transparent 2px, var(--hexed-walnut) 2px, var(--hexed-walnut) 3px),
+    repeating-linear-gradient(90deg, transparent 0px, transparent 2px, var(--hexed-walnut) 2px, var(--hexed-walnut) 3px);
+
   background-size: 4px 4px;
   mix-blend-mode: multiply;
   opacity: 0.05;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--default-font);
-  color: var(--burnt-walnut);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* font-family and color handled by global variables */
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: normal;
@@ -77,7 +78,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   font-family: var(--text-font);
-  color: var(--burnt-walnut);
+  /* color handled by global variable */
   font-weight: 300;
   line-height: 1.6;
   letter-spacing: 0.02em;
@@ -98,7 +99,7 @@ header {
 }
 
 .navbar-nav {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 .navbar-nav .nav-link {
@@ -115,14 +116,14 @@ header {
 }
 
 .navbar .nav-link.active {
-  color: var(--warm-canvas) !important;
+  color: var(--warm-canvas);
   background-color: var(--green-amber);
   border: 2px dotted var(--burnt-walnut);
 }
 
 /* Change theme button and logo color */
 .navbar svg path {
-    fill: var(--hexed-walnut);
+  fill: var(--hexed-walnut);
 }
 
 /* Change hamburger icon */
@@ -135,13 +136,13 @@ header {
 }
 
 .navbar .layout-container .layout-options {
-    background-color: var(--warm-canvas);
-    border: 4px solid var(--burnt-walnut);
-    border-radius: 0px;
+  background-color: var(--warm-canvas);
+  border: 4px solid var(--burnt-walnut);
+  border-radius: 0px;
 }
 
 .navbar .layout-container .layout-button:hover {
-    background-color: var(--green-amber);
+  background-color: var(--green-amber);
 }
 
 .navbar .layout-container .layout-button {
@@ -191,7 +192,7 @@ footer a {
 }
 
 footer .copyright-text {
-  background-color: rgba(186, 163, 70, 0.5) !important;
+  background-color: rgba(186, 163, 70, 0.5);
 }
 
 footer .copyright-text p {
@@ -207,8 +208,8 @@ footer .copyright-text p {
 /* Carousel */
 /* ---------------------------------------- */
 .carousel-frame-wrapper {
-    width: 90%;
-    margin: 4rem auto;
+  width: 90%;
+  margin: 4rem auto;
 }
 
 .carousel-item img {
@@ -236,15 +237,16 @@ footer .copyright-text p {
   display: block;
   /* We want 3 squares. Let's say each square is 12px high. 
      3 squares + 2 gaps = roughly 45px - 50px height. */
-  height: 30px; 
-  width: 10px; /* Width determines the 'squareness'. Adjust this to match the block height visually */
-  
+  height: 30px;
+  width: 10px;
+  /* Width determines the 'squareness' */
+
   background-color: var(--warm-canvas);
 
   /* This gradient creates a stripe: Black (visible) then Transparent (gap) */
   -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 65%);
   mask-image: linear-gradient(to bottom, black 65%, transparent 65%);
-  
+
   /* Size of one "Square + Gap" unit. 33.33% means it repeats exactly 3 times in 100% height */
   -webkit-mask-size: 100% 33.33%;
   mask-size: 100% 33.33%;
@@ -256,9 +258,9 @@ footer .copyright-text p {
   color: var(--warm-canvas);
   font-weight: normal;
   text-shadow: none;
-  line-height: 1; 
-  font-size: 32px; /* Adjust this until it looks visually equal to the squares */
-  font-weight: 300; /* Keeps it elegant/thin */
+  line-height: 1;
+  font-size: 32px;
+  font-weight: 300;
   letter-spacing: 0.1em;
 }
 
@@ -267,9 +269,8 @@ footer .copyright-text p {
   transform: none;
 }
 
-
 @media (max-width: 576px) {
-  
+
   .carousel-caption {
     right: auto !important;
     left: 5% !important;
@@ -277,12 +278,12 @@ footer .copyright-text p {
     white-space: nowrap;
     width: fit-content;
     max-width: 90%;
-    padding: 6px 12px; 
+    padding: 6px 12px;
     gap: 8px;
   }
 
   .carousel-caption a {
-    font-size: 0.9rem !important; 
+    font-size: 0.9rem !important;
     line-height: 1;
   }
 
@@ -298,17 +299,15 @@ footer .copyright-text p {
   content: "";
   display: block;
   margin: 1em auto 1.5rem;
-  width: 160px;  
+  width: 160px;
   height: 16px;
   background-color: transparent !important;
-  
+
   /* square pattern */
   /* This draws a square (color) and a gap (transparent) */
-  background-image: linear-gradient(
-      to right, 
-      var(--green-amber) 50%, 
-      transparent 50%
-  );
+  background-image: linear-gradient(to right,
+      var(--green-amber) 50%,
+      transparent 50%);
   background-size: 32px 100%;
   background-repeat: repeat-x;
 }
@@ -330,7 +329,8 @@ footer .copyright-text p {
 }
 
 .link-documentation a {
-  border: 2px dotted var(--hexed-walnut);  /* outlined look */
+  border: 2px dotted var(--hexed-walnut);
+  /* outlined look */
   color: var(--hexed-walnut);
   border-radius: 0px;
 }
@@ -355,25 +355,21 @@ footer .copyright-text p {
   content: "";
   display: block;
   margin: 1em auto 1.5rem;
-  width: 160px;  
+  width: 160px;
   height: 16px;
   background-color: transparent !important;
-  background-image: linear-gradient(
-      to right, 
-      var(--green-amber) 50%, 
-      transparent 50%
-  );
+  background-image: linear-gradient(to right,
+      var(--green-amber) 50%,
+      transparent 50%);
   background-size: 32px 100%;
   background-repeat: repeat-x;
 }
 
 .map-container svg {
-    background: radial-gradient(
-        circle closest-side at 50% 50%,
-        var(--warm-canvas) 0%,
-        var(--warm-canvas) 95%,
-        transparent 96%
-    );
+  background: radial-gradient(circle closest-side at 50% 50%,
+      var(--warm-canvas) 0%,
+      var(--warm-canvas) 95%,
+      transparent 96%);
 }
 
 #door1,
@@ -410,9 +406,9 @@ footer .copyright-text p {
 }
 
 #text-entrance-room,
-#text-first-room, 
-#text-second-room, 
-#text-third-room, 
+#text-first-room,
+#text-second-room,
+#text-third-room,
 #text-fourth-room {
   font-family: var(--default-font) !important;
   fill: var(--burnt-walnut) !important;
@@ -422,18 +418,18 @@ footer .copyright-text p {
 #entrance-room:hover,
 #first-room:hover,
 #second-room:hover,
-#third-room:hover, 
+#third-room:hover,
 #fourth-room:hover {
   fill: var(--green-amber) !important;
 }
 
-#entrance-room:hover + #text-entrance-room,
-#first-room:hover + #text-first-room,
-#second-room:hover + #text-second-room,
-#third-room:hover + #text-third-room, 
-#fourth-room:hover + #text-fourth-room {
+#entrance-room:hover+#text-entrance-room,
+#first-room:hover+#text-first-room,
+#second-room:hover+#text-second-room,
+#third-room:hover+#text-third-room,
+#fourth-room:hover+#text-fourth-room {
   fill: var(--warm-canvas) !important;
-} 
+}
 
 #entrance-room.active,
 #first-room.active,
@@ -443,13 +439,13 @@ footer .copyright-text p {
   fill: var(--green-amber) !important;
 }
 
-#entrance-room.active + #text-entrance-room,
-#first-room.active + #text-first-room,
-#second-room.active + #text-second-room,
-#third-room.active + #text-third-room, 
-#fourth-room.active + #text-fourth-room {
+#entrance-room.active+#text-entrance-room,
+#first-room.active+#text-first-room,
+#second-room.active+#text-second-room,
+#third-room.active+#text-third-room,
+#fourth-room.active+#text-fourth-room {
   fill: var(--warm-canvas) !important;
-} 
+}
 
 
 #explore-room-btn {
@@ -467,35 +463,36 @@ footer .copyright-text p {
   6. CHRONOLOGICAL 
 --------------------------------- */
 .chronology-container {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 /* Central vertical line */
 .timeline-lines::before {
-    background: var(--hexed-walnut);
-    z-index: 0;
+  background: var(--hexed-walnut);
+  z-index: 0;
 }
 
 .toggle-frame {
   background-color: var(--green-amber);
   border: 2px solid var(--hexed-walnut);
   border-radius: 0px;
-  z-index: 10000; /* above the small grid effect of the whole body */
+  z-index: 10000;
+  /* above the small grid effect of the whole body */
 }
 
 .toggle-text {
-    font-family: var(--default-font);
-    color: var(--warm-canvas) !important;
+  font-family: var(--default-font);
+  color: var(--warm-canvas) !important;
 }
 
 .active-text {
-   text-decoration-line: underline;
-   color: var(--burnt-walnut) !important;
-   text-decoration-style: dotted;
+  text-decoration-line: underline;
+  color: var(--burnt-walnut) !important;
+  text-decoration-style: dotted;
 }
 
 .toggle-pill {
-  background-color: transparent ;
+  background-color: transparent;
   border: 4px dotted var(--warm-canvas);
   border-radius: 0px;
 }
@@ -521,15 +518,15 @@ footer .copyright-text p {
 }
 
 .card {
-    background-color: var(--warm-canvas);
-    border: 4px solid var(--hexed-walnut);
-    border-radius: 2px;
+  background-color: var(--warm-canvas);
+  border: 4px solid var(--hexed-walnut);
+  border-radius: 2px;
 }
 
 .text-wrapper {
-    font-family: var(--default-font);
-    color: var(--burnt-walnut);
-    text-transform: uppercase;
+  font-family: var(--default-font);
+  color: var(--burnt-walnut);
+  text-transform: uppercase;
 }
 
 .item-date {
@@ -545,7 +542,7 @@ footer .copyright-text p {
 .item-date::after {
   content: "";
   display: block;
-  height: 15px; 
+  height: 15px;
   width: 5px;
   background-color: var(--burnt-walnut);
   --mask-pattern: linear-gradient(to bottom, black 60%, transparent 60%);
@@ -559,8 +556,8 @@ footer .copyright-text p {
 
 .ellipse,
 .ellipse-2 {
-    background: var(--burnt-walnut);
-    border-radius: 2px;
+  background: var(--burnt-walnut);
+  border-radius: 2px;
 }
 
 
@@ -568,40 +565,40 @@ footer .copyright-text p {
    7. ERAS
 --------------------------------- */
 .era-card {
-    border: 1px dotted var(--hexed-walnut);
-    border-radius: 2px;
-    background: var(--warm-canvas);
+  border: 1px dotted var(--hexed-walnut);
+  border-radius: 2px;
+  background: var(--warm-canvas);
 }
 
 .era-title {
-    font-family: var(--default-font);
-    color: var(--burnt-walnut);
-    letter-spacing: 0.1em;
-    font-weight: normal;
-    text-transform: uppercase;
+  font-family: var(--default-font);
+  color: var(--burnt-walnut);
+  letter-spacing: 0.1em;
+  font-weight: normal;
+  text-transform: uppercase;
 }
 
 .era-description {
-    font-family: var(--text-font);
-    color: var(--burnt-walnut);
+  font-family: var(--text-font);
+  color: var(--burnt-walnut);
 }
 
 .era-item {
-    border-radius: 2px;
-    border: 2px dotted var(--green-amber);
+  border-radius: 2px;
+  border: 2px dotted var(--green-amber);
 }
 
 .era-item-text {
-    width: fit-content;
-    font-size: 0.7rem;
-    padding: 2px 4px;
-    background-color: var(--warm-canvas);
-    border: 1px dotted var(--burnt-walnut);
-    border-radius: 2px;
-    color: var(--burnt-walnut);
-    font-family: var(--text-font);
-    text-align: center;
-    text-shadow: none;
+  width: fit-content;
+  font-size: 0.7rem;
+  padding: 2px 4px;
+  background-color: var(--warm-canvas);
+  border: 1px dotted var(--burnt-walnut);
+  border-radius: 2px;
+  color: var(--burnt-walnut);
+  font-family: var(--text-font);
+  text-align: center;
+  text-shadow: none;
 }
 
 
@@ -610,64 +607,73 @@ footer .copyright-text p {
 --------------------------------- */
 /* 1. THE OUTER FRAME */
 #item-container {
-    background-color: var(--warm-canvas);
-    padding: 0 !important; /* Allows inner lines to touch the edge */
-    background-image:
-        radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px), /* Top */
-        radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px), /* Bottom */
-        radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px), /* Left */
-        radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px); /* Right */
-    background-position: top left, bottom left, top left, top right;
-    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
-    background-size: 10px 6px, 10px 6px, 6px 10px, 6px 10px;
+  background-color: var(--warm-canvas);
+  padding: 0 !important;
+  /* Allows inner lines to touch the edge */
+  background-image:
+    radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px),
+    /* Top */
+    radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px),
+    /* Bottom */
+    radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px),
+    /* Left */
+    radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px);
+  /* Right */
+  background-position: top left, bottom left, top left, top right;
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-size: 10px 6px, 10px 6px, 6px 10px, 6px 10px;
 }
 
 .item-table {
-    --bs-gutter-x: 0; /* remove column gaps */
-    background-image: radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px);
-    background-position: bottom left;
-    background-repeat: repeat-x;
-    background-size: 10px 6px;
-    margin-bottom: 0 !important;
+  --bs-gutter-x: 0;
+  /* remove column gaps */
+  background-image: radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px);
+  background-position: bottom left;
+  background-repeat: repeat-x;
+  background-size: 10px 6px;
+  margin-bottom: 0 !important;
 }
 
 .table-box {
-    height: 100%;
-    background-image: radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px);
-    background-position: top left;
-    background-repeat: repeat-y;
-    background-size: 6px 10px;
+  height: 100%;
+  background-image: radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px);
+  background-position: top left;
+  background-repeat: repeat-y;
+  background-size: 6px 10px;
 }
 
-.item-box, .table-box, .text-box {
-    padding: 2rem;
-    background-color: transparent;
-    border: none !important;
+.item-box,
+.table-box,
+.text-box {
+  padding: 2rem;
+  background-color: transparent;
+  border: none;
 }
 
 /* Mobile Fix: On small screens, switch vertical line to horizontal */
 @media (max-width: 767px) {
-    .table-box {
-        background-image: radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px);
-        background-position: top left;
-        background-repeat: repeat-x; /* Switch to horizontal line */
-        background-size: 10px 6px;
-    }
+  .table-box {
+    background-image: radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px);
+    background-position: top left;
+    background-repeat: repeat-x;
+    /* Switch to horizontal line */
+    background-size: 10px 6px;
+  }
 }
 
 .table tr {
-    border: 1px solid var(--green-amber);
-    /* border-bottom: 1px solid var(--green-amber);
+  border: 1px solid var(--green-amber);
+  /* border-bottom: 1px solid var(--green-amber);
     border-top: 1px solid var(--green-amber); */
-    background-color: transparent;
-    color: var(--burnt-walnut);
+  background-color: transparent;
+  color: var(--burnt-walnut);
 }
 
 .table th,
 .table td {
-    border: none;
-    background-color: transparent;
-    color: var(--burnt-walnut);
+  border: none;
+  background-color: transparent;
+  color: var(--burnt-walnut);
 }
 
 .table thead {
@@ -679,7 +685,8 @@ footer .copyright-text p {
 }
 
 .text-box button {
-  border: 2px dotted var(--hexed-walnut);  /* outlined look */
+  border: 2px dotted var(--hexed-walnut);
+  /* outlined look */
   color: var(--hexed-walnut);
   border-radius: 2px;
 }
@@ -697,8 +704,10 @@ footer .copyright-text p {
 }
 
 .card-footer button {
-  border: 2px dotted var(--green-amber);  /* outlined look */
-  border-radius: 2px;             /* rounded edges */
+  border: 2px dotted var(--green-amber);
+  /* outlined look */
+  border-radius: 2px;
+  /* rounded edges */
   color: var(--burnt-walnut);
   background-color: var(--warm-canvas);
 }
@@ -727,22 +736,20 @@ footer .copyright-text p {
   content: "";
   display: block;
   margin: 1em auto 1.5rem;
-  width: 160px;  
+  width: 160px;
   height: 16px;
   background-color: transparent !important;
-  background-image: linear-gradient(
-      to right, 
-      var(--green-amber) 50%, 
-      transparent 50%
-  );
+  background-image: linear-gradient(to right,
+      var(--green-amber) 50%,
+      transparent 50%);
   background-size: 32px 100%;
   background-repeat: repeat-x;
 }
 
 .table-of-contents {
-  background-color: transparent !important;
+  
   color: var(--burnt-walnut) !important;
-  border: 2px dotted var(--green-amber); 
+  border: 2px dotted var(--green-amber);
   text-align: center;
 }
 
@@ -756,7 +763,7 @@ footer .copyright-text p {
   color: var(--burnt-walnut) !important;
 }
 
-.documentation-box {
+.doc-chapter {
   background-color: var(--warm-canvas);
   border: 2px solid var(--hexed-walnut);
   border-radius: 2px;
@@ -767,7 +774,9 @@ footer .copyright-text p {
   font-family: var(--default-font);
 }
 
-.documentation-page h4, h5, h6 {
+.documentation-page h4,
+.documentation-page h5,
+.documentation-page h6 {
   border: none;
   font-family: var(--text-font);
   text-transform: capitalize;
@@ -779,7 +788,7 @@ footer .copyright-text p {
   color: var(--burnt-walnut);
   padding-left: calc(clamp(1rem, 3vw, 2rem) + 1.5rem);
   padding-right: clamp(1rem, 3vw, 2rem);
-  margin-inline: auto; 
+  margin-inline: auto;
   max-width: 85ch;
   text-align: left;
   list-style-position: outside;
