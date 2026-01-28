@@ -1,8 +1,8 @@
-/* ========================================================= */
-/* === THEME 1: VITALI (Cormorant Garamond / Paper Style) === */
-/* ========================================================= */
+/* ========================================================= 
+THEME1:  Early Modern Era
+ ========================================================= */
 
-/* --- 1. Global Variables & Fonts --- */
+/*  Global Variables & Fonts  */
 :root {
   --vitali-tan: #D9C3A6;
   --vitali-black: #1A1A1A; 
@@ -23,7 +23,7 @@
 }
 
 
-/* --- 2. Base Body Style and NOISE PAPER EFFECT --- */
+/*  Base Body Style and NOISE PAPER EFFECT  */
 
 .eras-page {
 
@@ -48,7 +48,7 @@ body::before {
     opacity: 10; /* subtle noise */
 }
 
-/* === STICKY HEADER & NAV COLORS === */
+/* sticky header */
 header {
   background: url("../img/early-modern-era/beige-noise.png") repeat
 }
@@ -67,7 +67,7 @@ header::after {
     height: 20px;     
     background: url("../img/early-modern-era/divider-line.svg") no-repeat center center;
     background-size: contain;
-    z-index: 10002;        /* above navbar, due to coursol setting */
+    z-index: 10002;        /* above navbar, due to coursol setting, don't change */
 }
 /* --------------------------------------- 
                    Navbar 
@@ -87,14 +87,14 @@ header::after {
     position: relative;
 }
 
-/* Active Decoration */
+/* Active  */
 .navbar .nav-link.active::before,
 .navbar .nav-link.active::after,
 .navbar .nav-link.active div::before {
     background: var(--Greyscale-900);
 }
 
-/* Layout options dropdown background */
+/* theme changer dropdown background */
 .navbar .layout-container .layout-options.active {
     background: var(--vitali-tan);
 }
@@ -108,14 +108,13 @@ header::after {
     
 }
 
-/* Only add bold + top/bottom  */
+/* active, hover  */
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link:hover {
     font-weight: 900;
     text-shadow: 0.1px 0 var(--default-font-color), -0.1px 0 var(--default-font-color); 
     color: var(--default-font-color) !important;  /* dark text */
     font-size: 1.1rem;
-     /* bold text on hover/active */
 }
 
 /* Top line */
@@ -154,7 +153,7 @@ footer a {
   font-family: var(--default-font);
 }
 
-/* ----------------- Toggle Section ----------------- */
+/*  Toggle Section  */
 
 .toggle-frame {
    background: url("../img/early-modern-era/beige-noise.png") repeat;
@@ -172,24 +171,24 @@ footer a {
     border-radius: 0;
 }
 
-/* --- Toggle Text Lines & Bold --- */
+/*  Toggle Text Lines & Bold  */
 .toggle-text {
     position: relative;
     font-weight: 400;
     transition: font-weight 0.2s ease;
     line-height: 1;
-    display: inline-block; /* ensure pseudo-elements align to text width */
+    display: inline-block; 
 }
 
-/* Hover / Active effect */
+/* Hover and Active  */
 .toggle-text:hover,
 .toggle-text.active-text {
-    font-weight: 900; /* bold text */
+    font-weight: 900; 
 }
 
 
 
-/* ----------------- Era Cards ----------------- */
+/*  Era Cards  */
 
 .era-card {
     border: 1px solid var(--Greyscale-900);
@@ -221,7 +220,6 @@ footer a {
     background-size: contain;
 }
 /* Bottom-left corner */
-/* Bottom-left corner */
 .era-card .bottom-left {
     position: absolute;
     bottom: 0;
@@ -252,7 +250,7 @@ footer a {
     font-family: var(--default-font);
 }
 
-/* Text overlay (Caption) */
+/* Text overlay for readability */
 .era-item-text {
     color: rgb(220, 211, 211);
     font-family: var(--default-font); 
@@ -369,7 +367,7 @@ footer a {
       width: 100%;        /* full width of container */
   }
 }
-/* ----------------- Link Documentation Button ----------------- */
+/*  Link Documentation Button  */
 .introduction, .link-documentation {
     max-width: 90%;
     
@@ -391,9 +389,9 @@ footer a {
     padding: 6px 12px !important;
 }
 
-/* Hover / Active effect */
+/* Hover and Active  */
 .link-documentation a:hover {
-    font-weight: 900; /* bold text on hover */
+    font-weight: 900; 
     color: var(--default-font-color) !important; /* prevent disappearing- importsnt to keep */
 }
 
@@ -450,7 +448,7 @@ footer a {
     transition: font-weight 0.2s ease;
 }
 
-/* Hover + Active */
+/* Hover and Active */
 .item-page .btn-outline-dark:hover,
 .item-page .btn-outline-dark.active {
     font-weight: 900;
@@ -501,7 +499,7 @@ footer a {
 #btn-next::after {
     width: 60px;
 }
-/* REMOVE ALL BORDERS / OUTLINES */
+/* REMOVE ALL BORDERS  */
 .item-page .btn,
 .item-page .btn:focus,
 .item-page .btn:hover,
@@ -510,7 +508,7 @@ footer a {
     box-shadow: none !important;
     outline: none !important;
 }
-/* PREVIOUS / NEXT  */
+/* PREVIOUS  NEXT  */
 #btn-prev,
 #btn-next {
     position: relative;
@@ -595,7 +593,7 @@ footer a {
     padding: 6px 12px !important;
 }
 
-/* Hover / Active effect */
+/* Hover and Active effect */
 .custom-room-btn:hover {
     font-weight: 900; /* bold text on hover */
     color: var(--default-font-color) !important;
@@ -637,7 +635,7 @@ footer a {
 .custom-room-btn:hover::after {
     opacity: 1;               /* show lines-necessary */
 }
-/* Map page room navigation buttons (reuse link style) */
+/* Map page room navigation buttons  */
 #room-nav-controls .btn {
     position: relative;
     display: inline-block;
