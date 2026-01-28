@@ -7,13 +7,19 @@
   --default-font: "Abril Fatface", serif;
   --sub-header-font: "IM Fell English SC", serif;
   --text-font: "IM Fell English", serif;
-    
+
   /* Colors */
   --background-color: #EBB35C;
   --paper-tone: #F3EAE1;
   --charcoal-ink: #303030;
   --burnt-terracotta: #BC3D1C;
   --dark-umber: #302226;
+
+  /* Global Variable Mapping */
+  --default-font-color: var(--charcoal-ink);
+  --surface-color: var(--paper-tone);
+  --Greyscale-900: var(--charcoal-ink);
+  --Greyscale-50: var(--dark-umber);
 }
 
 
@@ -21,24 +27,25 @@
     2. Global Reset & Typography
 ------------------------------- */
 
-body {
-  background-color: var(--background-color);
-  color: var(--charcoal-ink);
-}
+/* body: background-color and color are handled by global variables in main.css now mapped in :root */
 
 h1 {
   font-family: var(--default-font);
-  font-size: 3rem; 
-  color: var(--charcoal-ink);
+  font-size: 3rem;
+  /* color handled by var */
   text-transform: uppercase;
   text-align: center;
   transform: scaleY(1.3);
 }
 
 /* Subheaders with "Rule Lines" */
-h2, h3, h4, h5, h6 {
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--sub-header-font);
-  color: var(--charcoal-ink);
+  /* color handled by var */
   text-align: center;
   text-transform: uppercase;
   padding-bottom: 1em;
@@ -78,7 +85,7 @@ p {
   }
 
   .page-content {
-    width: 95% !important;
+    width: 95%;
     padding: 1.5rem 1rem !important;
   }
 }
@@ -110,7 +117,7 @@ p {
 }
 
 .navbar .nav-link.active {
-  color: var(--paper-tone) !important;
+  color: var(--paper-tone);
   background-color: var(--burnt-terracotta);
 }
 
@@ -157,7 +164,7 @@ p {
 
 /* ----- Footer ----- */
 footer {
-  background-color: var(--warm-canvas);
+  background-color: var(--background-color);
 }
 
 .footer-separator {
@@ -228,17 +235,14 @@ footer .copyright-text p {
   border-radius: 50%;
   border: 4px solid var(--charcoal-ink);
   filter:
-    grayscale(100%)
-    contrast(100%)
-    brightness(1.1)
-    sepia(20%);
+    grayscale(100%) contrast(100%) brightness(1.1) sepia(20%);
   mix-blend-mode: multiply;
 }
 
 .introduction-title h1 {
-  width: 100%; 
+  width: 100%;
   max-width: 800px;
-  margin: -50px auto -30px auto; 
+  margin: -50px auto -30px auto;
   display: block;
 }
 
@@ -248,7 +252,7 @@ footer .copyright-text p {
     margin-bottom: 0.5em !important;
   }
 }
-  
+
 
 .introduction-title h2 {
   margin-top: 0;
@@ -260,12 +264,12 @@ footer .copyright-text p {
 }
 
 .introduction-title h1 .std-text {
-    display: none !important;
+  display: none !important;
 }
 
 .introduction-title h1 .curved-svg {
-    display: block !important;
-    margin: 0 auto;
+  display: block !important;
+  margin: 0 auto;
 }
 
 .link-documentation a {
@@ -292,7 +296,7 @@ footer .copyright-text p {
 /* -------------------------------
     5. MAP 
 --------------------------------- */
-.map .row > div {
+.map .row>div {
   flex: 0 0 100% !important;
   max-width: 100% !important;
   width: 100% !important;
@@ -317,9 +321,10 @@ footer .copyright-text p {
 
 @media (max-width: 768px) {
   .map-description {
-      column-count: 1 !important;
-      column-rule: none !important; /* Removes the vertical line */
-      column-gap: 0 !important;
+    column-count: 1 !important;
+    column-rule: none !important;
+    /* Removes the vertical line */
+    column-gap: 0 !important;
   }
 }
 
@@ -357,9 +362,9 @@ footer .copyright-text p {
 }
 
 #text-entrance-room,
-#text-first-room, 
-#text-second-room, 
-#text-third-room, 
+#text-first-room,
+#text-second-room,
+#text-third-room,
 #text-fourth-room {
   font-family: var(--text-font) !important;
   fill: var(--charcoal-ink) !important;
@@ -369,18 +374,18 @@ footer .copyright-text p {
 #entrance-room:hover,
 #first-room:hover,
 #second-room:hover,
-#third-room:hover, 
+#third-room:hover,
 #fourth-room:hover {
   fill: var(--charcoal-ink) !important;
 }
 
-#entrance-room:hover + #text-entrance-room,
-#first-room:hover + #text-first-room,
-#second-room:hover + #text-second-room,
-#third-room:hover + #text-third-room, 
-#fourth-room:hover + #text-fourth-room {
+#entrance-room:hover+#text-entrance-room,
+#first-room:hover+#text-first-room,
+#second-room:hover+#text-second-room,
+#third-room:hover+#text-third-room,
+#fourth-room:hover+#text-fourth-room {
   fill: var(--paper-tone) !important;
-} 
+}
 
 #entrance-room.active,
 #first-room.active,
@@ -390,13 +395,13 @@ footer .copyright-text p {
   fill: var(--charcoal-ink) !important;
 }
 
-#entrance-room.active + #text-entrance-room,
-#first-room.active + #text-first-room,
-#second-room.active + #text-second-room,
-#third-room.active + #text-third-room, 
-#fourth-room.active + #text-fourth-room {
+#entrance-room.active+#text-entrance-room,
+#first-room.active+#text-first-room,
+#second-room.active+#text-second-room,
+#third-room.active+#text-third-room,
+#fourth-room.active+#text-fourth-room {
   fill: var(--paper-tone) !important;
-} 
+}
 
 
 #explore-room-btn {
@@ -449,9 +454,9 @@ footer .copyright-text p {
 }
 
 .toggle-pill {
-  background-color: transparent ;
+  background-color: transparent;
   border: none;
-  
+
 }
 
 .toggle-knob {
@@ -501,7 +506,7 @@ footer .copyright-text p {
 
 @media (max-width: 768px) {
   .toggle-text {
-    font-size: 0.8rem !important; 
+    font-size: 0.8rem !important;
     white-space: normal;
   }
 }
@@ -547,12 +552,12 @@ footer .copyright-text p {
 
 
 .era-item {
-  display: flex !important;
-  flex-direction: column !important;
-  height: 100% !important;
-  min-height: auto !important; 
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: auto;
   border-radius: 2px;
-  border: 2px dotted var(--green-amber);
+  border: none;
   padding: 5px;
   background: transparent;
   gap: 8px;
@@ -560,7 +565,7 @@ footer .copyright-text p {
 
 
 .era-item-text {
-  position: static !important; 
+  position: static;
   width: 100%;
   height: auto;
   background-color: transparent;
@@ -574,33 +579,31 @@ footer .copyright-text p {
 
 .era-items img {
   width: 100%;
-  height: auto !important; 
-  aspect-ratio: 1 / 1; /* Keeps images uniform squares */
+  height: auto !important;
+  aspect-ratio: 1 / 1;
+  /* Keeps images uniform squares */
   object-fit: cover;
   border-radius: 20%;
   border: 2px solid var(--charcoal-ink);
   filter:
-    grayscale(100%)
-    contrast(100%)
-    brightness(1.1)
-    sepia(20%);
+    grayscale(100%) contrast(100%) brightness(1.1) sepia(20%);
   mix-blend-mode: multiply;
 }
 
 @media (max-width: 991px) {
   .eras .col-12 {
-      width: 100% !important;
-      flex: 0 0 100% !important;
-      max-width: 100% !important;
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 
   .era-items {
-      column-count: 1; 
-      column-rule: none;
+    column-count: 1;
+    column-rule: none;
   }
-  
+
   .era-title {
-      font-size: 1.8rem;
+    font-size: 1.8rem;
   }
 }
 
@@ -612,7 +615,7 @@ footer .copyright-text p {
 }
 
 .item-table {
-  gap: 2rem; 
+  gap: 2rem;
 }
 
 .table-box {
@@ -623,10 +626,7 @@ footer .copyright-text p {
   border-radius: 20%;
   border: 2px solid var(--charcoal-ink);
   filter:
-    grayscale(100%)
-    contrast(100%)
-    brightness(1.1)
-    sepia(20%);
+    grayscale(100%) contrast(100%) brightness(1.1) sepia(20%);
   mix-blend-mode: multiply;
 }
 
@@ -721,9 +721,11 @@ footer .copyright-text p {
 
 
 @media (min-width: 768px) {
-  .item-box, .table-box {
-      width: auto !important; 
-      flex: 1; 
+
+  .item-box,
+  .table-box {
+    width: auto !important;
+    flex: 1;
   }
 }
 
@@ -746,7 +748,7 @@ footer .copyright-text p {
   color: var(--charcoal-ink);
 }
 
-.table-of-contents .card-body > .list-unstyled > li > a {
+.table-of-contents .card-body>.list-unstyled>li>a {
   font-family: var(--sub-header-font);
 }
 
@@ -766,7 +768,9 @@ footer .copyright-text p {
   margin-right: auto;
 }
 
-.documentation-page h4, h5, h6 {
+.documentation-page h4,
+.documentation-page h5,
+.documentation-page h6 {
   border: none;
   font-family: var(--text-font);
   text-transform: capitalize;
@@ -778,7 +782,7 @@ footer .copyright-text p {
   color: var(--charcoal-ink);
   padding-left: calc(clamp(1rem, 3vw, 2rem) + 1.5rem);
   padding-right: clamp(1rem, 3vw, 2rem);
-  margin-inline: auto; 
+  margin-inline: auto;
   max-width: 85ch;
   text-align: left;
   list-style-position: outside;
@@ -798,8 +802,9 @@ p#bibliography {
 }
 
 @media (max-width: 576px) {
-    .documentation-page h1 {
-        font-size: 1.75rem !important; /* Forces title to be manageable */
-        margin-top: 1rem;
-    }
+  .documentation-page h1 {
+    font-size: 1.75rem !important;
+    /* Forces title to be manageable */
+    margin-top: 1rem;
+  }
 }
