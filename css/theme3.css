@@ -28,8 +28,6 @@
     2. Global Reset & Typography
 ------------------------------- */
 body {
-  /* background-color and font-family handled by global variables */
-  position: relative;
   z-index: 0;
 }
 
@@ -70,7 +68,6 @@ h3,
 h4,
 h5,
 h6 {
-  /* font-family and color handled by global variables */
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: normal;
@@ -78,7 +75,6 @@ h6 {
 
 p {
   font-family: var(--text-font);
-  /* color handled by global variable */
   font-weight: 300;
   line-height: 1.6;
   letter-spacing: 0.02em;
@@ -225,7 +221,6 @@ footer .copyright-text p {
   align-items: center;
   justify-content: center;
   padding: 15px;
-  /* This creates the space between the squares and the text */
   gap: 5px;
 }
 
@@ -233,19 +228,11 @@ footer .copyright-text p {
 .carousel-caption::after {
   content: "";
   display: block;
-  /* We want 3 squares. Let's say each square is 12px high. 
-     3 squares + 2 gaps = roughly 45px - 50px height. */
   height: 30px;
   width: 10px;
-  /* Width determines the 'squareness' */
-
   background-color: var(--warm-canvas);
-
-  /* This gradient creates a stripe: Black (visible) then Transparent (gap) */
   -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 65%);
   mask-image: linear-gradient(to bottom, black 65%, transparent 65%);
-
-  /* Size of one "Square + Gap" unit. 33.33% means it repeats exactly 3 times in 100% height */
   -webkit-mask-size: 100% 33.33%;
   mask-size: 100% 33.33%;
   -webkit-mask-repeat: repeat-y;
@@ -300,9 +287,6 @@ footer .copyright-text p {
   width: 160px;
   height: 16px;
   background-color: transparent !important;
-
-  /* square pattern */
-  /* This draws a square (color) and a gap (transparent) */
   background-image: linear-gradient(to right,
       var(--green-amber) 50%,
       transparent 50%);
@@ -399,7 +383,7 @@ footer .copyright-text p {
   fill: var(--green-amber) !important;
 }
 
-.museum-room:hover+.room-name{
+.museum-room:hover+.room-name {
   fill: var(--warm-canvas) !important;
 }
 
@@ -440,7 +424,6 @@ footer .copyright-text p {
   border: 2px solid var(--hexed-walnut);
   border-radius: 0px;
   z-index: 10000;
-  /* above the small grid effect of the whole body */
 }
 
 .toggle-text {
@@ -572,12 +555,15 @@ footer .copyright-text p {
 #item-container {
   background-color: var(--warm-canvas);
   padding: 0 !important;
-  /* Allows inner lines to touch the edge */
   background-image:
-    radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px), /* Top */
-    radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px), /* Bottom */
-    radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px), /* Left */
-    radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px); /* Right */
+    radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px),
+    /* Top */
+    radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px),
+    /* Bottom */
+    radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px),
+    /* Left */
+    radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px);
+  /* Right */
   background-position: top left, bottom left, top left, top right;
   background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
   background-size: 10px 6px, 10px 6px, 6px 10px, 6px 10px;
@@ -585,7 +571,6 @@ footer .copyright-text p {
 
 .item-table {
   --bs-gutter-x: 0;
-  /* remove column gaps */
   background-image: radial-gradient(circle, var(--green-amber) 2.5px, transparent 3px);
   background-position: bottom left;
   background-repeat: repeat-x;
@@ -633,7 +618,6 @@ footer .copyright-text p {
 
 .text-box button {
   border: 2px dotted var(--hexed-walnut);
-  /* outlined look */
   color: var(--hexed-walnut);
   border-radius: 2px;
 }
@@ -652,9 +636,7 @@ footer .copyright-text p {
 
 .card-footer button {
   border: 2px dotted var(--green-amber);
-  /* outlined look */
   border-radius: 2px;
-  /* rounded edges */
   color: var(--burnt-walnut);
   background-color: var(--warm-canvas);
 }
@@ -692,8 +674,8 @@ footer .copyright-text p {
 
 @media (max-width: 576px) {
   .documentation-title h1 {
-  font-size: 1rem;
-}
+    font-size: 1rem;
+  }
 }
 
 #documentation h1::after {

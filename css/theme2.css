@@ -26,13 +26,8 @@
 /* ----------------------------
     2. Global Reset & Typography
 ------------------------------- */
-
-/* body: background-color and color are handled by global variables in main.css now mapped in :root */
-
 h1 {
-  font-family: var(--default-font);
   font-size: 3rem;
-  /* color handled by var */
   text-transform: uppercase;
   text-align: center;
   transform: scaleY(1.3);
@@ -45,7 +40,6 @@ h4,
 h5,
 h6 {
   font-family: var(--sub-header-font);
-  /* color handled by var */
   text-align: center;
   text-transform: uppercase;
   padding-bottom: 1em;
@@ -53,7 +47,7 @@ h6 {
   letter-spacing: 1px;
 }
 
-/* Body Text: The "Newspaper" Look */
+/* The "Newspaper" Look */
 p {
   font-family: var(--text-font);
   font-size: 1.15rem;
