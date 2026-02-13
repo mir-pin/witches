@@ -699,13 +699,13 @@ footer a {
 }
 
 /* hide the curve of theme 2 by default */
-/* .introduction-title h1 .curved-svg {
+.introduction-title h1 .curved-svg {
   display: none;
 }
 
 .introduction-title h1 .std-text {
   display: block;
-} */
+}
 
 .introduction-text p,
 .link-documentation-text p {
