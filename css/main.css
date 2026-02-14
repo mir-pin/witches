@@ -1563,6 +1563,28 @@ nav.navbar {
   margin-bottom: 0.5rem;
 }
 
+.doc-chapter h2,
+.doc-chapter h3,
+.doc-chapter h4 {
+  scroll-margin-top: calc(var(--nav-height) + 20px);
+}
+
+.documentation-page .page-content a {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  word-wrap: break-word;
+  color:var(--default-font-color);
+}
+
+.documentation-page .page-content a:hover {
+  color: #d63384;
+}
+
+#documentation ol.flush-list {
+  padding-inline-start: 0;
+  list-style-position: unset; 
+}
+
 /* We set display: flex for the cards of exhibition page, here we want to restore bootstrap behavior */
 .row.row-cols-1 .card {
   display: block;
